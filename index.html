@@ -3,13 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Mīere Honey Sachet</title>
     <link rel="icon" type="image/x-icon" href="css/imgs/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link href="" rel="stylesheet">
     <link rel="stylesheet" href="css/global.css">
 </head>
 
 <body>
-    
+    <header class="navbar">
+        <div class="logo">
+            <a href="index.html">
+                <img src="css/imgs/ManukaCo_Long_BloodOrange.png" alt="Mīere Logo">
+            </a>
+        </div>
+
+        <nav class="nav-links">
+            <a href="our-story.html" data-text="Our Story">Our Story</a>
+            <a href="shop.html" data-text="Shop">Shop</a>
+            <a href="membership.html" data-text="Membership">Membership</a>
+            <a href="blog.html" data-text="Blog">Blog</a>
+            <a href="faqs.html" data-text="FAQs">FAQs</a>
+            <a href="contact.html" data-text="Contact Us">Contact Us</a>
+        </nav>
+
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </header>
+
+    <!-- JavaScript for Mobile Menu Toggle -->
+    <script>
+        const menu = document.getElementById('mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        menu.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        menu.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
