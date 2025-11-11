@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mīere Honey Sachet</title>
+    <link rel="icon" type="image/x-icon" href="css/favicon/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="" rel="stylesheet">
+    <link rel="stylesheet" href="css/faq.css">
+    <link rel="stylesheet" href="css/global.css">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <a href="index.html">
+                <img src="css/imgs/ManukaCo_Long_BloodOrange.png" alt="Mīere Logo">
+            </a>
+        </div>
+
+        <nav class="nav-links">
+            <a href="story.html" data-text="Our Story">Our Story</a>
+            <a href="shop.html" data-text="Shop">Shop</a>
+            <a href="membership.html" data-text="Membership">Membership</a>
+            <a href="blog.html" data-text="Blog">Blog</a>
+            <a href="faq.html" class="active" data-text="FAQs">FAQs</a>
+            <a href="contact.html" data-text="Contact Us">Contact Us</a>
+        </nav>
+
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </header>
+
+    <section class="faq-section">
+        <div class="faq-header">
+            <h1>FAQs</h1>
+            <h2>All your burning questions in one place.</h2>
+        </div>
+
+        <!-- Search / Filter Bar -->
+        <div class="faq-search">
+            <div class="tag-input-container">
+                <div id="selected-tags"></div>
+                <input type="text" id="faq-search" placeholder="Quick search..." autocomplete="off">
+                <div id="tag-dropdown" class="hidden"></div>
+            </div>
+            <button id="faq-search-btn" class="faq-search-icon" aria-label="Search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+                    <path d="M21 21L15.8 15.8M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- FAQ Block -->
+        <!-- FAQ 1 -->
+        <div class="faq-item" data-topics="about">
+        <div class="faq-question">
+            <h3>What is Mīere and what makes it special?</h3>
+            <button class="faq-plus-btn"></button>
+        </div>
+        <div class="faq-answer">
+            <p>
+            Mīere is a wellness brand built on one simple idea — healthy should feel natural. Our honey comes from licensed New Zealand hives and is UMF™ 20+ certified, so every sachet delivers real potency and clean energy. It’s a small, golden habit that fits into busy lives — before work, post-run, or with a calming afternoon tea.
+            </p>
+        </div>
+        <div class="faq-topics">
+            <span>About</span>
+        </div>
+        <hr>
+        </div>
+        <!-- FAQ 2 -->
+        <div class="faq-item" data-topics="certification">
+        <div class="faq-question">
+            <h3>Is Mīere’s honey really UMF™ certified?</h3>
+            <button class="faq-plus-btn"></button>
+        </div>
+        <div class="faq-answer">
+            <p>
+            Yes. Every batch is independently tested and verified by the Unique Manuka Factor Honey Association (UMFHA) in New Zealand. UMF™ confirms origin, purity, and strength (including MGO levels). We publish our active certificate on-site so you can verify it yourself — full transparency, always.
+            </p>
+        </div>
+        <div class="faq-topics">
+            <span>Certification</span>
+        </div>
+        <hr>
+        </div>
+        <!-- FAQ 3 -->
+        <div class="faq-item" data-topics="wellness">
+        <div class="faq-question">
+            <h3>What are the benefits of taking Manuka honey daily?</h3>
+            <button class="faq-plus-btn"></button>
+        </div>
+        <div class="faq-answer">
+            <p>
+            Manuka honey supports everyday wellness with natural antibacterial activity and antioxidants. Many customers use a daily sachet to bolster immunity, soothe digestion, and get a gentle, sustained lift without the sugar crash. It’s also a popular add-on for recovery days and skin-soothing routines.
+            </p>
+        </div>
+        <div class="faq-topics">
+            <span>Wellness</span>
+        </div>
+        <hr>
+        </div>
+        <!-- FAQ 4 -->
+        <div class="faq-item" data-topics="wellness">
+        <div class="faq-question">
+            <h3>How should I use Mīere honey?</h3>
+            <button class="faq-plus-btn"></button>
+        </div>
+        <div class="faq-answer">
+            <p>
+            Tear, squeeze, enjoy. Have it straight, or stir into coffee, matcha, or smoothies. Drizzle over oats or toast, or take it pre-run for natural energy. The single-serve sachet keeps it mess-free and travel-friendly — wellness you’ll actually remember to use.
+            </p>
+        </div>
+        <div class="faq-topics">
+            <span>Wellness</span>
+        </div>
+        <hr>
+        </div>
+        <!-- FAQ 5 -->
+        <div class="faq-item" data-topics="product">
+        <div class="faq-question">
+            <h3>Is Mīere suitable for children or vegans?</h3>
+            <button class="faq-plus-btn"></button>
+        </div>
+        <div class="faq-answer">
+            <p>
+            Mīere is 100% pure honey with no additives. Because honey is animal-derived, it isn’t vegan. As with all honey, it should not be given to children under 1 year old. For others, it’s a simple, natural way to sweeten and support your day.
+            </p>
+        </div>
+        <div class="faq-topics">
+            <span>Product</span>
+        </div>
+        <hr>
+        </div>
+        <!-- FAQ 6 -->
+        <div class="faq-item" data-topics="membership">
+        <div class="faq-question">
+            <h3>How does the Mīere subscription work?</h3>
+            <button class="faq-plus-btn"></button>
+        </div>
+        <div class="faq-answer">
+            <p>
+            Our monthly plan — the Honey Habit — keeps you stocked without thinking. Choose your duration (1–6 months) and we deliver fresh sachets to your doorstep every month. It’s the easiest way to turn better habits into a routine.
+            </p>
+        </div>
+        <div class="faq-topics">
+            <span>Membership</span>
+        </div>
+        <hr>
+        </div>
+        <!-- FAQ 7 -->
+        <div class="faq-item" data-topics="membership">
+        <div class="faq-question">
+            <h3>Can I modify or pause my subscription?</h3>
+            <button class="faq-plus-btn"></button>
+        </div>
+        <div class="faq-answer">
+            <p>
+            Yes. You can pause, skip, or adjust your next delivery anytime before billing via your account dashboard. No fees, no hoops — just flexibility that fits your life.
+            </p>
+        </div>
+        <div class="faq-topics">
+            <span>Membership</span>
+        </div>
+        <hr>
+        </div>
+        <!-- FAQ 8 -->
+        <div class="faq-item" data-topics="membership">
+        <div class="faq-question">
+            <h3>Are there exclusive perks for subscribers?</h3>
+            <button class="faq-plus-btn"></button>
+        </div>
+        <div class="faq-answer">
+            <p>
+            Members get subscriber-only pricing, early access to limited UMF™ batches, and a complimentary eco sachet case in the first box — plus first dibs on new collabs and wellness drops. Sweet savings, sweeter perks.
+            </p>
+        </div>
+        <div class="faq-topics">
+            <span>Membership</span>
+        </div>
+        <hr>
+        </div>
+        <!-- FAQ 9 -->
+        <div class="faq-item" data-topics="shipping">
+        <div class="faq-question">
+            <h3>Where do you deliver and how long does it take?</h3>
+            <button class="faq-plus-btn"></button>
+        </div>
+        <div class="faq-answer">
+            <p>
+            We currently ship across Singapore and Malaysia, with more regions coming soon. Local deliveries typically arrive in 2–4 working days. You’ll receive tracking updates so you know exactly when your box of golden goodness lands.
+            </p>
+        </div>
+        <div class="faq-topics">
+            <span>Shipping</span>
+        </div>
+        <hr>
+        </div>
+        <!-- FAQ 10 -->
+        <div class="faq-item" data-topics="shipping">
+        <div class="faq-question">
+            <h3>How is Mīere packaged for delivery?</h3>
+            <button class="faq-plus-btn"></button>
+        </div>
+        <div class="faq-answer">
+            <p>
+            Freshness is sealed; impact is minimized. Sachets are organized to prevent leaks and packed in recyclable, protective boxes. It’s premium quality with a lighter footprint — safe in transit, kind to the planet.
+            </p>
+        </div>
+        <div class="faq-topics">
+            <span>Shipping</span>
+        </div>
+        <hr>
+        </div>
+        <!-- FAQ 11 -->
+        <div class="faq-item" data-topics="support">
+        <div class="faq-question">
+            <h3>What if my order arrives damaged or incorrect?</h3>
+            <button class="faq-plus-btn"></button>
+        </div>
+        <div class="faq-answer">
+            <p>
+            We’ll make it right. Contact us within 7 days with your order details and photos if applicable, and we’ll arrange a replacement or refund asap. Every customer is part of our hive — your experience matters.
+            </p>
+        </div>
+        <div class="faq-topics">
+            <span>Support</span>
+        </div>
+        <hr>
+        </div>
+        <!-- FAQ 12 -->
+        <div class="faq-item" data-topics="support">
+        <div class="faq-question">
+            <h3>Can I return opened sachets?</h3>
+            <button class="faq-plus-btn"></button>
+        </div>
+        <div class="faq-answer">
+            <p>
+            For food safety, we can’t accept returns of opened products. If there’s any issue with quality, freshness, or delivery, reach out — our team will help with a swift solution.
+            </p>
+        </div>
+        <div class="faq-topics">
+            <span>Support</span>
+        </div>
+        <hr>
+        </div>
+
+        <div class="faq-progress">
+            <p id="faq-count"></p>
+        </div>
+
+        <button id="load-more-btn" class="load-more-btn">
+            <span class="btn-text">Load More</span>
+            <span class="spinner"></span>
+        </button>
+
+    </section>
+
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-col footer-brand">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="css/imgs/ManukaCo_Long_Cream.png" alt="Mīere Logo">
+                    </a>
+                </div>
+                <div class="social-icons">
+                    <img src="css/icons/instagram.svg" alt="Instagram">
+                    <img src="css/icons/tiktok.svg" alt="TikTok">
+                    <img src="css/icons/x.svg" alt="Twitter">
+                    <img src="css/icons/facebook.svg" alt="Facebook">
+                    <img src="css/icons/youtube.svg" alt="YouTube">
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>About</h4>
+                <p>Our Story</p>
+                <p>Membership</p>
+            <p>Blog</p>
+            </div>
+            <div class="footer-col">
+                <h4>Shop</h4>
+                <p>Mīere</p>
+                <p>All Products</p>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <p>FAQs</p>
+                <p>Contact Us</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="left">© 2025 Mīere. All Rights Reserved.</p>
+            <div class="right">
+                <p>Privacy Policy</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu Toggle -->
+    <script>
+        const menu = document.getElementById('mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        menu.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        menu.classList.toggle('active');
+        });
+    </script>
+
+    <!-- JavaScript for FAQ Search, Tag Filtering, and Load More -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const faqItems = Array.from(document.querySelectorAll('.faq-item'));
+            const searchInput = document.getElementById('faq-search');
+            const searchBtn = document.getElementById('faq-search-btn');
+            const dropdown = document.getElementById('tag-dropdown');
+            const selectedTagsContainer = document.getElementById('selected-tags');
+            const loadMoreBtn = document.getElementById('load-more-btn');
+            const faqCount = document.getElementById('faq-count');
+
+            const topics = ['About', 'Product', 'Certification', 'Wellness', 'Membership', 'Shipping', 'Support'];
+            const BATCH_SIZE = 5;
+            let selectedTags = [];
+            let visibleFaqs = 0;
+            let filteredFaqs = [...faqItems];
+            let isLoading = false;
+
+            /* ---------- Create dropdown items ---------- */
+            topics.forEach(topic => {
+                const tag = document.createElement('span');
+                tag.textContent = topic;
+                tag.addEventListener('click', () => {
+                if (!selectedTags.includes(topic)) {
+                    selectedTags.push(topic);
+                    renderSelectedTags();
+                }
+                dropdown.classList.remove('visible');
+                });
+                dropdown.appendChild(tag);
+            });
+
+            /* ---------- Render selected tags ---------- */
+            function renderSelectedTags() {
+                selectedTagsContainer.innerHTML = '';
+                selectedTags.forEach(tag => {
+                const tagEl = document.createElement('span');
+                tagEl.textContent = tag;
+                const removeBtn = document.createElement('button');
+                removeBtn.textContent = '×';
+                removeBtn.onclick = () => {
+                    selectedTags = selectedTags.filter(t => t !== tag);
+                    renderSelectedTags();
+                };
+                tagEl.appendChild(removeBtn);
+                selectedTagsContainer.appendChild(tagEl);
+                });
+            }
+
+            /* ---------- Dropdown visibility ---------- */
+            searchInput.addEventListener('focus', () => dropdown.classList.add('visible'));
+            document.addEventListener('click', e => {
+                if (!e.target.closest('.tag-input-container')) dropdown.classList.remove('visible');
+            });
+
+            /* ---------- Update bottom counter ---------- */
+            function updateFaqCountText(visibleCount, totalCount, isFiltered) {
+                if (!faqCount) return;
+
+                // Handle singular/plural phrasing
+                const qWord = totalCount === 1 ? 'question' : 'questions';
+
+                if (isFiltered) {
+                    if (totalCount === 0) {
+                    faqCount.textContent = `<No matching questions found>`;
+                    } else if (totalCount === 1) {
+                    faqCount.textContent = `<${visibleCount} matching ${qWord} loaded>`;
+                    } else {
+                    faqCount.textContent = `<${visibleCount} of ${totalCount} matching ${qWord} loaded>`;
+                    }
+                } else {
+                    faqCount.textContent = `<${visibleCount} of ${totalCount} ${qWord} loaded>`;
+                }
+            }
+
+            /* ---------- Filter Function (search + tags) ---------- */
+            function filterFaqs() {
+                const keyword = searchInput.value.toLowerCase();
+                const isFiltered = keyword.trim() !== '' || selectedTags.length > 0;
+
+                // ✅ Always start filtering from ALL faqItems
+                filteredFaqs = faqItems.filter(item => {
+                    const question = item.querySelector('h3').textContent.toLowerCase();
+                    const tags = item.dataset.topics?.toLowerCase().split(' ') || [];
+                    const matchKeyword = keyword === '' || question.includes(keyword);
+                    const matchTags =
+                    selectedTags.length === 0 ||
+                    selectedTags.some(tag => tags.includes(tag.toLowerCase()));
+                    return matchKeyword && matchTags;
+                });
+
+                // ✅ Reset visibleFaqs to the new filtered set
+                visibleFaqs = Math.min(BATCH_SIZE, filteredFaqs.length);
+
+                // ✅ Update display & counter cleanly
+                updateFaqDisplay(isFiltered);
+            }
+
+            /* ---------- Display Function ---------- */
+            function updateFaqDisplay(isFiltered = false) {
+                faqItems.forEach(faq => (faq.hidden = true));
+                filteredFaqs.slice(0, visibleFaqs).forEach(faq => (faq.hidden = false));
+
+                const shown = Math.min(visibleFaqs, filteredFaqs.length);
+                updateFaqCountText(shown, filteredFaqs.length, isFiltered);
+
+                loadMoreBtn.style.display = shown >= filteredFaqs.length ? 'none' : 'block';
+            }
+
+            /* ---------- Load More Function ---------- */
+            loadMoreBtn.addEventListener('click', () => {
+                if (isLoading) return;
+                isLoading = true;
+                loadMoreBtn.classList.add('loading');
+                loadMoreBtn.setAttribute('disabled', 'true');
+
+                const startIndex = visibleFaqs;
+                const endIndex = Math.min(visibleFaqs + BATCH_SIZE, filteredFaqs.length);
+
+                setTimeout(() => {
+                visibleFaqs = endIndex;
+                filteredFaqs.forEach((faq, index) => {
+                    if (index < visibleFaqs) {
+                    if (index >= startIndex) {
+                        faq.hidden = false;
+                        faq.classList.remove('fade-in');
+                        requestAnimationFrame(() => faq.classList.add('fade-in'));
+                    } else {
+                        faq.hidden = false;
+                    }
+                    } else {
+                    faq.hidden = true;
+                    }
+                });
+
+                const shown = Math.min(visibleFaqs, filteredFaqs.length);
+                const isFiltered =
+                    searchInput.value.trim() !== '' || selectedTags.length > 0;
+                updateFaqCountText(shown, filteredFaqs.length, isFiltered);
+                loadMoreBtn.style.display =
+                    shown >= filteredFaqs.length ? 'none' : 'block';
+
+                loadMoreBtn.classList.remove('loading');
+                loadMoreBtn.removeAttribute('disabled');
+                isLoading = false;
+                }, 700);
+            });
+
+            /* ---------- Event Bindings ---------- */
+            searchBtn.addEventListener('click', filterFaqs);
+            searchInput.addEventListener('keypress', e => {
+                if (e.key === 'Enter') {
+                e.preventDefault();
+                filterFaqs();
+                }
+            });
+
+            /* ---------- Initial Render ---------- */
+            filteredFaqs = [...faqItems];
+            visibleFaqs = Math.min(BATCH_SIZE, filteredFaqs.length);
+            updateFaqDisplay(false);
+        });
+    </script>
+
+    <!-- JavaScript for FAQ Toggle-->
+    <script>
+        const faqButtons = document.querySelectorAll('.faq-plus-btn');
+
+        faqButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const item = btn.closest('.faq-item');
+            item.classList.toggle('expanded');
+            btn.classList.toggle('active');
+        });
+        });
+    </script>
+
+</body>
+</html>
