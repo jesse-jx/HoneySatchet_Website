@@ -1,0 +1,123 @@
+/* BASE STYLING */
+:root{
+    --bg-cream:#FEFBF6; /* page backgrounds */
+    --panel-cream:#FEFBF6;
+    --panel-2:#EFE8DD;
+    --deep-brown:#471C1C;
+    --accent-gold:#FDD803;
+    --accent-orange:#F47B20;
+    --accent-dark:#C13E01;
+    --container-w:1280px;
+    --margin-x:112px;
+    --nav-h:84px;
+    --font-sans: 'Open Sans', sans-serif;
+    --border-line: 1px solid var(--deep-brown);
+}
+*{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family:var(--font-sans);
+    color:var(--deep-brown);
+    background:var(--bg-cream);
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+}
+
+/* DEALS SECTION */
+.deals {
+    background:var(--bg-cream);
+    color:var(--deep-brown);
+}
+.deals .heading {
+    margin-top: 37px;
+    margin-left:29px;
+    margin-bottom:37px;
+}
+.deals h2{
+    margin:0;
+    font-size:36px;
+    font-family: 'Monsterrat', sans-serif;
+    font-weight:bold;
+}
+.deals p.lead {
+    margin:8px 0 0;
+    font-size:24px;
+    opacity:0.9;
+}
+
+.deals-grid {
+    width:100%;
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:0px;
+    margin-top:24px;
+}
+.deal-card {
+    background:var(--panel-2);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    min-height:300px;
+    overflow:hidden;
+}
+.deal-card-mid {
+    background:var(--bg-cream);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    min-height:300px;
+    overflow:hidden;
+}
+
+.deal-card img{
+    max-width:100%;
+    max-height:100%;
+    object-fit:cover;
+}
+.deal-card-mid img{
+    max-width:100%;
+    max-height:100%;
+    object-fit:cover;
+}
+.deal-title {
+    margin:6px 6px; 
+    font-size:20px;
+    font-weight: 600;
+    color: var(--deep-brown);
+}
+.deal-copy {
+    font-size:18px; 
+    margin:6px 10px 14px; 
+    color: var(--deep-brown);
+}
+
+/* Deal Button */
+.btn {
+    display:inline-block;
+    background:var(--deep-brown);
+    color:var(--bg-cream);
+    padding:10px 20px;
+    margin-bottom: 10px;;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:700;
+    cursor:pointer;
+    border:none;
+    transition: transform 140ms ease, box-shadow 120ms;
+}
+.btn:hover { 
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12); 
+}
+/* Button Jump Anim */
+.btn.jump:hover {
+    animation: jump 220ms ease;
+}
+@keyframes jump {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0); }
+}
+
