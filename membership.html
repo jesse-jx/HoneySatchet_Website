@@ -19,28 +19,73 @@
         <div class="page">
             <div class="container">
                 <!-- NAVBAR -->
-                <header class="navbar" role="banner">
-                    <div class="nav-inner">
-                        <!-- Logo (inline SVG) -->
-                        <div class="logo" aria-label="Mānuka Co.">    <!--Aria labels are used to define string values that can be used to name elements as long as the element's role doesn't prohibit naming-->
-                            <a href="index.html"><img src="css/imgs/ManukaCo_Logo_BloodOrange.svg" alt="Mānuka Co. Logo" class="svg" aria-hidden="true"></a>
-                        </div>
-                        <div class="brand-text">Mānuka Co.</div>
+                <header class="navbar">
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="css/imgs/ManukaCo_Long_BloodOrange.png" alt="Mīere Logo">
+                        </a>
                     </div>
 
-                    <!-- Nav links -->
-                    <nav class="nav-links" aria-label="Primary navigation">
-                        <a href="story.html">Our Story</a>
-                        <a href="shop.html">Shop</a>
-                        <a href="membership.html" class="active">Membership</a>
-                        <a href="blog.html">Blog</a>
-                        <a href="faq.html">FAQs</a>
-                        <a href="contact.html">Contact Us</a>
+                    <nav class="nav-links">
+                        <a href="story.html" data-text="Our Story">Our Story</a>
+                        <a href="shop.html" data-text="Shop">Shop</a>
+                        <a href="membership.html" data-text="Membership">Membership</a>
+                        <a href="blog.html" data-text="Blog">Blog</a>
+                        <a href="faq.html" data-text="FAQs">FAQs</a>
+                        <a href="contact.html" data-text="Contact Us">Contact Us</a>
                     </nav>
+
+                    <div class="menu-toggle" id="mobile-menu">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
                 </header>
 
+                <!-- JavaScript for Mobile Menu Toggle -->
+                <script>
+                    const menu = document.getElementById('mobile-menu');
+                    const navLinks = document.querySelector('.nav-links');
+
+                    menu.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                    menu.classList.toggle('active');
+                    });
+                </script>
+
                 <!-- DEALS SECTION -->
-                
+                <section class="deals" aria-labelledby="deals-heading">
+                    <div class="heading">
+                        <h2 id="deals-heading">Sweet Deals of the Season</h2>
+                        <p class="lead">Rewards for your active days — from limited drops to members-only perks.</p>
+                    </div>
+
+                    <div class="deals-grid" role="list">
+                        <!-- Card 1 (Current Deal) -->
+                        <article class="deal-card" role="listitem" aria-label="11.11 Exclusive">
+                            <img src="css/imgs/ManukaCo_11.11Double.png" alt="11.11 Exclusive Deal Image">
+                            <div class="deal-title">11.11 Exclusive — Your Energy, Doubled</div>
+                            <div class="deal-copy">Buy 1 box of Miere and get the second one half-off. Sweeten your day before it's gone.</div>
+                            <button class="btn jump" id="claimNowBtn">Claim Now</button>
+                        </article>
+
+                        <!-- Card 2 (Upcoming Deal) -->
+                        <article class="deal-card-mid" role="listitem" aria-label="Black Friday Coming Soon">
+                            <img src="css/imgs/ManukaCo_HoneySachet.png" alt="Black Friday Teaser Image">
+                            <div class="deal-title">Black Friday Deals — Coming Soon</div>
+                            <div class="deal-copy">Members get early access 24 hours before everyone else.</div>
+                            <button class="btn jump" id="remindMeBtn1">Remind Me</button>
+                        </article>
+
+                        <!-- Card 3 (Upcoming Deal) -->
+                        <article class="deal-card" role="listitem" aria-label="Holiday Fuel Limited Edition">
+                            <img src="css/imgs/ManukaCo_HoneyGift.png" alt="Christmas Holiday Fuel Limited Edition Image">
+                            <div class="deal-title">Holiday Fuel — Limited Edition Drop</div>
+                            <div class="deal-copy">Gift the ones who keep your days glowing. Hint: that includes you.</div>
+                            <button class="btn jump" id="remindMeBtn1">Remind Me</button>
+                        </article>
+                    </div>
+                </section>                
             </div>
         </div>
     </body>
