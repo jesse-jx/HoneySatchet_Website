@@ -42,17 +42,6 @@
                     </div>
                 </header>
 
-                <!-- JavaScript for Mobile Menu Toggle -->
-                <script>
-                    const menu = document.getElementById('mobile-menu');
-                    const navLinks = document.querySelector('.nav-links');
-
-                    menu.addEventListener('click', () => {
-                    navLinks.classList.toggle('active');
-                    menu.classList.toggle('active');
-                    });
-                </script>
-
                 <!-- DEALS SECTION -->
                 <section class="deals" aria-labelledby="deals-heading">
                     <div class="heading">
@@ -71,7 +60,7 @@
 
                         <!-- Card 2 (Upcoming Deal) -->
                         <article class="deal-card-mid" role="listitem" aria-label="Black Friday Coming Soon">
-                            <img src="css/imgs/ManukaCo_HoneySachet.png" alt="Black Friday Teaser Image">
+                            <img src="css/imgs/ManukaCo_BlackFridayDeal.png" alt="Black Friday Teaser Image">
                             <div class="deal-title">Black Friday Deals — Coming Soon</div>
                             <div class="deal-copy">Members get early access 24 hours before everyone else.</div>
                             <button class="btn jump" id="remindMeBtn1">Remind Me</button>
@@ -79,14 +68,258 @@
 
                         <!-- Card 3 (Upcoming Deal) -->
                         <article class="deal-card" role="listitem" aria-label="Holiday Fuel Limited Edition">
-                            <img src="css/imgs/ManukaCo_HoneyGift.png" alt="Christmas Holiday Fuel Limited Edition Image">
+                            <img src="css/imgs/ManukaCo_ChristmasDeal.png" alt="Christmas Holiday Fuel Limited Edition Image">
                             <div class="deal-title">Holiday Fuel — Limited Edition Drop</div>
                             <div class="deal-copy">Gift the ones who keep your days glowing. Hint: that includes you.</div>
-                            <button class="btn jump" id="remindMeBtn1">Remind Me</button>
+                            <button class="btn jump" id="remindMeBtn2">Remind Me</button>
                         </article>
+
+                        <!-- REMIND ME MODAL (hidden by default) -->
+                        <div id="remindModal" role="dialog" aria-modal="true" style="display:none;position:fixed;left:0;top:0;width:100%;height:100%;align-items:center;justify-content:center;z-index:600;">
+                            <div style="background:rgba(0,0,0,0.45);position:absolute;inset:0;" id="modalBackdrop"></div>
+                            <div style="background:var(--bg-cream);padding:20px;border-radius:8px;width:420px;z-index:601;box-shadow:0 12px 40px rgba(0,0,0,0.25);">
+                                <h3 style="margin:0 0 8px;color:var(--deep-brown)">Just one more step to receiving these sweet deals 🍯</h3>
+                                <p style="margin:0 0 12px;color:rgba(71,28,28,0.95)">Join Club Miere for reminders and first dibs on: <br>
+                                    <ul>
+                                        <li>Exclusive drops</li>
+                                        <li>Wellness tips</li>
+                                        <li>Monthly surprises</li>
+                                    </ul> <br>
+                                    to keep your energy steady and your mood light.
+                                </p>
+                                <input id="remindEmail" type="email" placeholder="Enter your email" style="width:100%;padding:10px 12px;border-radius:8px;border:1px solid #ddd;font-size:14px"/>
+                                <div style="display:flex;gap:10px;margin-top:12px;justify-content:flex-end;">
+                                    <button id="remindCancel" class="btn" style="background:transparent;color:var(--deep-brown);border:1px solid var(--deep-brown);">Cancel</button>
+                                    <button id="remindSubmit" class="btn jump">Join Now</button>
+                                </div>
+                                <div id="remindMsg" style="margin-top:8px;color:green;display:none;font-size:13px">Thanks! We'll remind you before the drop.</div>
+                            </div>
+                        </div>
                     </div>
-                </section>                
+                </section>
+                
+                <!-- SIGNUP SECTION (Club Miere) -->
+                <section class="signup" aria-labelledby="club-heading">
+                    <div class="signup-inner">
+                        <div class="signup-left">
+                            <h2 id="club-heading">Welcome to Club Miere — Where We Fuel Better Days Together.</h2>
+                            <p class="lead">You don’t need another app. Join a community that values real balance and useful perks.</p>
+
+                            <div class="perks" aria-hidden="false">
+                                <div class="perk">
+                                    <div class="icon"><img src="css/imgs/ManukaCo_Gift.png" alt="Manuka Co birthday present"></div>
+                                    <h4>Exclusive Birthday Treats</h4>
+                                    <p>Celebrate your day with a little extra sweetness.</p>
+                                </div>
+
+                                <div class="perk">
+                                    <div class="icon"><img src="css/imgs/ManukaCo_Clock.png" alt="Manuka Co early access"></div>
+                                    <h4>Early Access Drops</h4>
+                                    <p>Be the first to try new blends and seasonal sachets.</p>
+                                </div>
+
+                                <div class="perk">
+                                    <div class="icon"><img src="css/imgs/ManukaCo_Referral.png" alt="Manuka Co birthday present"></div>
+                                    <h4>Referral & Reward</h4>
+                                    <p>Share the buzz and earn when your friends join.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--GIF (right)-->
+                        <div class="signup-right">
+                            <div class="gif-wrap">
+                                <img src="css/vids/ManukaHoney_Drizzle.gif" alt="Manuka honey drizzle">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- bottom CTA banner -->
+                        <div class="signup-cta" role="region" aria-label="Membership CTA">
+                            <div class="left">Get a <strong>50% off</strong> welcome voucher and a monthly dose of wellness from Mānuka Co.</div>
+                            <div class="right">
+                                <input id="mainEmail" class="email-input" type="email" placeholder="Enter your email" />
+                                <button id="joinNow" class="join-btn">Join Now</button>
+                            </div>
+                        </div>
+
+                        <div id="signupSuccess" class="signup-success">Sign up success! Welcome to Club Miere.</div>
+                </section>
+
+                <!-- COMMUNITY CAROUSEL -->
+                <section class="community" aria-labelledby="community-heading">
+                    <h3 id="community-heading">Inside Club Miere</h3>
+                    <div class="carousel" aria-live="polite">
+                        <div class="carousel-track" id="carouselTrack">
+                            <div class="carousel-item"><img src="css/imgs/socmed/ManuaCo_SharingHoney.png" alt="Manuka Co on Instagram Post 1"></div>
+                            <div class="carousel-item"><img src="css/imgs/socmed/ManukaCo_Gamechanger.png" alt="Manuka Co on Instagram Post 2"></div>
+                            <div class="carousel-item"><img src="css/imgs/socmed/ManukaCo_GymBag.png" alt="Manuka Co on Instagram Post 3"></div>
+                            <div class="carousel-item"><img src="css/imgs/socmed/ManukaCo_HoneySachetPost.png" alt="Manuka Co on Instagram Post 4"></div>
+                            <div class="carousel-item"><img src="css/imgs/socmed/ManukaCo_Pickleball.png" alt="Manuka Co on Instagram Post 5"></div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-controls">
+                        <button id="prevBtn" class="btn" style="background:#fff;color:var(--deep-brown);font-weight:700">Prev</button>
+                        <button id="nextBtn" class="btn jump" style="background:var(--deep-brown);color:#fff">Next</button>
+                    </div>
+
+                    <div class="carousel-cta">Want to be featured? Tag @manukaco + #ClubMiere to appear here!</div>
+                </section>
+
+                <!-- FOOTER -->
+                <footer class="footer" role="contentinfo">
+                    <div class="footer-top">
+                        <div class="footer-col">
+                            <div class="logo-small">
+                                <img src="css/imgs/ManukaCo_Logo_Cream.png" alt="Manuke Co. Logo">
+                                <div style="font-weight:800">Mānuka Co.</div>
+                            </div>
+                            <div class="socials">
+                                <a href="#" aria-label="Instagram" style="color:var(--bg-cream)">Instagram</a>
+                                <a href="#" aria-label="X" style="color:var(--bg-cream)">X</a>
+                                <a href="#" aria-label="LinkedIn" style="color:var(--bg-cream)">LinkedIn</a>
+                                <a href="#" aria-label="Facebook" style="color:var(--bg-cream)">Facebook</a>
+                                <a href="#" aria-label="YouTube" style="color:var(--bg-cream)">YouTube</a>
+                            </div>
+                        </div>
+
+                        <div class="footer-col" style="text-align:right">
+                            <div style="font-weight:800;margin-bottom:8px">About Mānuka Co.</div>
+                                <a href="#">Our Story</a>
+                                <a href="#">Membership</a>
+                                <a href="#">Blog</a>
+                        </div>
+
+                        <div class="footer-col" style="text-align:right">
+                            <div style="font-weight:800;margin-bottom:8px">Shop</div>
+                            <a href="#">Manuka Honey</a>
+                            <a href="#">Sachets</a>
+                            <a href="#">All Products</a>
+                        </div>
+
+                        <div class="footer-col" style="text-align:right">
+                            <div style="font-weight:800;margin-bottom:8px">Support</div>
+                            <a href="#">FAQs</a>
+                            <a href="#">Contact Us</a>
+                        </div>
+                    </div>
+
+                    <div class="footer .legal" style="margin-top:28px;">
+                        <div style="float:left">© 2025 Mānuka Co. All rights reserved.</div>
+                        <div style="float:right">
+                            <a href="#" style="margin-right:12px">Privacy Policy</a>
+                            <a href="#" style="margin-right:12px">Terms of Service</a>
+                            <a href="#">Cookies Settings</a>
+                        </div>
+                        <div style="clear:both"></div>
+                    </div>
+                </footer>
             </div>
         </div>
+
+        <script>
+        /* JavaScript for Mobile Menu Toggle */
+        const menu = document.getElementById('mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        menu.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        menu.classList.toggle('active');
+        });
+
+        /* Modal (Remind Me)*/
+        const remindModal = document.getElementById('remindModal');
+        const remindBtns = [document.getElementById('remindMeBtn1'), document.getElementById('remindMeBtn2')];
+        const modalBackdrop = document.getElementById('modalBackdrop');
+        const remindCancel = document.getElementById('remindCancel');
+        const remindSubmit = document.getElementById('remindSubmit');
+        const remindMsg = document.getElementById('remindMsg');
+        const remindEmail = document.getElementById('remindEmail');
+
+        remindBtns.forEach(btn => {
+            if(btn) btn.addEventListener('click', openRemindModal);
+        });
+        function openRemindModal(){ remindModal.style.display='flex'; remindMsg.style.display='none'; remindEmail.value=''; }
+        modalBackdrop.addEventListener('click', closeRemindModal);
+        remindCancel.addEventListener('click', closeRemindModal);
+        function closeRemindModal(){ remindModal.style.display='none'; }
+
+        remindSubmit.addEventListener('click', () => {
+            const email = remindEmail.value.trim();
+            if(!email || !email.includes('@')) {
+                remindMsg.style.display='block';
+                remindMsg.style.color='crimson';
+                remindMsg.innerText='Please enter a valid email.';
+                return;
+            }
+            // simulate success
+            remindMsg.style.display='block';
+            remindMsg.style.color='green';
+            remindMsg.innerText='Thanks! We\'ll remind you before the drop.';
+            setTimeout(()=>{ remindModal.style.display='none'; }, 1200);
+        });
+
+        //Claim now btn
+        document.getElementById('claimNowBtn').addEventListener('click', ()=> {
+        // Ideally deep-link to Shopee product / open new tab
+            window.open('https://shopee.sg/Forest-Fresh-Jarrah-Honey-Sachet-TA-35-13g-Honey-on-the-Go-i.250686849.19491848010', '_blank');
+        });
+
+        //Main Signup
+        const mainEmail = document.getElementById('mainEmail');
+        const joinNow = document.getElementById('joinNow');
+        const signupSuccess = document.getElementById('signupSuccess');
+
+        joinNow.addEventListener('click', () => {
+            email = mainEmail.value.trim();
+            if(!email || !email.includes('@')) {
+                signupSuccess.style.display='block';
+                signupSuccess.style.color='#FFC8C8';
+                signupSuccess.innerText='Please enter a valid email.';
+                return;
+            }
+            // simulate sending subscription -> show success msg
+            signupSuccess.style.display='block';
+            signupSuccess.style.color='#D5F6D6';
+            signupSuccess.innerText='Sign up success! Welcome to Club Miere.';
+            // clear after a while (optionally)
+            setTimeout(()=> {
+                // keep success visible; you could hide after N ms if desired
+            }, 2000);
+        });
+
+        //Carousel behaviour
+        const track = document.getElementById('carouselTrack');
+        const items = Array.from(track.children);
+        const itemWidth = 200 + 14; // width + gap (css)
+        let index = 0;
+        let autoplayInterval = null;
+
+        function moveCarousel(i){
+            track.style.transform = `translateX(${-i * itemWidth}px)`;
+        }
+        function nextSlide(){
+            index++;
+            if(index > items.length - 4) { index = 0; } // loop, show up to 4 in viewport with gaps
+            moveCarousel(index);
+        }
+        function prevSlide(){
+            index--;
+            if(index < 0) index = items.length - 4 >=0 ? items.length - 4 : 0;
+            moveCarousel(index);
+        }
+        document.getElementById('nextBtn').addEventListener('click', ()=> { nextSlide(); restartAuto(); });
+        document.getElementById('prevBtn').addEventListener('click', ()=> { prevSlide(); restartAuto(); });
+
+        function startAuto(){
+            autoplayInterval = setInterval(nextSlide, 2600);
+        }
+        function restartAuto(){
+            clearInterval(autoplayInterval);
+            startAuto();
+        }
+        startAuto();
+        </script>
     </body>
 </html>
