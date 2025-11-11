@@ -159,62 +159,54 @@
                         </div>
                     </div>
 
-                    <div class="carousel-controls">
-                        <button id="prevBtn" class="btn" style="background:#fff;color:var(--deep-brown);font-weight:700">Prev</button>
-                        <button id="nextBtn" class="btn jump" style="background:var(--deep-brown);color:#fff">Next</button>
-                    </div>
+                    <div class="carousel-controls"></div>
 
                     <div class="carousel-cta">Want to be featured? Tag @manukaco + #ClubMiere to appear here!</div>
                 </section>
 
                 <!-- FOOTER -->
-                <footer class="footer" role="contentinfo">
-                    <div class="footer-top">
-                        <div class="footer-col">
-                            <div class="logo-small">
-                                <img src="css/imgs/ManukaCo_Logo_Cream.png" alt="Manuke Co. Logo">
-                                <div style="font-weight:800">Mānuka Co.</div>
-                            </div>
-                            <div class="socials">
-                                <a href="#" aria-label="Instagram" style="color:var(--bg-cream)">Instagram</a>
-                                <a href="#" aria-label="X" style="color:var(--bg-cream)">X</a>
-                                <a href="#" aria-label="LinkedIn" style="color:var(--bg-cream)">LinkedIn</a>
-                                <a href="#" aria-label="Facebook" style="color:var(--bg-cream)">Facebook</a>
-                                <a href="#" aria-label="YouTube" style="color:var(--bg-cream)">YouTube</a>
-                            </div>
-                        </div>
+                <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-col footer-brand">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="css/imgs/ManukaCo_Long_Cream.png" alt="Mīere Logo">
+                    </a>
+                </div>
+                <div class="social-icons">
+                    <img src="css/icons/instagram.svg" alt="Instagram">
+                    <img src="css/icons/tiktok.svg" alt="TikTok">
+                    <img src="css/icons/x.svg" alt="Twitter">
+                    <img src="css/icons/facebook.svg" alt="Facebook">
+                    <img src="css/icons/youtube.svg" alt="YouTube">
+                </div>
+            </div>
 
-                        <div class="footer-col" style="text-align:right">
-                            <div style="font-weight:800;margin-bottom:8px">About Mānuka Co.</div>
-                                <a href="#">Our Story</a>
-                                <a href="#">Membership</a>
-                                <a href="#">Blog</a>
-                        </div>
+            <div class="footer-col">
+                <h4>About</h4>
+                <p>Our Story</p>
+                <p>Membership</p>
+            <p>Blog</p>
+            </div>
+            <div class="footer-col">
+                <h4>Shop</h4>
+                <p>Mīere</p>
+                <p>All Products</p>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <p>FAQs</p>
+                <p>Contact Us</p>
+            </div>
+        </div>
 
-                        <div class="footer-col" style="text-align:right">
-                            <div style="font-weight:800;margin-bottom:8px">Shop</div>
-                            <a href="#">Manuka Honey</a>
-                            <a href="#">Sachets</a>
-                            <a href="#">All Products</a>
-                        </div>
-
-                        <div class="footer-col" style="text-align:right">
-                            <div style="font-weight:800;margin-bottom:8px">Support</div>
-                            <a href="#">FAQs</a>
-                            <a href="#">Contact Us</a>
-                        </div>
-                    </div>
-
-                    <div class="footer .legal" style="margin-top:28px;">
-                        <div style="float:left">© 2025 Mānuka Co. All rights reserved.</div>
-                        <div style="float:right">
-                            <a href="#" style="margin-right:12px">Privacy Policy</a>
-                            <a href="#" style="margin-right:12px">Terms of Service</a>
-                            <a href="#">Cookies Settings</a>
-                        </div>
-                        <div style="clear:both"></div>
-                    </div>
-                </footer>
+        <div class="footer-bottom">
+            <p class="left">© 2025 Mīere. All Rights Reserved.</p>
+            <div class="right">
+                <p>Privacy Policy</p>
+            </div>
+        </div>
+    </footer>
             </div>
         </div>
 
@@ -309,8 +301,6 @@
             if(index < 0) index = items.length - 4 >=0 ? items.length - 4 : 0;
             moveCarousel(index);
         }
-        document.getElementById('nextBtn').addEventListener('click', ()=> { nextSlide(); restartAuto(); });
-        document.getElementById('prevBtn').addEventListener('click', ()=> { prevSlide(); restartAuto(); });
 
         function startAuto(){
             autoplayInterval = setInterval(nextSlide, 2600);
