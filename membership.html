@@ -13,18 +13,135 @@
         <link rel="icon" type="image/x-icon" href="css/imgs/favicon.ico">
         <link rel="stylesheet" href="css/global.css">
         <link rel="stylesheet" href="css/membership.css">
+
+        <script src="scripts/membership.js"></script>
     </head>
 
     <body>
-        <div class="page">
-            <div class="container">
-                <!-- NAVBAR -->
-                <header class="navbar">
+        <!-- NAVBAR -->
+        <header class="navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="css/imgs/ManukaCo_Long_BloodOrange.png" alt="Mīere Logo">
+                </a>
+            </div>
+
+            <nav class="nav-links">
+                <a href="story.html" data-text="Our Story">Our Story</a>
+                <a href="shop.html" data-text="Shop">Shop</a>
+                <a href="membership.html" data-text="Membership">Membership</a>
+                <a href="blog.html" data-text="Blog">Blog</a>
+                <a href="faq.html" data-text="FAQs">FAQs</a>
+                <a href="contact.html" data-text="Contact Us">Contact Us</a>
+            </nav>
+
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </header>
+
+        <!-- DEALS SECTION -->
+        <section class="deals-section" aria-labelledby="deals-heading">
+            <div class="deals-header">
+                <h2 id="deals-heading">Sweet Deals of the Season</h2>
+                <p>Rewards for your active days — from limited drops to members-only perks.</p>
+            </div>
+
+            <table class="deals-table">
+                <tr>
+                    <!-- Deal 1 -->
+                    <td class="deal-card">
+                        <img src="css/imgs/ManukaCo_11.11Double.png" alt="11.11 Exclusive Deal">
+                        <h3>11.11 Exclusive — Your Energy, Doubled</h3>
+                        <p>Buy 1 box of Miere and get the second one half-off. Sweeten your day before it’s gone.</p>
+                        <button id="claimNowBtn">Claim Now</button>
+                    </td>
+
+                    <!-- Deal 2 -->
+                    <td class="deal-card">
+                        <img src="css/imgs/ManukaCo_BlackFridayDeal.png" alt="Black Friday Deals Coming Soon">
+                        <h3>Black Friday Deals — Coming Soon</h3>
+                        <p>Members get early access 24 hours before everyone else.</p>
+                        <button id="remindMeBtn1">Remind Me</button>
+                    </td>
+
+                    <!-- Deal 3 -->
+                    <td class="deal-card">
+                        <img src="css/imgs/ManukaCo_ChristmasDeal.png" alt="Holiday Fuel Limited Edition Drop">
+                        <h3>Holiday Fuel — Limited Edition Drop</h3>
+                        <p>Gift the ones who keep your days glowing. Hint: that includes you.</p>
+                        <button id="remindMeBtn2">Remind Me</button>
+                    </td>
+                </tr>
+            </table>
+        </section>
+    
+        <!-- SIGNUP SECTION -->
+        <section class="signup-section" aria-labelledby="club-heading">
+            <!-- LEFT COLUMN -->
+            <div class="signup-left">
+                <h2 id="club-heading">Welcome to Club Miere — Where We Fuel Better Days Together.</h2>
+                <p>You don’t need another app. Join a community that values real balance and useful perks.</p>
+
+                <div class="signup-perks">
+                    <div class="perk">
+                        <img src="css/imgs/ManukaCo_Gift.png" alt="Birthday Treat">
+                        <h4>Exclusive Birthday Treats</h4>
+                        <p>Celebrate your day with a little extra sweetness.</p>
+                    </div>
+
+                    <div class="perk">
+                        <img src="css/imgs/ManukaCo_Clock.png" alt="Early Access">
+                        <h4>Early Access Drops</h4>
+                        <p>Be the first to try new blends and seasonal sachets.</p>
+                    </div>
+
+                    <div class="perk">
+                        <img src="css/imgs/ManukaCo_Referral.png" alt="Referral & Reward">
+                        <h4>Referral & Reward</h4>
+                        <p>Share the buzz and earn when your friends join.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN (GIF) -->
+            <div class="signup-right"></div>
+        </section>
+
+        <!-- CTA Banner -->
+        <div class="cta-banner">
+            <form class="cta-content">
+                <span>Get a <strong>50% off</strong> welcome voucher and a monthly dose of wellness from Mānuka Co.</span>
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit">Join Now</button>
+            </form>
+        </div>
+
+        <!-- COMMUNITY SECTION -->
+        <section class="community-section" aria-labelledby="community-heading">
+            <h3 id="community-heading">Inside Club Miere</h3>
+            <div class="community-carousel">
+                <img src="css/imgs/socmed/ManuaCo_SharingHoney.png" alt="Community Post 1" class="active">
+                <img src="css/imgs/socmed/ManukaCo_Gamechanger.png" alt="Community Post 2" class="inactive">
+                <img src="css/imgs/socmed/ManukaCo_GymBag.png" alt="Community Post 3" class="inactive">
+                <img src="css/imgs/socmed/ManukaCo_HoneySachetPost.png" alt="Community Post 4" class="inactive">
+                <img src="css/imgs/socmed/ManukaCo_Pickleball.png" alt="Community Post 5" class="inactive">
+            </div>
+            <p class="community-cta">Want to be featured? Tag @manukaco + #ClubMiere to appear here!</p>
+        </section>
+
+        <!-- FOOTER SECTION-->
+        <footer class="footer">
+            <div class="footer-top">
+                <div class="footer-col footer-brand">
                     <div class="logo">
                         <a href="index.html">
-                            <img src="css/imgs/ManukaCo_Long_BloodOrange.png" alt="Mīere Logo">
+                            <img src="css/imgs/ManukaCo_Long_Cream.png" alt="Mīere Logo">
                         </a>
                     </div>
+<<<<<<< Updated upstream
 
                     <nav class="nav-links">
                         <a href="story.html" data-text="Our Story">Our Story</a>
@@ -311,5 +428,40 @@
         }
         startAuto();
         </script>
+=======
+                    <div class="social-icons">
+                        <img src="css/icons/instagram.svg" alt="Instagram">
+                        <img src="css/icons/tiktok.svg" alt="TikTok">
+                        <img src="css/icons/x.svg" alt="Twitter">
+                        <img src="css/icons/facebook.svg" alt="Facebook">
+                        <img src="css/icons/youtube.svg" alt="YouTube">
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>About</h4>
+                    <p>Our Story</p>
+                    <p>Membership</p>
+                    <p>Blog</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Shop</h4>
+                    <p>Mīere</p>
+                    <p>All Products</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <p>FAQs</p>
+                    <p>Contact Us</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="left">© 2025 Mīere. All Rights Reserved.</p>
+                <div class="right">
+                    <p>Privacy Policy</p>
+                </div>
+            </div>
+        </footer>
+>>>>>>> Stashed changes
     </body>
 </html>

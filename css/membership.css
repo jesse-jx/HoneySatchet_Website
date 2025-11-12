@@ -1,325 +1,236 @@
-/* BASE STYLING */
-:root{
-    --bg-cream:#FEFBF6; /* page backgrounds */
-    --panel-cream:#FEFBF6;
-    --panel-2:#EFE8DD;
-    --deep-brown:#471C1C;
-    --accent-gold:#FDD803;
-    --accent-orange:#F47B20;
-    --accent-dark:#C13E01;
-    --container-w:1280px;
-    --margin-x:112px;
-    --nav-h:84px;
-    --font-sans: 'Open Sans', sans-serif;
-    --border-line: 1px solid var(--deep-brown);
-}
-*{box-sizing:border-box}
-  html,body{height:100%}
-  body{
-    margin:0;
-    font-family:var(--font-sans);
-    color:var(--deep-brown);
-    background:var(--bg-cream);
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
+/* === MEMBERSHIP PAGE === */
+
+/* ---- GENERAL ---- */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #FEFBF6;
+  color: #471C1C;
+  overflow-x: hidden;
 }
 
-/* DEALS SECTION */
-.deals {
-    background:var(--bg-cream);
-    color:var(--deep-brown);
-}
-.deals .heading {
-    margin-top: 37px;
-    margin-left:29px;
-    margin-bottom:37px;
-}
-.deals h2{
-    margin:0;
-    font-size:36px;
-    font-family: 'Monsterrat', sans-serif;
-    font-weight:bold;
-}
-.deals p.lead {
-    margin:8px 0 0;
-    font-size:24px;
-    opacity:0.9;
+/* ---- DEALS SECTION ---- */
+.deals-section {
+  width: 1280px;
+  margin: 0 auto;
+  background-color: #FEFBF6;
+  color: #471C1C;
+  padding-bottom: 37px;
 }
 
-.deals-grid {
-    width:100%;
-    display:grid;
-    grid-template-columns:1fr 1fr 1fr;
-    gap:0px;
-    margin-top:24px;
+.deals-header {
+  margin-left: 29px;
+  margin-bottom: 37px;
 }
+
+.deals-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
 .deal-card {
-    background:var(--panel-2);
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    text-align:center;
-    min-height:300px;
-    overflow:hidden;
-}
-.deal-card-mid {
-    background:var(--bg-cream);
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    text-align:center;
-    min-height:300px;
-    overflow:hidden;
+  background-color: #EFE8DD;
+  text-align: center;
+  vertical-align: middle;
+  padding: 0;
 }
 
-.deal-card img{
-    max-width:100%;
-    max-height:100%;
-    object-fit:cover;
-}
-.deal-card-mid img{
-    max-width:100%;
-    max-height:100%;
-    object-fit:cover;
-}
-.deal-title {
-    margin:6px 6px; 
-    font-size:20px;
-    font-weight: 600;
-    color: var(--deep-brown);
-}
-.deal-copy {
-    font-size:18px; 
-    margin:6px 10px 14px; 
-    color: var(--deep-brown);
+.deal-card img {
+  width: 100%;
+  height: 50%;
+  object-fit: cover;
+  margin: 0;
+  display: block;
 }
 
-/* Deal Button */
-.btn {
-    display:inline-block;
-    background:var(--deep-brown);
-    color:var(--bg-cream);
-    padding:10px 20px;
-    margin-bottom: 10px;;
-    border-radius:30px;
-    text-decoration:none;
-    font-weight:700;
-    cursor:pointer;
-    border:none;
-    transition: transform 140ms ease, box-shadow 120ms;
-}
-.btn:hover { 
-    box-shadow: 0 6px 18px rgba(0,0,0,0.12); 
-}
-/* Button Jump Anim */
-.btn.jump:hover {
-    animation: jump 220ms ease;
-}
-@keyframes jump {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-6px); }
-    100% { transform: translateY(0); }
+.deal-card h3 {
+  margin: 16px 0 8px 0;
+  font-size: 1.2em;
 }
 
-/* SIGN UP SECTION */
-.signup {
-    background:var(--deep-brown);
-    color:var(--bg-cream);
-    padding:40px var(--margin-x) 20px;
+.deal-card p {
+  margin: 0 24px 16px;
+  line-height: 1.5em;
 }
-.signup-inner {
-    width:100%;
-    display:flex;
-    gap:24px;
+
+.deal-card button {
+  background-color: #471C1C;
+  color: #FEFBF6;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
+
+.deal-card button:hover {
+  transform: translateY(-4px);
+}
+
+/* ---- SIGNUP SECTION ---- */
+.signup-section {
+  display: flex;
+  width: 1280px;
+  margin: 0 auto;
+  background-color: #471C1C;
+  color: #FEFBF6;
+  min-height: 674px;
+}
+
 .signup-left {
-    width:869px;
-    padding-right:16px;
-}
-.signup-right {
-    width:411px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:transparent;
-}
-.signup-left h2{
-    font-size:28px;
-    margin:0 0 10px;
-    font-family: 'Monsterrat', sans-serif;
-    font-weight:bold;
-}
-.signup-left p.lead {
-    margin:6px 0 24px;
-    opacity:0.95;
+  flex: 0 0 869px;
+  padding: 60px 60px 40px 60px;
 }
 
-/* Sign-up Perks (Left) */
-.perks {
-    display:flex;
-    gap:0;
-    background:transparent;
-    margin-top:18px;
-    border-radius:6px;
-    overflow:hidden;
+.signup-left h2 {
+  margin-top: 0;
+  margin-bottom: 12px;
 }
+
+.signup-left p {
+  line-height: 1.6em;
+  margin-bottom: 40px;
+}
+
+.signup-perks {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  border-top: 1px solid #FEFBF6;
+  border-bottom: 1px solid #FEFBF6;
+  padding: 24px 0;
+}
+
 .perk {
-    flex:1;
-    padding:18px;
-    text-align:center;
-    min-height:120px;
-    position:relative;
-}
-.perk + .perk {
-    border-left: 1px solid var(--bg-cream); 
-} /* vertical separator */
-.perk .icon {
-    font-size:20px;
-    display:block;
-    margin-bottom:10px;
-}
-.perk h4{ 
-    margin:6px 0; 
-    font-size:15px; 
-    font-weight:700; 
-}
-.perk p{ 
-    margin:0; 
-    font-size:13px; 
-    opacity:0.95;
+  flex: 1;
+  text-align: center;
+  padding: 0 20px;
+  position: relative;
 }
 
-/* GIF (Right) */
-.gif-wrap {
-    width:100%;
-    height:100%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+.perk:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 10%;
+  height: 80%;
+  width: 1px;
+  background-color: #FEFBF6;
 }
 
-/* CTA banner bottom of signup */
-.signup-cta {
-    margin-top:20px;
-    height:104px;
-    background-image: url('css/imgs/Signup_BannerBG.png');
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-}
-.signup-cta .left {
-    font-size:18px;
-    font-weight:800;
-    color:var(--deep-brown);
-}
-.signup-cta .right {
-    display:flex;
-    gap:10px;
-    align-items:center;
-}
-.email-input {
-    padding:12px 14px;
-    border-radius:8px;
-    border:2px solid rgba(0,0,0,0.06);
-    min-width:320px;
-    font-size:14px;
-}
-.join-btn {
-    background:var(--accent-orange);
-    color:white;
-    padding:12px 18px;
-    border-radius:8px;
-    border:none;
-    font-weight:800;
-    cursor:pointer;
-}
-.signup-success {
-    color:#D5F6D6;
-    margin-top:8px;
-    font-size:13px;
-    display:none;
+.signup-right {
+  flex: 0 0 411px;
+  background: url('css/vids/ManukaHoney_Drizzle.gif') center center / cover no-repeat;
+  min-height: 100%;
 }
 
-/*Community carousel*/
-.community {
-    background:var(--bg-cream);
-    color:var(--deep-brown);
-    padding:40px var(--margin-x) 30px;
-}
-.community h3{ 
-    margin:0 0 14px; 
-    font-size:22px; 
-    font-weight:800; 
-}
-.carousel {
-    width:100%;
-    overflow:hidden;
-    position:relative;
-}
-.carousel-track {
-    display:flex;
-    gap:14px;
-    transition: transform 600ms cubic-bezier(.2,.9,.2,1);
-    will-change:transform;
-}
-.carousel-item {
-    min-width:200px;
-    height:240px;
-    background:#e6d8c8;
-    border-radius:8px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-weight:700;
-    color:var(--deep-brown);
-}
-.carousel-controls {
-    margin-top:12px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:8px;
-}
-.carousel-cta {
-    font-style:italic;
-    margin-top:8px;
-    text-align:center;
-    color:var(--deep-brown);
+/* ---- CTA BANNER ---- */
+.cta-banner {
+  width: 100%;
+  height: 104px;
+  background: url('your-banner-image.jpg') center center / cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #471C1C;
 }
 
-/* FOOTER */
-.footer {
-    background:var(--deep-brown);
-    color:var(--bg-cream);
-    padding:57px var(--margin-x);
+.cta-content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 999px;
+  padding: 10px 20px;
 }
-.footer-top {
-    display:flex;
-    gap:28px;
-    justify-content:space-between;
+
+.cta-content input[type="email"] {
+  padding: 10px 16px;
+  border: none;
+  outline: none;
+  border-radius: 999px 0 0 999px;
+  flex: 1;
 }
-.footer-col { flex:1; min-width:160px; }
-.footer .logo-small { 
-    display:flex; 
-    align-items:center; 
-    gap:12px; 
-    margin-bottom:10px; 
+
+.cta-content button {
+  padding: 10px 20px;
+  background-color: #FDD803;
+  border: none;
+  border-radius: 0 999px 999px 0;
+  color: #471C1C;
+  font-weight: bold;
+  cursor: pointer;
 }
-.socials { 
-    display:flex; 
-    gap:8px; 
-    margin-top:8px; 
+
+.success-message {
+  font-size: 0.9em;
+  color: #FDD803;
+  margin-top: 6px;
 }
-.footer a { 
-    color:var(--bg-cream); 
-    text-decoration:none; 
-    display:block; 
-    margin:6px 0; 
-    opacity:0.95; 
+
+/* ---- COMMUNITY SECTION ---- */
+.community-section {
+  width: 1280px;
+  margin: 0 auto;
+  background-color: #FEFBF6;
+  color: #471C1C;
+  padding: 40px 0;
 }
-.footer .legal {
-    margin-top:20px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+
+.community-carousel {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+
+.community-carousel img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.community-carousel img.active {
+  transform: translateX(0);
+}
+
+.community-carousel img.inactive {
+  transform: translateX(100%);
+}
+
+.community-cta {
+  margin-top: 12px;
+  font-style: italic;
+  text-align: left;
+}
+
+/* ---- RESPONSIVENESS (QUICK GLOBAL FIX) ---- */
+@media (max-width: 1024px) {
+  .deals-section, .signup-section, .community-section {
+    width: 100%;
+    padding: 0 24px;
+  }
+  .signup-section {
+    flex-direction: column;
+  }
+  .signup-right {
+    height: 300px;
+  }
+  .signup-perks {
+    flex-direction: column;
+  }
+  .perk:not(:last-child)::after {
+    display: none;
+  }
+  .cta-content {
+    flex-direction: column;
+    border-radius: 16px;
+  }
+  .cta-content input[type="email"], .cta-content button {
+    border-radius: 8px;
+    width: 100%;
+  }
+  .community-carousel img {
+    aspect-ratio: 1 / 1;
+  }
 }
