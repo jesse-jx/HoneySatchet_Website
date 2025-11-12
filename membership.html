@@ -102,8 +102,9 @@
                 <section class="signup" aria-labelledby="club-heading">
                     <div class="signup-inner">
                         <div class="signup-left">
-                            <h2 id="club-heading">Welcome to Club Miere — Where We Fuel Better Days Together.</h2>
-                            <p class="lead">You don’t need another app. Join a community that values real balance and useful perks.</p>
+                            <h2 id="club-heading">Welcome to Club Miere, Where We Fuel Better Days Together.</h2>
+                            <p class="lead">You don’t need another app.</p>
+                            <p class="lead">Join a community that knows balance isn’t a buzzword — it’s a lifestyle.</p>
 
                             <div class="perks" aria-hidden="false">
                                 <div class="perk">
@@ -119,14 +120,13 @@
                                 </div>
 
                                 <div class="perk">
-                                    <div class="icon"><img src="css/imgs/ManukaCo_Referral.png" alt="Manuka Co birthday present"></div>
+                                    <div class="icon"><img src="css/imgs/ManukaCo_Referral.png" alt="Manuka Co referral"></div>
                                     <h4>Referral & Reward</h4>
                                     <p>Share the buzz and earn when your friends join.</p>
                                 </div>
                             </div>
                         </div>
 
-                        <!--GIF (right)-->
                         <div class="signup-right">
                             <div class="gif-wrap">
                                 <img src="css/vids/ManukaHoney_Drizzle.gif" alt="Manuka honey drizzle">
@@ -134,16 +134,14 @@
                         </div>
                     </div>
                     
-                    <!-- bottom CTA banner -->
-                        <div class="signup-cta" role="region" aria-label="Membership CTA">
-                            <div class="left">Get a <strong>50% off</strong> welcome voucher and a monthly dose of wellness from Mānuka Co.</div>
-                            <div class="right">
-                                <input id="mainEmail" class="email-input" type="email" placeholder="Enter your email" />
-                                <button id="joinNow" class="join-btn">Join Now</button>
-                            </div>
+                    <div class="signup-cta" role="region" aria-label="Membership CTA">
+                        <div class="left">Get a <strong>50% off welcome voucher</strong> and a monthly dose of wellness from Mānuka Co.</div>
+                        <div class="right">
+                            <input id="mainEmail" class="email-input" type="email" placeholder="Enter your email" />
+                            <button id="joinNow" class="join-btn">Join Now</button>
                         </div>
-
-                        <div id="signupSuccess" class="signup-success">Sign up success! Welcome to Club Miere.</div>
+                    </div>
+                    <div id="signupSuccess" class="signup-success">Sign up success! Welcome to Club Miere.</div>
                 </section>
 
                 <!-- COMMUNITY CAROUSEL -->
@@ -158,6 +156,11 @@
                             <div class="carousel-item"><img src="css/imgs/socmed/ManukaCo_Pickleball.png" alt="Manuka Co on Instagram Post 5"></div>
                             <div class="carousel-item"><img src="css/imgs/socmed/ManukaCo_HoneyPreWorkout.jpg" alt="Manuka Co on Instagram Post 6"></div>
                             <div class="carousel-item"><img src="css/imgs/socmed/ManukaCo_MiereHike.jpg" alt="Manuka Co on Instagram Post 7"></div>
+
+                            <!--For seamless infinite loop-->
+                            <div class="carousel-item clone"><img src="css/imgs/socmed/ManuaCo_SharingHoney.png" alt="Manuka Co on Instagram Post 1"></div>
+                            <div class="carousel-item clone"><img src="css/imgs/socmed/ManukaCo_Gamechanger.png" alt="Manuka Co on Instagram Post 2"></div>
+                            <div class="carousel-item clone"><img src="css/imgs/socmed/ManukaCo_GymBag.png" alt="Manuka Co on Instagram Post 3"></div>
                         </div>
                     </div>
 
@@ -286,32 +289,54 @@
         //Carousel behaviour
         const track = document.getElementById('carouselTrack');
         const items = Array.from(track.children);
-        const itemWidth = 200 + 14; // width + gap (css)
         let index = 0;
-        let autoplayInterval = null;
+        // Use clientWidth + gap (14px) for the width calculation. 
+        const itemWidth = items.length > 0 ? items[0].clientWidth + 14 : 0;
+    
+        const transitionDuration = 600;
+        const pauseDuration = 2000;
+        const totalSlideTime = transitionDuration + pauseDuration; // 2600ms total
 
-        function moveCarousel(i){
-            track.style.transform = `translateX(${-i * itemWidth}px)`;
+        const originalItemCount = 7;
+        const maxIndex = originalItemCount;
+
+        function moveCarousel(i, smooth=true){
+            // Use requestAnimationFrame to ensure CSS changes are applied smoothly on next paint
+            requestAnimationFrame(() => {
+                track.style.transition = smooth ? `transform ${transitionDuration}ms cubic-bezier(.2,.9,.2,1)` : 'none';
+                track.style.transform = `translateX(${-i * itemWidth}px)`;
+            });
         }
+
         function nextSlide(){
+            // Start the timer for the NEXT slide first. This ensures the 2600ms rhythm is maintained.
+            startAuto(); 
             index++;
-            if(index > items.length - 4) { index = 0; } // loop, show up to 4 in viewport with gaps
-            moveCarousel(index);
+    
+            // Check if we are moving onto the first clone
+            if(index >= maxIndex) { 
+                // 1. Smoothly transition to the clone (Index 7)
+                moveCarousel(index, true); 
+        
+                // 2. After the smooth transition finishes (600ms), instantly jump back to the start (Index 0)
+                setTimeout(() => {
+                    index = 0; // Reset index to the first actual slide
+                    moveCarousel(index, false); // JUMP back instantly (smooth=false)
+                }, transitionDuration); 
+            } else {
+                // Normal smooth transition for original items
+                moveCarousel(index, true);
+            }
         }
-        function prevSlide(){
-            index--;
-            if(index < 0) index = items.length - 4 >=0 ? items.length - 4 : 0;
-            moveCarousel(index);
-        }
-
+        let autoplayTimeout = null;
         function startAuto(){
-            autoplayInterval = setInterval(nextSlide, 2600);
+            // Clear any existing timeout to prevent overlaps
+            clearTimeout(autoplayTimeout); 
+    
+            // Set the timer for the next slide to occur in totalSlideTime (2600ms)
+            autoplayTimeout = setTimeout(nextSlide, totalSlideTime); 
         }
-        function restartAuto(){
-            clearInterval(autoplayInterval);
-            startAuto();
-        }
-        startAuto();
+    startAuto();
         </script>
     </body>
 </html>

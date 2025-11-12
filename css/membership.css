@@ -1,12 +1,12 @@
 /* BASE STYLING */
 :root{
     --bg-cream:#FEFBF6; /* page backgrounds */
-    --panel-cream:#FEFBF6;
     --panel-2:#EFE8DD;
     --deep-brown:#471C1C;
     --accent-gold:#FDD803;
     --accent-orange:#F47B20;
     --accent-dark:#C13E01;
+    --banner-yellow:#FFCC01;
     --container-w:1280px;
     --margin-x:112px;
     --nav-h:84px;
@@ -120,68 +120,82 @@
 .signup {
     background:var(--deep-brown);
     color:var(--bg-cream);
-    padding:40px var(--margin-x) 20px;
+    padding: 0; /* Top padding only, banner at bottom */
 }
+
 .signup-inner {
     width:100%;
     display:flex;
-    gap:24px;
+    justify-content: space-between; /* Pushes left/right content apart */
+    align-items: stretch; 
 }
+
 .signup-left {
-    width:869px;
-    padding-right:16px;
+    flex-grow: 1;
+    padding: 60px 24px 32px 34px;
 }
 .signup-right {
-    width:411px;
+    width:411px; /* Keeping original GIF width */
+    flex-shrink: 0; /* Prevent this column from shrinking */
     display:flex;
-    align-items:center;
     justify-content:center;
     background:transparent;
 }
 .signup-left h2{
-    font-size:28px;
+    font-size:36px; /* Larger heading */
     margin:0 0 10px;
-    font-family: 'Monsterrat', sans-serif;
+    font-family: 'Montserrat', sans-serif; /* Corrected font family to Montserrat */
     font-weight:bold;
+    line-height: 1.2;
 }
+/* Updated Lead text in SIGN UP SECTION to match wireframe */
 .signup-left p.lead {
-    margin:6px 0 24px;
-    opacity:0.95;
+    margin:6px 0 0; /* Adjusted top margin for the first line */
+    font-size:24px; 
+    font-weight: 500;
+    line-height: 1.5; /* Added line-height for better readability */
+    opacity:1; /* Ensure full visibility */
+}
+.signup-left p.lead:first-of-type { /* Targeting the first lead paragraph for spacing */
+    margin-bottom: 6px;
 }
 
 /* Sign-up Perks (Left) */
 .perks {
-    display:flex;
-    gap:0;
+    /* Changed to grid for precise 3-column layout and vertical separators */
+    display:grid;
+    grid-template-columns: repeat(3, 1fr); /* Three equal columns */
+    gap:0; /* No gap between grid items, separators will create visual gap */
     background:transparent;
-    margin-top:18px;
-    border-radius:6px;
-    overflow:hidden;
+    margin-top: 40px; 
+    border-radius: 6px;
+    overflow: hidden;
+    border: 0px; /* Removed border around perks section */
 }
 .perk {
-    flex:1;
-    padding:18px;
+    padding:50px 15px; /* Adjusted padding */
     text-align:center;
-    min-height:120px;
+    min-height:auto; /* Allow height to adjust to content */
     position:relative;
+    /* Removed individual background color if it was present, rely on section bg */
 }
+/* Vertical separators between perks */
 .perk + .perk {
-    border-left: 1px solid var(--bg-cream); 
-} /* vertical separator */
-.perk .icon {
-    font-size:20px;
-    display:block;
-    margin-bottom:10px;
+    border-left: 1px solid var(--bg-cream); /* More subtle separator color */
+} 
+.perk .icon img { /* Targeting the image within the icon div */
+    height: 100px; /* Match icon size in wireframe */
+    margin-bottom: 10px; /* Space between icon and heading */
 }
 .perk h4{ 
-    margin:6px 0; 
-    font-size:15px; 
-    font-weight:700; 
+    margin:0; /* Reset margin */
+    font-size:20px; /* Slightly larger heading */
+    font-weight:800; 
 }
 .perk p{ 
-    margin:0; 
-    font-size:13px; 
-    opacity:0.95;
+    margin-top:18px; /* Space between heading and description */
+    font-size:14px; /* Slightly larger description */
+    opacity:0.85; /* Slightly less opaque for better contrast */
 }
 
 /* GIF (Right) */
@@ -192,47 +206,80 @@
     align-items:center;
     justify-content:center;
 }
+.gif-wrap img {
+    object-fit: cover; /* Ensure image covers its container */
+    height: 100%; /* Make GIF fill its height */
+    width: 100%; /* Make GIF fill its width */
+}
 
 /* CTA banner bottom of signup */
 .signup-cta {
-    margin-top:20px;
-    height:104px;
-    background-image: url('css/imgs/Signup_BannerBG.png');
+    /* Banner is now flush with the bottom of the section */
+    margin-top:0; 
+    height:110px; /* Consistent height */
+    background-image: url('imgs/Signup_BannerBG.png'); 
+    background-size: cover; 
+    background-position: center top; 
+    background-repeat: no-repeat;
+    background-color: var(--banner-yellow); 
+    
+    padding: 0 var(--margin-x);
+    
     display:flex;
     align-items:center;
     justify-content:space-between;
 }
 .signup-cta .left {
-    font-size:18px;
-    font-weight:800;
+    font-size:22px; /* Larger text for the main copy */
+    font-weight:600; /* Slightly less bold for main copy */
     color:var(--deep-brown);
+}
+.signup-cta .left strong { /* Styling for the highlighted phrase */
+    color: var(--accent-dark); /* Orange color */
+    font-size: 26px; /* Significantly larger */
+    font-weight: 800; /* Extra bold */
+    margin-right: 4px; /* Small space after the strong text */
 }
 .signup-cta .right {
     display:flex;
-    gap:10px;
+    gap:0; 
     align-items:center;
 }
 .email-input {
-    padding:12px 14px;
-    border-radius:8px;
-    border:2px solid rgba(0,0,0,0.06);
-    min-width:320px;
-    font-size:14px;
+    padding:12px 16px;
+    border-top-left-radius:6px; /* Rounded only on left side */
+    border-bottom-left-radius:6px;
+    border-top-right-radius:0; /* No rounding on right side */
+    border-bottom-right-radius:0;
+    border:2px solid var(--deep-brown); 
+    min-width:280px; 
+    font-size:18px;
+    /* Ensure border doesn't double up with button */
+    border-right: none; 
 }
 .join-btn {
     background:var(--accent-orange);
     color:white;
-    padding:12px 18px;
-    border-radius:8px;
-    border:none;
+    padding:12px 20px;
+    border-top-left-radius:0; /* No rounding on left side */
+    border-bottom-left-radius:0;
+    border-top-right-radius:6px; /* Rounded only on right side */
+    border-bottom-right-radius:6px;
+    border:2px solid var(--deep-brown); /* Border matches button background */
     font-weight:800;
-    cursor:pointer;
+    /* Ensure no extra margin/padding that breaks the joined look */
+    margin-left: -2px; /* Pull button slightly left to overlap border */
+    font-size: 16px;
+    white-space: nowrap;
 }
 .signup-success {
     color:#D5F6D6;
     margin-top:8px;
     font-size:13px;
     display:none;
+    padding-left: var(--margin-x); /* Align with the main content area */
+    position: relative; /* Ensure it stays within flow */
+    bottom: -10px; /* Adjust positioning if needed relative to the banner */
 }
 
 /*Community carousel*/
