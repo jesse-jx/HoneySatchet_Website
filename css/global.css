@@ -152,7 +152,17 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
   cursor: pointer;
   transition: color 0.3s ease;
 }
-.footer-col p:hover {
+.footer-col p a {
+  text-decoration: none;
+  color: #FEFBF6;
+  font-size: 15px;
+  font-family: 'Open Sans', sans-serif;
+  transition: color 0.3s ease, font-weight 0.2s ease;
+}
+.footer-col p a:visited {
+  color: #FEFBF6;
+}
+.footer-col p a:hover {
   color: #F7C415;
   font-weight: 600;
 }
@@ -192,6 +202,20 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
   margin: 0;
   cursor: pointer;
   transition: color 0.3s ease;
+}
+.footer-bottom p a {
+  text-decoration: none;
+  color: #FEFBF6;
+  font-size: 15px;
+  font-family: 'Open Sans', sans-serif;
+  transition: color 0.3s ease, font-weight 0.2s ease;
+}
+.footer-bottom p a:visited {
+  color: #FEFBF6;
+}
+.footer-bottom p a:hover {
+  color: #F7C415;
+  font-weight: 600;
 }
 
 .footer-bottom .right {
