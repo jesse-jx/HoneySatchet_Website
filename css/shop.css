@@ -79,7 +79,7 @@
 .buy-button {
     padding: 10px;
     background-color: #381B1B;
-    color: #fff;
+    color: #FEFBF6;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -88,7 +88,7 @@
 }
 
 .buy-button:hover {
-    background-color: #C13E01;
+    background-color: #F47B20;
 }
 
 /* Responsive styles */
@@ -101,4 +101,131 @@
     .product-card {
         width: 90%;
     }
+}
+
+/* CERTIFICATIONS BANNER */
+.logos-banner {
+    background-color: #FFCC01;
+    padding: 40px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.logo {
+    max-width: 150px;
+    height: auto;
+    filter: grayscale(100%);
+    opacity: 0.8;
+    transition: filter 0.3s, opacity 0.3s;
+}
+
+.logo:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+/* REVIEWS SECTION */
+.reviews-section {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #FEFBF6;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.reviews-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.reviews-title {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.average-rating {
+    font-size: 1em;
+    color: #381B1B;
+}
+
+/* Review Item */
+.review {
+    display: flex;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+}
+
+.review-content {
+    flex: 1;
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.name {
+    font-weight: bold;
+}
+
+.title {
+    font-style: italic;
+    color: #381B1B;
+}
+
+.stars {
+    color: #FDD803;
+    /* Gold color for stars */
+}
+
+.review-text {
+    margin-top: 8px;
+}
+
+.review-date {
+    font-size: 0.9em;
+    color: #381B1B;
+    margin-top: 4px;
+}
+
+/* Star icons */
+.star {
+    font-size: 1em;
+    color: #FDD803;
+}
+
+/* Hide reviews initially */
+.hidden {
+    display: none;
+}
+
+/* Buttons */
+button {
+    padding: 8px 16px;
+    font-size: 1em;
+    border: none;
+    background-color: #FDD803;
+    color: #381B1B;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #F47B20;
 }

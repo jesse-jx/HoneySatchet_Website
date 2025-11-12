@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shop Mīere</title>
 
     <link rel="icon" type="image/x-icon" href="css/favicon/favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
     <link href="" rel="stylesheet">
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/shop.css">
@@ -53,27 +56,268 @@
             <div class="product-content">
                 <div class="product-title">Product 1</div>
                 <div class="product-desc">Description of product 1.</div>
-                <button class="buy-button">Buy Now</button>
+                <button class="buy-button" onclick="window.location.href='shop-detail.html'">Buy Now</button>
             </div>
         </div>
-        <!-- Product 3 -->
+        <!-- Product 2 -->
         <div class="product-card">
             <img src="css/imgs/ManukaCo_Miere.png" alt="Product 2">
             <div class="product-content">
                 <div class="product-title">Product 2</div>
                 <div class="product-desc">Description of product 2.</div>
-                <button class="buy-button">Buy Now</button>
+                <button class="buy-button" onclick="window.location.href='shop-detail.html'">Buy Now</button>
             </div>
         </div>
-                <!-- Product 3 -->
+        <!-- Product 3 -->
         <div class="product-card">
             <img src="css/imgs/ManukaCo_Miere.png" alt="Product 3">
             <div class="product-content">
                 <div class="product-title">Product 3</div>
                 <div class="product-desc">Description of product 3.</div>
-                <button class="buy-button">Buy Now</button>
+                <button class="buy-button" onclick="window.location.href='shop-detail.html'">Buy Now</button>
             </div>
         </div>
+    </section>
+
+    <!-- CERTIFICATIONS BANNER -->
+    <section class="logos-banner">
+        <img src="https://via.placeholder.com/150x50.png?text=Certification+1" alt="Certification 1" class="logo" />
+        <img src="https://via.placeholder.com/150x50.png?text=Certification+2" alt="Certification 2" class="logo" />
+        <img src="https://via.placeholder.com/150x50.png?text=Certification+3" alt="Certification 3" class="logo" />
+        <img src="https://via.placeholder.com/150x50.png?text=Certification+4" alt="Certification 4" class="logo" />
+    </section>
+
+    <!-- REVIEWS SECTION -->
+    <section class="reviews-section">
+        <div class="reviews-header">
+            <div class="reviews-title">Customer Reviews</div>
+            <div class="average-rating">4.7 stars out of 5 based on 10 reviews</div>
+        </div>
+
+        <!-- Sorting Dropdown -->
+        <div style="margin-bottom: 15px;">
+            <label for="sortSelect">Sort by:</label>
+            <select id="sortSelect">
+                <option value="mostRecent">Most Recent</option>
+                <option value="highestRating">Highest Rating</option>
+                <option value="lowestRating">Lowest Rating</option>
+            </select>
+        </div>
+
+        <!-- Reviews List -->
+        <div id="reviewsContainer">
+            <!-- Review items will be inserted here by JavaScript -->
+        </div>
+
+        <!-- View More Button -->
+        <button id="viewMoreBtn">View More</button>
+        </div>
+
+        <script>
+            // Sample reviews data
+            const reviews = [
+                {
+                    avatar: 'https://via.placeholder.com/60?text=A1',
+                    name: 'Alice Johnson',
+                    title: 'Great product!',
+                    text: 'I really loved this product. It exceeded my expectations.',
+                    date: '2023-10-01',
+                    rating: 5
+                },
+                {
+                    avatar: 'https://via.placeholder.com/60?text=B2',
+                    name: 'Bob Smith',
+                    title: 'Good value',
+                    text: 'Worth the price. Will buy again.',
+                    date: '2023-09-28',
+                    rating: 4
+                },
+                {
+                    avatar: 'https://via.placeholder.com/60?text=C3',
+                    name: 'Cathy Lee',
+                    title: 'Not bad',
+                    text: 'It works as described.',
+                    date: '2023-09-20',
+                    rating: 4
+                },
+                {
+                    avatar: 'https://via.placeholder.com/60?text=D4',
+                    name: 'David Kim',
+                    title: 'Could be better',
+                    text: 'The quality is average.',
+                    date: '2023-08-15',
+                    rating: 3
+                },
+                {
+                    avatar: 'https://via.placeholder.com/60?text=E5',
+                    name: 'Eva Green',
+                    title: 'Excellent!',
+                    text: 'Absolutely loved it! Highly recommend.',
+                    date: '2023-07-30',
+                    rating: 5
+                },
+                {
+                    avatar: 'https://via.placeholder.com/60?text=F6',
+                    name: 'Frank Turner',
+                    title: 'Okay',
+                    text: 'It’s okay, does the job.',
+                    date: '2023-07-10',
+                    rating: 3
+                },
+                {
+                    avatar: 'https://via.placeholder.com/60?text=G7',
+                    name: 'Grace Park',
+                    title: 'Fantastic',
+                    text: 'Will buy again!',
+                    date: '2023-06-25',
+                    rating: 5
+                },
+                {
+                    avatar: 'https://via.placeholder.com/60?text=H8',
+                    name: 'Henry Ford',
+                    title: 'Disappointed',
+                    text: 'Did not meet my expectations.',
+                    date: '2023-06-05',
+                    rating: 2
+                },
+                {
+                    avatar: 'https://via.placeholder.com/60?text=I9',
+                    name: 'Ivy Chen',
+                    title: 'Love it',
+                    text: 'Great quality and fast shipping.',
+                    date: '2023-05-20',
+                    rating: 4
+                },
+                {
+                    avatar: 'https://via.placeholder.com/60?text=J10',
+                    name: 'John Doe',
+                    title: 'Satisfactory',
+                    text: 'It’s okay for the price.',
+                    date: '2023-05-15',
+                    rating: 3
+                },
+            ];
+
+            const reviewsContainer = document.getElementById('reviewsContainer');
+            const viewMoreBtn = document.getElementById('viewMoreBtn');
+            const sortSelect = document.getElementById('sortSelect');
+
+            let currentDisplayCount = 3; // show first 3 reviews initially
+
+            // Function to create star rating elements
+            function createStars(rating) {
+                const starContainer = document.createElement('div');
+                for (let i = 1; i <= 5; i++) {
+                    const star = document.createElement('span');
+                    star.className = 'star';
+                    star.textContent = i <= rating ? '★' : '☆';
+                    starContainer.appendChild(star);
+                }
+                return starContainer;
+            }
+
+            // Function to render reviews
+            function renderReviews() {
+                // Clear existing reviews
+                reviewsContainer.innerHTML = '';
+
+                // Apply sorting
+                const sortBy = sortSelect.value;
+                let sortedReviews = [...reviews];
+
+                if (sortBy === 'mostRecent') {
+                    sortedReviews.sort((a, b) => new Date(b.date) - new Date(a.date));
+                } else if (sortBy === 'highestRating') {
+                    sortedReviews.sort((a, b) => b.rating - a.rating);
+                } else if (sortBy === 'lowestRating') {
+                    sortedReviews.sort((a, b) => a.rating - b.rating);
+                }
+
+                // Show only first 'currentDisplayCount' reviews
+                const reviewsToShow = sortedReviews.slice(0, currentDisplayCount);
+
+                reviewsToShow.forEach(review => {
+                    const reviewDiv = document.createElement('div');
+                    reviewDiv.className = 'review';
+
+                    // Avatar
+                    const avatarImg = document.createElement('img');
+                    avatarImg.src = review.avatar;
+                    avatarImg.alt = review.name;
+                    avatarImg.className = 'avatar';
+
+                    // Content
+                    const contentDiv = document.createElement('div');
+                    contentDiv.className = 'review-content';
+
+                    // Header (name, title, rating stars)
+                    const headerDiv = document.createElement('div');
+                    headerDiv.className = 'review-header';
+
+                    const nameSpan = document.createElement('span');
+                    nameSpan.className = 'name';
+                    nameSpan.textContent = review.name;
+
+                    const titleSpan = document.createElement('span');
+                    titleSpan.className = 'title';
+                    titleSpan.textContent = review.title;
+
+                    const ratingDiv = createStars(review.rating);
+
+                    headerDiv.appendChild(nameSpan);
+                    headerDiv.appendChild(document.createTextNode(' - '));
+                    headerDiv.appendChild(titleSpan);
+                    headerDiv.appendChild(document.createElement('div')).appendChild(ratingDiv);
+
+                    // Text
+                    const textP = document.createElement('p');
+                    textP.className = 'review-text';
+                    textP.textContent = review.text;
+
+                    // Date
+                    const dateDiv = document.createElement('div');
+                    dateDiv.className = 'review-date';
+                    dateDiv.textContent = new Date(review.date).toLocaleDateString();
+
+                    // Assemble
+                    contentDiv.appendChild(headerDiv);
+                    contentDiv.appendChild(textP);
+                    contentDiv.appendChild(dateDiv);
+
+                    reviewDiv.appendChild(avatarImg);
+                    reviewDiv.appendChild(contentDiv);
+
+                    // If beyond initial 3, hide
+                    if (sortedReviews.indexOf(review) >= currentDisplayCount) {
+                        reviewDiv.classList.add('hidden');
+                    }
+
+                    reviewsContainer.appendChild(reviewDiv);
+                });
+
+                // Show or hide "View More" button
+                if (sortedReviews.length > currentDisplayCount) {
+                    viewMoreBtn.style.display = 'block';
+                } else {
+                    viewMoreBtn.style.display = 'none';
+                }
+            }
+
+            // Event listener for sorting
+            sortSelect.addEventListener('change', () => {
+                currentDisplayCount = 3; // reset to initial
+                renderReviews();
+            });
+
+            // Event listener for "View More"
+            viewMoreBtn.addEventListener('click', () => {
+                currentDisplayCount += 3;
+                renderReviews();
+            });
+
+            // Initial render
+            renderReviews();
+        </script>
     </section>
 
     <!-- FOOTER -->
@@ -126,9 +370,11 @@
         const navLinks = document.querySelector('.nav-links');
 
         menu.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        menu.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            menu.classList.toggle('active');
         });
     </script>
+    
 </body>
+
 </html>
