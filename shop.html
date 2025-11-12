@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Mīere</title>
+
+    <link rel="icon" type="image/x-icon" href="css/favicon/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="" rel="stylesheet">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/shop.css">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="navbar">
+        <div class="logo">
+            <a href="index.html">
+                <img src="css/imgs/ManukaCo_Long_BloodOrange.png" alt="Mīere Logo">
+            </a>
+        </div>
+
+        <nav class="nav-links">
+            <a href="story.html" data-text="Our Story">Our Story</a>
+            <a href="shop.html" class="active" data-text="Shop">Shop</a>
+            <a href="membership.html" data-text="Membership">Membership</a>
+            <a href="blog.html" data-text="Blog">Blog</a>
+            <a href="faq.html" data-text="FAQs">FAQs</a>
+            <a href="contact.html" data-text="Contact Us">Contact Us</a>
+        </nav>
+
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </header>
+
+    <!-- SHOP -->
+    <section class="shop-section">
+        <div class="shop-header">
+            <h1>Shop</h1>
+            <h2>Find the perfect Mīere for you</h2>
+        </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section class="product-grid">
+        <!-- Product 1 -->
+        <div class="product-card">
+            <img src="css/imgs/ManukaCo_Miere.png" alt="Product 1">
+            <div class="product-content">
+                <div class="product-title">Product 1</div>
+                <div class="product-desc">Description of product 1.</div>
+                <button class="buy-button">Buy Now</button>
+            </div>
+        </div>
+        <!-- Product 3 -->
+        <div class="product-card">
+            <img src="css/imgs/ManukaCo_Miere.png" alt="Product 2">
+            <div class="product-content">
+                <div class="product-title">Product 2</div>
+                <div class="product-desc">Description of product 2.</div>
+                <button class="buy-button">Buy Now</button>
+            </div>
+        </div>
+                <!-- Product 3 -->
+        <div class="product-card">
+            <img src="css/imgs/ManukaCo_Miere.png" alt="Product 3">
+            <div class="product-content">
+                <div class="product-title">Product 3</div>
+                <div class="product-desc">Description of product 3.</div>
+                <button class="buy-button">Buy Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-col footer-brand">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="css/imgs/ManukaCo_Long_Cream.png" alt="Mīere Logo">
+                    </a>
+                </div>
+                <div class="social-icons">
+                    <img src="css/icons/instagram.svg" alt="Instagram">
+                    <img src="css/icons/tiktok.svg" alt="TikTok">
+                    <img src="css/icons/x.svg" alt="Twitter">
+                    <img src="css/icons/facebook.svg" alt="Facebook">
+                    <img src="css/icons/youtube.svg" alt="YouTube">
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>About</h4>
+                <p><a href="story.html">Our Story</a></p>
+                <p><a href="membership.html">Membership</a></p>
+                <p><a href="blog.html">Blog</p></a>
+            </div>
+            <div class="footer-col">
+                <h4>Shop</h4>
+                <p><a href="shop-detail.html">Mīere</a></p>
+                <p><a href="shop.html">All Products</a></p>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <p><a href="faq.html">FAQs</a></p>
+                <p><a href="contact.html">Contact Us</a></p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="left">© 2025 Mīere. All Rights Reserved.</p>
+            <div class="right">
+                <p><a href=privacy-policy.html>Privacy Policy</p></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu Toggle -->
+    <script>
+        const menu = document.getElementById('mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        menu.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        menu.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
