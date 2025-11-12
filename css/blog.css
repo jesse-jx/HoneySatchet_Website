@@ -1,0 +1,204 @@
+/* General layout */
+body {
+  background-color: #FEFBF6;
+  color: #381B1B;
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+.blog-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Optional subtle paper texture background */
+.blog-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Headings */
+.main-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+.main-header h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.main-header h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  color: #381B1B;
+  text-transform: uppercase;
+  margin-top: 0.5rem;
+}
+
+.main-header .short-note {
+  font-style: italic;
+  color: #381B1B;
+  margin-top: 0.5rem;
+}
+
+/* Featured article */
+.featured-article {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  border-top: 2px solid #bca875;
+  border-bottom: 2px solid #bca875;
+  padding: 2rem 0;
+  position: relative;
+  z-index: 1;
+}
+
+.featured-text {
+  flex: 1 1 300px;
+}
+
+.featured-text h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  color: #381B1B;
+}
+
+.featured-image img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+.read-more {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: #7b5a2f;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.read-more:hover {
+  text-decoration: underline;
+  color: #a97432;
+}
+
+/* Important info box */
+.important-info {
+  background-color: #f2e7c9;
+  border: 1px solid #c2b084;
+  padding: 1.5rem;
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+.important-info h3 {
+  margin-top: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  color: #381B1B;
+}
+
+/* News grid layout */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* News item card */
+.news-item {
+  background-color: #fffaf0;
+  border: 1px solid #d2c5a0;
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Subtle texture overlay on each card */
+.news-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.12;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.news-item:hover::before {
+  opacity: 0.2;
+}
+
+.news-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.news-item h4 {
+  font-family: 'Montserrat', sans-serif;  
+  font-size: 1.3rem;
+  color: #381B1B;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.news-item p {
+  color: #381B1B;
+  font-size: 1rem;
+}
+
+.news-item a {
+  display: inline-block;
+  margin-top: 0.8rem;
+  color: #7b5a2f;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.news-item a:hover {
+  text-decoration: underline;
+  color: #a97432;
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+  .featured-article {
+    flex-direction: column;
+  }
+
+  .main-header h1 {
+    font-size: 2.2rem;
+  }
+
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+}
