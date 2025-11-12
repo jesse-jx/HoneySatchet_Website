@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mīere Honey Sachet</title>
+    <title>Story Of Mīere</title>
     <link rel="icon" type="image/x-icon" href="css/favicon/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link href="" rel="stylesheet">
-    <link rel="stylesheet" href="css/faq.css">
+    <link rel="stylesheet" href="css/story.css">
     <link rel="stylesheet" href="css/global.css">
 </head>
 
@@ -34,6 +34,92 @@
             <span class="bar"></span>
         </div>
     </header>
+
+    <section class="story-section">
+        <div class="story-header">
+            <h1>Mānuka Co. pours heart and health into every drop.</h1>
+            <h2>Scroll down to uncover the story of how Mīere began</h2>
+        </div>
+
+        <div class="story-timeline">
+            <!-- vertical line and icon -->
+            <div class="timeline-line"></div>
+            <div class="timeline-icon">
+            <img src="css/icons/ManukaCo_Logo_BloodOrange.svg" alt="Bee Icon">
+            </div>
+
+            <!-- story parts -->
+            <div class="story-part right">
+                <img src="css/imgs/story1.png" alt="Mīere Beginnings">
+                <div class="story-text">
+                    <h3>Where It All Began</h3>
+                    <p>
+                    It all began with burnout.<br>
+                    Our founder, drained from long hours and constant colds, turned to Manuka honey for recovery. 
+                    What started as a small daily ritual soon became a quiet moment of healing.
+                    </p>
+                </div>
+            </div>
+            <div class="story-part left">
+                <img src="css/imgs/story2.png" alt="Mīere Authenticity">
+                <div class="story-text">
+                    <h3>The Search For The Real</h3>
+                    <p>
+                    But finding real Manuka wasn’t easy.<br>
+                    Many products on shelves were diluted or falsely labeled. Determined to uncover authenticity, our founder connected directly with New Zealand’s beekeepers and the UMF™ certification — 
+                    the gold standard that ensures purity, potency, and genuine origin. 
+                    </p>
+                </div>
+            </div>
+            <div class="story-part right">
+                <img src="css/imgs/story3.png" alt="Mīere Innovation">
+                <div class="story-text">
+                    <h3>The Birth Of Mīere</h3>
+                    <p>
+                    Still, there was a gap.<br>
+                    Everyone wanted to stay healthy, but few remembered to restock their honey during busy weeks. 
+                    That’s when the idea struck — pure Manuka honey, in single-serve sachets that fit seamlessly into everyday life. 
+                    From morning coffees to post-run boosts, Mīere makes wellness simple, sweet, and portable.
+                    </p>
+                </div>
+            </div>
+            <div class="story-part left">
+                <img src="css/imgs/story4.png" alt="Mīere Purpose">
+                <div class="story-text">
+                    <h3>For Our Community</h3>
+                    <p>
+                    Our goal became simple.<br>
+                    Make the world’s most powerful natural superfood effortless. 
+                    Today, Mīere is trusted by thousands who’ve made it part of their daily ritual. 
+                    We’re building a global hive of people who believe in balance, purity, and small acts of care. 
+                    Mīere helps you live golden — naturally, sustainably, and wholeheartedly.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="founder-section">
+        <div class="founder-container">
+            <!-- Column 1: Image -->
+            <div class="founder-img">
+            <img src="css/imgs/founder.png" alt="Founder of Mīere">
+            </div>
+
+            <!-- Column 2: Text -->
+            <div class="founder-text">
+            <h2>Meet Hana, the Founder of Mīere</h2>
+            <p>
+                What began as a search for healing turned into a lifelong passion for genuine wellness. 
+                After discovering the power of true Manuka honey, Hana set out to make its benefits simple, accessible, and trustworthy for everyone. 
+                Guided by care for both people and planet, she continues to pour heart, health, and honey into every sachet — keeping the golden ritual alive, one drop at a time.
+            </p>
+
+            <a href="shop.html" class="support-btn">Support Us Here</a>
+            </div>
+        </div>
+    </section>
+
 
     <footer class="footer">
         <div class="footer-top">
@@ -77,5 +163,41 @@
             </div>
         </div>
     </footer>
+
+    <!-- JavaScript for Mobile Menu Toggle -->
+    <script>
+        const menu = document.getElementById('mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        menu.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        menu.classList.toggle('active');
+        });
+    </script>
+
+    <!-- JavaScript for scroll animation -->
+    <script>
+        document.addEventListener("scroll", () => {
+            const timeline = document.querySelector(".story-timeline");
+            const line = document.querySelector(".timeline-line");
+            const icon = document.querySelector(".timeline-icon");
+
+            if (!timeline) return;
+
+            const rect = timeline.getBoundingClientRect();
+            const scrollTop = window.scrollY || document.documentElement.scrollTop;
+
+            const startY = rect.top + scrollTop;
+            const endY = startY + rect.height;
+            const viewportHeight = window.innerHeight;
+            const progress = Math.min(Math.max((scrollTop + viewportHeight / 2 - startY) / (endY - startY), 0), 1);
+
+            // Grow dotted line
+            line.style.height = `${progress * rect.height}px`;
+
+            // Move icon with line
+            icon.style.top = `${progress * rect.height}px`;
+        });
+    </script>
 </body>
 </html>

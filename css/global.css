@@ -90,7 +90,7 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
     position: absolute;
     top: 100%;
     right: 0;
-    background-color: #FEFBF6;
+    background-color: #EFE8DD;
     width: 100%;
     flex-direction: column;
     align-items: center;
