@@ -6,7 +6,13 @@
   background-color: #FEFBF6;
   color: #381B1B;
   font-family: 'Montserrat', sans-serif;
-  gap: 60px;
+}
+
+.landing-hero-wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 130px;
 }
 
 /* Left column (image) */
@@ -19,9 +25,8 @@
 }
 
 .hero-left img {
-  width: 100%;
+  width: 200%;
   height: auto;
-  border-radius: 12px;
   object-fit: cover;
 }
 
@@ -251,7 +256,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 60px;
-  padding: 80px clamp(20px, 6vw, 112px);
+  padding: 30px clamp(20px, 6vw, 112px);
   font-family: 'Open Sans', sans-serif;
   color: #381B1B;
 }
@@ -302,7 +307,6 @@
 
 .cert-img-container img {
   width: 100%;
-  border-radius: 12px;
   display: block;
 }
 
@@ -311,8 +315,8 @@
   position: absolute;
   top: 15px;
   right: 15px;
-  width: 60px;
-  height: 60px;
+  width: 100x;
+  height: 100px;
   cursor: pointer;
   animation: wiggle 2.5s ease-in-out infinite;
   transform-origin: center;
@@ -444,7 +448,7 @@
 
 .reviews-container {
   display: flex;
-  gap: 60px;
+  gap: 20px;
   overflow-x: auto;
   cursor: grab;
   scrollbar-width: none;
@@ -459,11 +463,11 @@
 
 /* Each card */
 .review-card {
-  flex: 0 0 500px;
-  border-radius: 12px;
+  flex: 0 0 550px;
+  border-right:#381B1B 1px solid;
   display: flex;
   align-items: flex-start;
-  gap: 20px;
+  gap: 16px;
   padding: 24px;
   transition: transform 0.3s ease;
 }
@@ -474,9 +478,10 @@
 
 /* Card image */
 .review-card img {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
+  width: auto;
+  height: 220px;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
   object-fit: cover;
   flex-shrink: 0;
 }
@@ -533,8 +538,8 @@
   }
 
   .review-card img {
-    width: 70px;
-    height: 70px;
+    width: 100px;
+    height: auto;
   }
 
   .reviews-title {
@@ -573,7 +578,7 @@
 .promo-card {
   flex: 1;
   background-color: #fefbf6;
-  padding: 64px 40px 40px;
+  padding: 0 40px 40px; 
   text-align: center;
   position: relative;
   display: flex;
@@ -592,7 +597,7 @@
 }
 
 .promo-card:nth-child(2) {
-  margin-top: 167.2px;
+  margin-top: 59.5px;
   align-self: flex-end;   /* flush to bottom */
   border-left: 3px solid #381b1b;
   border-right: 3px solid #381b1b;
@@ -614,6 +619,7 @@
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   font-size: 16px;
+  z-index: 2;
 }
 
 /* remove old left/center/right variations */
@@ -622,9 +628,17 @@
   transform: none !important;
 }
 
+/* Image container */
+.promo-icon {
+  margin: 0 -40px 24px;  
+}
+
 /* Icon */
 .promo-icon img {
-  max-width: 120px;
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
 /* Divider */
@@ -692,7 +706,7 @@
   .promo-card {
     width: 100%;
     max-width: 500px;           /* keeps it tidy on medium screens */
-    margin: 0 !important;       /* remove desktop offsets */
+    margin: 0 !important; 
     align-self: center !important;
     border-left: 3px solid #381b1b;
     border-right: 3px solid #381b1b;
@@ -714,7 +728,16 @@
 
   /* Adjust padding for mobile */
   .promo-card {
-    padding: 48px 24px 32px;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 !important;
+    align-self: center !important;
+    border-left: 3px solid #381b1b;
+    border-right: 3px solid #381b1b;
+    border-top: 3px solid #381b1b;
+    border-bottom: 3px solid #381b1b;
+    background-color: #FEFBF6 !important;
+    padding: 0 24px 32px;  /* ⬅ no top padding here either */
   }
 
   /* Typography scaling */
@@ -726,8 +749,13 @@
     font-size: 18px;
   }
 
+
+  .promo-icon {
+    margin: 0 -24px 24px;  /* match new padding */
+  }
+
   .promo-icon img {
-    max-width: 100px;
+    max-width: 100%;
   }
 
   .promo-btn {
@@ -949,5 +977,124 @@
 
   .socials-title h2 {
     font-size: 32px;
+  }
+}
+
+/* ================================
+   NEWSLETTER CTA SECTION
+================================ */
+.newsletter-cta {
+  background-color: #EFE8DD;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px clamp(20px, 6vw, 112px);
+  gap: 40px;
+  font-family: 'Montserrat', sans-serif;
+  color: #381B1B;
+}
+
+/* ------------ LEFT COLUMN ------------ */
+.newsletter-left {
+  flex: 1;
+  text-align: right;
+}
+
+.newsletter-left h3 {
+  font-weight: 700;
+  font-size: 24px;
+  margin: 0 0 8px 0;
+}
+
+.newsletter-left h2 {
+  font-weight: 700;
+  font-size: 36px;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.newsletter-left h2 span {
+  color: #DC3E25; /* 50% OFF highlight */
+}
+
+/* ------------ RIGHT COLUMN ------------ */
+.newsletter-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* Form container with inline layout */
+.newsletter-form {
+  display: flex;
+  width: 100%;
+  max-width: 520px;
+}
+
+/* Email Input */
+.newsletter-input {
+  flex: 1;
+  padding: 14px 20px;
+  font-size: 18px;
+  font-family: 'Montserrat', sans-serif;
+  border: 3px solid #381B1B;
+  border-radius: 999px 0 0 999px;   /* left corners rounded */
+  outline: none;
+  background-color: #FEFBF6;
+  color: #381B1B;
+}
+
+.newsletter-input::placeholder {
+  color: #7E7E7E;
+}
+
+/* Submit Button */
+.newsletter-submit {
+  padding: 14px 36px;
+  font-size: 24px;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  border: 3px solid #381B1B;
+  border-left: none;
+  border-radius: 0 999px 999px 0;  /* right corners rounded */
+  background-color: #F7C415;
+  color: #381B1B;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.newsletter-submit:hover {
+  background-color: #DC3E25;
+  color: #FEFBF6;
+  border-color: #DC3E25;
+}
+
+
+/* ================================
+   RESPONSIVE STYLES
+================================ */
+@media (max-width: 900px) {
+  .newsletter-cta {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .newsletter-left {
+    text-align: center;
+  }
+
+  .newsletter-right {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .newsletter-input {
+    font-size: 16px;
+  }
+
+  .newsletter-submit {
+    font-size: 20px;
+    padding: 14px 28px;
   }
 }
