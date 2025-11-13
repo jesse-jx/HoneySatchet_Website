@@ -125,12 +125,12 @@
 
 /* --- Right Column Area (Holds the slider) --- */
 .blog-feature-area {
-    width: 100%;
+    width: 1280px;
     position: relative; /* Fixes potential overflow issue */
 }
 /* --- Content Slider --- */
 .blog-content-viewport {
-    width: 100%;
+    width: 1280px;
     overflow: hidden; /* This clips the sliding content */
 }
 .blog-content-track {
