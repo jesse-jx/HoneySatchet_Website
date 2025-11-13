@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop Mīere</title>
+    <title>Mīere Manuka Honey - Shop | Mānuka Co. </title>
 
     <link rel="icon" type="image/x-icon" href="css/favicon/favicon.ico">
     <link
@@ -43,8 +43,8 @@
     <!-- SHOP -->
     <section class="shop-section">
         <div class="shop-header">
-            <h1>Shop</h1>
-            <h2>Find the perfect Mīere for you</h2>
+            <h1>Mānuka Co. Shop</h1>
+            <h2>Discover the Secret of Natural Healing with Mīere</h2>
         </div>
     </section>
 
@@ -52,28 +52,31 @@
     <section class="product-grid">
         <!-- Product 1 -->
         <div class="product-card">
-            <img src="css/imgs/ManukaCo_Miere.png" alt="Product 1">
+            <img src="css/imgs/ManukaCo_Miere.png" alt="Mīere Mini Boost">
             <div class="product-content">
-                <div class="product-title">Product 1</div>
-                <div class="product-desc">Description of product 1.</div>
+                <div class="product-title">Mīere Mini Boost (5)</div>
+                <div class="product-desc">A small starter pack for those exploring the healing benefits of Mīere for the
+                    first time.</div>
                 <button class="detail-button" onclick="window.location.href='shop-detail.html'">View Details</button>
             </div>
         </div>
         <!-- Product 2 -->
         <div class="product-card">
-            <img src="css/imgs/ManukaCo_Miere.png" alt="Product 2">
+            <img src="css/imgs/ManukaCo_Miere.png" alt="Mīere Power Pack">
             <div class="product-content">
-                <div class="product-title">Product 2</div>
-                <div class="product-desc">Description of product 2.</div>
+                <div class="product-title">Mīere Power Pack (12)</div>
+                <div class="product-desc">Ideal for those who incorporate Mīere into their regular health and recovery
+                    routines.</div>
                 <button class="detail-button" onclick="window.location.href='shop-detail.html'">View Details</button>
             </div>
         </div>
         <!-- Product 3 -->
         <div class="product-card">
-            <img src="css/imgs/ManukaCo_Miere.png" alt="Product 3">
+            <img src="css/imgs/ManukaCo_Miere.png" alt="Mīere Ultimate Recovery">
             <div class="product-content">
-                <div class="product-title">Product 3</div>
-                <div class="product-desc">Description of product 3.</div>
+                <div class="product-title">Mīere Ultimate Wellness (30)</div>
+                <div class="product-desc">Perfect for Mīere enthusiats committed to a healing lifestyle and sustained
+                    wellness.</div>
                 <button class="detail-button" onclick="window.location.href='shop-detail.html'">View Details</button>
             </div>
         </div>
@@ -111,6 +114,7 @@
                 <option value="lowestRating">Lowest Rating</option>
             </select>
         </div>
+        <div class="review-divider"></div>
 
         <!-- Reviews List -->
         <div id="reviewsContainer"></div>
@@ -125,84 +129,84 @@
         // Sample reviews data
         const reviews = [
             {
-                avatar: 'https://via.placeholder.com/60?text=A1',
-                name: 'Alice Johnson',
-                title: 'Great product!',
-                text: 'I really loved this product. It exceeded my expectations.',
-                date: '2023-10-01',
+                avatar: 'css/imgs/avatars/SaraT.jpg',
+                name: 'Sara T., Fitness Enthusiast',
+                title: 'Pre and post workout essential',
+                text: 'Mīere sachets are so convenient! I take one before my morning workout and another after. It helps reduce soreness and keeps me energized throughout the day.',
+                date: '2024-03-02',
                 rating: 5
             },
             {
-                avatar: 'https://via.placeholder.com/60?text=B2',
-                name: 'Bob Smith',
-                title: 'Good value',
-                text: 'Worth the price. Will buy again.',
-                date: '2023-09-28',
+                avatar: 'css/imgs/avatars/JonathanL.jpg',
+                name: 'Jonathan L., Gym Regular',
+                title: 'Love the portability!',
+                text: 'The portability is fantastic! I can just pop a sachet in my gym bag. The honey tastes pure and natural, and I feel it aids my recovery.',
+                date: '2024-05-08',
                 rating: 5
             },
             {
-                avatar: 'https://via.placeholder.com/60?text=C3',
-                name: 'Cathy Lee',
-                title: 'Not bad',
-                text: 'It works as described.',
-                date: '2023-09-20',
+                avatar: 'css/imgs/avatars/MeiLingP.jpg',
+                name: 'Mei Ling P., Wellness Seeker',
+                title: 'Natural energy boost',
+                text: 'Using Miere Manuka Honey pre-workout gives me a natural energy boost, and post-workout, it helps soothe my muscles naturally.',
+                date: '2024-09-10',
                 rating: 5
             },
             {
-                avatar: 'https://via.placeholder.com/60?text=D4',
-                name: 'David Kim',
-                title: 'Could be better',
-                text: 'The quality is average.',
-                date: '2023-08-15',
+                avatar: 'css/imgs/avatars/DanielK.jpg',
+                name: 'Daniel K., Busy Professional',
+                title: 'Perfect for after a run',
+                text: 'I love how easy it is to carry around. The sachets are discreet and mess-free, perfect after a quick workout or a run in the park.',
+                date: '2024-12-05',
                 rating: 5
             },
             {
-                avatar: 'https://via.placeholder.com/60?text=E5',
-                name: 'Eva Green',
-                title: 'Excellent!',
-                text: 'Absolutely loved it! Highly recommend.',
-                date: '2023-07-30',
+                avatar: 'css/imgs/avatars/AliciaS.jpg',
+                name: 'Alicia S., Health-Conscious Mom',
+                title: 'Healthy treat',
+                text: 'Mīere Manuka Honey is my go-to for boosting my immunity. The sachet makes it easy for me to give my kids a healthy treat on-the-go.',
+                date: '2025-01-15',
                 rating: 5
             },
             {
-                avatar: 'https://via.placeholder.com/60?text=F6',
-                name: 'Frank Turner',
-                title: 'Okay',
-                text: 'It’s okay, does the job.',
-                date: '2023-07-10',
+                avatar: 'css/imgs/avatars/WeiJunH.jpg',
+                name: 'Wei Jun H., Athlete',
+                title: 'Natural recovery',
+                text: 'After intense training, I take a sachet of Mīere honey. It’s natural, effective, and fits perfectly into my recovery routine.',
+                date: '2025-05-23',
                 rating: 5
             },
             {
-                avatar: 'https://via.placeholder.com/60?text=G7',
-                name: 'Grace Park',
-                title: 'Fantastic',
-                text: 'Will buy again!',
-                date: '2023-06-25',
+                avatar: 'css/imgs/avatars/RachelN.jpg',
+                name: 'Rachel N., Yoga Practitioner',
+                title: 'Convenient for traveling',
+                text: 'I add Mīere honey to my herbal tea post-yoga. The sachets are so convenient when I’m traveling or at the studio.',
+                date: '2025-07-16',
                 rating: 5
             },
             {
-                avatar: 'https://via.placeholder.com/60?text=H8',
-                name: 'Henry Ford',
-                title: 'Disappointed',
-                text: 'Did not meet my expectations.',
-                date: '2023-06-05',
-                rating: 5
-            },
-            {
-                avatar: 'https://via.placeholder.com/60?text=I9',
-                name: 'Ivy Chen',
-                title: 'Love it',
-                text: 'Great quality and fast shipping.',
-                date: '2023-05-20',
-                rating: 5
-            },
-            {
-                avatar: 'https://via.placeholder.com/60?text=J10',
-                name: 'John Doe',
-                title: 'Satisfactory',
-                text: 'It’s okay for the price.',
-                date: '2023-05-15',
+                avatar: 'css/imgs/avatars/SamuelG.jpg',
+                name: 'Samuel G., Weekend Hiker',
+                title: 'Quick energy booster',
+                text: 'On my hikes, I carry sachets of Mīere. It’s a quick energy booster and helps keep me feeling refreshed.',
+                date: '2025-09-21',
                 rating: 4
+            },
+            {
+                avatar: 'css/imgs/avatars/KarenY.jpg',
+                name: 'Karen Y., Fitness Coach',
+                title: 'Highly recommended!',
+                text: 'My clients love the portable sachets-they’re easy to recommend for muscle recovery and immune support.',
+                date: '2025-10-14',
+                rating: 5
+            },
+            {
+                avatar: 'css/imgs/avatars/LiamW.jpg',
+                name: 'Liam W., Active Senior',
+                title: 'Faster recovery',
+                text: 'Mīere honey helps me stay healthy and recover faster after my morning walks. The sachets are so practical.',
+                date: '2025-11-13',
+                rating: 5
             }
         ];
 
@@ -347,7 +351,13 @@
                     reviewWrapper.classList.add('hidden');
                 }
 
+                // Append the review wrapper
                 reviewsContainer.appendChild(reviewWrapper);
+
+                // Create and append a divider line after each review
+                const divider = document.createElement('hr');
+                divider.className = 'review-divider';
+                reviewsContainer.appendChild(divider);
             });
 
             // Show or hide "View More"

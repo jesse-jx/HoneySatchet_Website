@@ -35,6 +35,7 @@
 
 /* Product Card */
 .product-card {
+  width: 30vw;
   background-color: #EFE8DD;
   border: 3px solid #EFE8DD;
   border-radius: 10px;
@@ -53,6 +54,8 @@
   max-width: 100%;
   height: auto;
   object-fit: cover;
+  display: block;
+  margin: 0 auto;
 }
 
 .product-content {
@@ -60,6 +63,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  margin: 18px;
 }
 
 .product-title {
@@ -162,19 +166,21 @@
 
 .reviews-title {
   font-size: 24px;
-  font-weight: bold;
+  font-weight: 700;
   margin-bottom: 8px;
-}
-
-.average-rating {
-  font-size: 18px;
-  color: #381B1B;
 }
 
 .overall-stars {
   margin-bottom: 8px;
   display: flex;
   justify-content: center;
+}
+
+.average-rating {
+  font-size: 18px;
+  font-weight: 600;
+  color: #381B1B;
+  margin-bottom: 8px;
 }
 
 /* Sorting Dropdown */
@@ -285,6 +291,12 @@
 .star {
   font-size: 2em;
   color: #F7C415;
+}
+
+.review-divider {
+    border: none;
+    border-top: 1px solid #381B1B;
+    margin: 16px 0;
 }
 
 /* Buttons */
