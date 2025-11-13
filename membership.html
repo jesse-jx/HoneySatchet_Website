@@ -75,59 +75,54 @@
 
                         <!-- REMIND ME MODAL (hidden by default) -->
                         <div id="remindModal" role="dialog" aria-modal="true" style="display:none;position:fixed;left:0;top:0;width:100%;height:100%;align-items:center;justify-content:center;z-index:600;">
-    
-    <div class="modal-backdrop" id="modalBackdrop"></div>
+                        <div class="modal-backdrop" id="modalBackdrop"></div>
+                        <div class="modal-content">
+                            <div class="modal-left">
+                                <h2>Don't sleep on<br>these sweet deals!</h2>
+                            </div>
 
-    <div class="modal-content">
-        
-        <div class="modal-left">
-            <h2>Don't sleep on<br>these sweet deals!</h2>
-        </div>
+                            <div class="modal-right">
+                                <button class="modal-close" id="remindCancel" aria-label="Close modal">&times;</button>
+                                
+                                <p class="modal-lead">Join Club Miere for reminders and first dibs on:</p>
+                                <ul class="modal-list">
+                                    <li>Exclusive drops</li>
+                                    <li>Wellness tips</li>
+                                    <li>Monthly surprises</li>
+                                </ul>
+                                <p class="modal-sub-lead">to keep your energy steady and your mood light.</p>
+                                
+                                <div class="modal-form-group">
+                                    <input id="remindEmail" type="email" placeholder="Enter your email" />
+                                    <button id="remindSubmit" class="btn-modal-join">Join Now</button>
+                                </div>
 
-        <div class="modal-right">
-            <button class="modal-close" id="remindCancel" aria-label="Close modal">&times;</button>
-            
-            <p class="modal-lead">Join Club Miere for reminders and first dibs on:</p>
-            <ul class="modal-list">
-                <li>Exclusive drops</li>
-                <li>Wellness tips</li>
-                <li>Monthly surprises</li>
-            </ul>
-            <p class="modal-sub-lead">to keep your energy steady and your mood light.</p>
-            
-            <div class="modal-form-group">
-                <input id="remindEmail" type="email" placeholder="Enter your email" />
-                <button id="remindSubmit" class="btn-modal-join">Join Now</button>
-            </div>
+                                <div id="remindMsg"></div>
 
-            <div id="remindMsg"></div>
-
-            <div class="modal-perks">
-                <div class="modal-perk-item">
-                    <img src="css/imgs/ManukaCo_Gift_Brown.png" alt="Gift Icon">
-                    <span>Exclusive Birthday Treats</span>
-                </div>
-                <div class="modal-perk-item">
-                    <img src="css/imgs/ManukaCo_Clock_Brown.png" alt="Clock Icon">
-                    <span>Early Access Drops</span>
-                </div>
-                <div class="modal-perk-item">
-                    <img src="css/imgs/ManukaCo_Referral_Brown.png" alt="Referral Icon">
-                    <span>Referral & Reward</span>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</div>
-                    </div>
+                                <div class="modal-perks">
+                                    <div class="modal-perk-item">
+                                        <img src="css/imgs/ManukaCo_Gift_Brown.png" alt="Gift Icon">
+                                        <span>Exclusive Birthday Treats</span>
+                                    </div>
+                                    <div class="modal-perk-item">
+                                        <img src="css/imgs/ManukaCo_Clock_Brown.png" alt="Clock Icon">
+                                        <span>Early Access Drops</span>
+                                    </div>
+                                    <div class="modal-perk-item">
+                                        <img src="css/imgs/ManukaCo_Referral_Brown.png" alt="Referral Icon">
+                                        <span>Referral & Reward</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
                 </section>
                 
                 <!-- SIGNUP SECTION (Club Miere) -->
-                <section class="signup" aria-labelledby="club-heading">
+                <section class="signup" aria-labelledby="club-heading"> 
                     <div class="signup-inner">
                         <div class="signup-left">
-                            <h2 id="club-heading">Welcome to Club Miere, Where We Fuel Better Days Together.</h2>
+                            <h2 id="club-heading">Welcome to Club Miere, <br>Where We Fuel Better Days Together.</h2>
                             <p class="lead">You don’t need another app.</p>
                             <p class="lead">Join a community that knows balance isn’t a buzzword — it’s a lifestyle.</p>
 
@@ -159,18 +154,23 @@
                         </div>
                     </div>
                     
-                    <div class="signup-cta" role="region" aria-label="Membership CTA">
-                        <div class="left">Get a <strong>50% off welcome voucher</strong> and a monthly dose of wellness from Mānuka Co.</div>
-    
-                        <div class="cta-right-wrapper">
-                            <div class="right">
-                                <input id="mainEmail" class="email-input" type="email" placeholder="Enter your email" />
-                                <button id="joinNow" class="join-btn">Join Now</button>
-                            </div>
-                            <div id="signupSuccess" class="signup-success">Sign up success! Welcome to Club Miere.</div>
+                    <div class="newsletter-cta">
+                        <div class="newsletter-left">
+                            <h3>Join Our Newsletter,</h3>
+                            <h2>Get <span>50% OFF</span> First Order!</h2>
+                        </div>
+
+                        <div class="newsletter-right">
+                            <form class="newsletter-form" onsubmit="event.preventDefault();">
+                            <input 
+                                type="email" 
+                                placeholder="Enter your email" 
+                                class="newsletter-input"
+                            >
+                            <button type="submit" class="newsletter-submit">Submit</button>
+                            </form>
                         </div>
                     </div>
-                    <div id="signupSuccess" class="signup-success">Sign up success! Welcome to Club Miere.</div>
                 </section>
 
                 <!-- COMMUNITY CAROUSEL -->

@@ -183,7 +183,7 @@
             </div>
 
             <div class="founder-text">
-            <h2>Meet Charlotte, the Founder of Mīere</h2>
+            <h2>Meet Charlotte, the Founder of Mānuka Co.</h2>
             <p>
                 What began as a search for healing turned into a lifelong passion for genuine wellness.<br>
                 After discovering the power of true Manuka honey, Hana set out to make its benefits simple, accessible, and trustworthy for everyone. 
@@ -206,13 +206,13 @@
                 <img src="css/imgs/monthly-miere.jpg" alt="Delivery" />
             </div>
 
-            <h3 class="promo-title">Monthly Miere</h3>
+            <h3 class="promo-title">Monthly Mīere</h3>
 
             <hr class="promo-divider" />
 
             <p class="promo-text">
                 We're offering monthly subscriptions now! No more forgetting to restock
-                your Miere sachets.
+                your Mīere sachets.
             </p>
 
             <a href="shop.html" class="promo-btn">Shop Now</a>
@@ -235,7 +235,7 @@
                 to an exclusive 50% off voucher.
             </p>
 
-            <a href="#newsletter" class="promo-btn">Join Now</a>
+            <a href="#newsletter" class="promo-btn open-promo-modal">Join Now</a>
             </article>
 
             <!-- Card 3 -->
@@ -255,9 +255,8 @@
                 ones!
             </p>
 
-            <a href="#newsletter" class="promo-btn">Claim Voucher</a>
+            <a href="#newsletter" class="promo-btn open-promo-modal">Claim Voucher</a>
             </article>
-
         </div>
     </section>
 
@@ -272,11 +271,12 @@
             <!-- Row 2: Post Cards + Navigation -->
             <div class="socials-posts-wrapper">
                 <div class="socials-posts">
-                    <div class="social-post-card"><img src="css/imgs/Home_Review2.jpg" alt="Post 2"></div>
-                    <div class="social-post-card"><img src="css/imgs/Home_Review3.jpg" alt="Post 3"></div>
-                    <div class="social-post-card"><img src="css/imgs/Home_Review4.jpg" alt="Post 4"></div>
-                    <div class="social-post-card"><img src="css/imgs/Home_Review5.jpg" alt="Post 5"></div>
-                    <div class="social-post-card"><img src="css/imgs/Home_Review6.jpg" alt="Post 6"></div>
+                    <div class="social-post-card"><img src="css/imgs/socmed/ManuaCo_SharingHoney.png" alt="Post 2"></div>
+                    <div class="social-post-card"><img src="css/imgs/socmed/ManukaCo_Gamechanger.png" alt="Post 3"></div>
+                    <div class="social-post-card"><img src="css/imgs/socmed/ManukaCo_GymBag.png" alt="Post 4"></div>
+                    <div class="social-post-card"><img src="css/imgs/socmed/ManukaCo_HoneyPreWorkout.jpg" alt="Post 5"></div>
+                    <div class="social-post-card"><img src="css/imgs/socmed/ManukaCo_MiereHike.jpg" alt="Post 6"></div>
+                    <div class="social-post-card"><img src="css/imgs/socmed/ManukaCo_Pickleball.png" alt="Post 7"></div>
                 </div>
             </div>
 
@@ -293,38 +293,40 @@
 
     <section class="blog-section">
         <div class="blog-title socials-title">
-            <h2>From The Mīere Journal</h2>
+            <h2>From The Mīere Journal: The Buzz</h2>
         </div>
 
         <div class="blog-cards">
-            <article class="blog-card">
-            <div class="blog-card-inner">
-                <div class="blog-text">
-                <p class="blog-date">6 Nov 2025</p>
-                <h3 class="blog-heading">
-                    This Is The Title Of The Blog Maybe About Some Health Benefits
-                </h3>
+            <a href="blog-detail.html" class="blog-card-link">
+            <article class="blog-card blog-bg-1">
+                <div class="blog-card-inner">
+                    <div class="blog-text">
+                        <p class="blog-date">6 Nov 2025</p>
+                        <h3 class="blog-heading">
+                            The 7 AM Workout Dilemma: How to Fuel Your Flow Without Jitters
+                        </h3>
+                    </div>
                 </div>
-            </div>
             </article>
+            </a>
 
-            <article class="blog-card">
+            <article class="blog-card blog-bg-2">
             <div class="blog-card-inner">
                 <div class="blog-text">
                 <p class="blog-date">12 Oct 2025</p>
                 <h3 class="blog-heading">
-                    How Mīere Fits Into Your Pre-Workout Ritual
+                    More Than Sweet: 5 Science-Backed Benefits of Manuka Honey
                 </h3>
                 </div>
             </div>
             </article>
 
-            <article class="blog-card">
+            <article class="blog-card blog-bg-3">
             <div class="blog-card-inner">
                 <div class="blog-text">
                 <p class="blog-date">28 Sep 2025</p>
                 <h3 class="blog-heading">
-                    The Real Difference Between Manuka Grades (Explained Simply)
+                    What’s In My Bag: @cherylbfit Reveals Her Daily Necessities
                 </h3>
                 </div>
             </div>
@@ -396,6 +398,46 @@
             </div>
         </div>
     </footer>
+
+    <!-- === Promo Popup Modal === -->
+    <div id="promoModal" class="promo-modal" role="dialog" aria-modal="true">
+        <div class="promo-modal-backdrop" id="promoModalBackdrop"></div>
+
+        <div class="promo-modal-content">
+            <!-- CLOSE BUTTON -->
+            <button class="promo-modal-close" id="promoModalClose" aria-label="Close popup">
+                &times;
+            </button>
+
+            <!-- LEFT COLUMN -->
+            <div class="promo-modal-left">
+                <h2>Your Sweet Deal Awaits 🍯</h2>
+                <p>Join Club Miere and claim your voucher instantly.</p>
+            </div>
+
+            <!-- RIGHT COLUMN -->
+            <div class="promo-modal-right">
+                <p class="promo-modal-lead">Enter your email to unlock:</p>
+
+                <ul class="promo-modal-list">
+                    <li>Exclusive drops</li>
+                    <li>First-dibs access</li>
+                    <li>Member-only deals</li>
+                </ul>
+
+                <form class="newsletter-form" onsubmit="event.preventDefault();">
+                <input 
+                    type="email" 
+                    placeholder="Enter your email" 
+                    class="newsletter-input"
+                >
+                <button type="submit" class="newsletter-submit">Submit</button>
+                </form>
+
+                <div id="promoMsg"></div>
+            </div>
+        </div>
+    </div>
 
     <!-- JavaScript for Mobile Menu Toggle -->
     <script>
@@ -536,5 +578,26 @@
     animate();
     });
     </script>
+
+    <script>
+    // Buttons that should open the promo modal
+    document.querySelectorAll('.promo-btn.open-promo-modal').forEach(btn => {
+    btn.addEventListener('click', e => {
+        e.preventDefault(); // stop jumping
+        document.getElementById('promoModal').style.display = 'flex';
+    });
+    });
+
+    // Close button
+    document.getElementById('promoModalClose').addEventListener('click', () => {
+    document.getElementById('promoModal').style.display = 'none';
+    });
+
+    // Click outside modal
+    document.getElementById('promoModalBackdrop').addEventListener('click', () => {
+    document.getElementById('promoModal').style.display = 'none';
+    });
+    </script>
+
 </body>
 </html>
