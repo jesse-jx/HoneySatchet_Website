@@ -98,6 +98,12 @@
     gap: 40px;
   }
 
+  .landing-hero-wrapper{
+  flex-direction: column;
+    text-align: center;
+    gap: 40px;
+}
+
   .hero-left {
     max-width: 80%;
   }
