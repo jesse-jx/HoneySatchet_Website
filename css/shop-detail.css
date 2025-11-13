@@ -161,6 +161,13 @@
   border-color: #DC3E25;
 }
 
+.cta-action {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
 /* Tabs (Benefits & Ingredients) */
 .tabs {
   display: flex;

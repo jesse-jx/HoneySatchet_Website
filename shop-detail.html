@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mīere</title>
+    <title>Mīere Natural Healing Manuka Honey | Mānuka Co. </title>
 
     <link rel="icon" type="image/x-icon" href="css/favicon/favicon.ico">
     <link
@@ -49,7 +49,7 @@
                 <!-- Images will be inserted here -->
             </div>
             <button class="arrow right" id="nextBtn" aria-label="Next">&#8594;</button>
-            <div class="indicator" id="slideIndicator">1 / 3</div>
+            <div class="indicator" id="slideIndicator">1 / 4</div>
         </div>
 
         <!-- Product Details Section -->
@@ -57,8 +57,6 @@
             <div class="product-title" id="productName">Product Name</div>
             <div class="product-subtitle" id="productSubtitle">Product Subtitle</div>
             <div class="product-description" id="productDescription">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua.
             </div>
 
             <!-- Quantity Options -->
@@ -68,8 +66,14 @@
 
             <!-- Price and Buy Button -->
             <div class="purchase-section">
-                <div class="price" id="price">$0.00</div>
-                <button class="buy-button" id="buyBtn">Buy Now</button>
+                <div class="price" id="price">$9.90</div>
+                <div class="cta-action">
+                    <a href="https://shopee.sg/Forest-Fresh-Jarrah-Honey-Sachet-TA-35-13g-Honey-on-the-Go-i.250686849.19491848010"
+                        class="buy-button" target="_blank" rel="noopener noreferrer">
+                        Buy Now on Shopee
+                        <img src="css/icons/arrow.svg" alt="Arrow Icon">
+                    </a>
+                </div>
             </div>
 
             <!-- Tabs -->
@@ -87,31 +91,43 @@
         // Sample Data
         const productData = {
             images: [
-                'css/imgs/ManukaCo_Miere.png',
-                'css/imgs/ManukaCo_Miere.png',
-                'css/imgs/ManukaCo_Miere.png'
+                'css/imgs/product/miere5.png',
+                'css/imgs/product/miere12.png',
+                'css/imgs/product/miere30.png',
+                'css/imgs/product/pack.jpg'
             ],
-            name: 'Super Healthy Supplement',
-            subtitle: 'Boost your wellness',
-            description: 'This supplement helps improve your health and energy levels. Made from natural ingredients and suitable for daily use.',
+            name: 'Mīere Manuka Honey',
+            subtitle: 'Discover the Natural Healing Power of Manuka Honey with Mīere by Mānuka Co.',
+            description: 'Are you a fitness enthusiast or health-conscious individual seeking a natural way to boost recovery and wellness? Mānuka Co.\'s premium Mīere Manuka honey is designed with your active lifestyle in mind. Our innovative sachet packaging combines the healing potency of genuine Manuka honey with unmatched portability, making it your ideal partner for pre- and post-workout recovery anywhere, anytime.',
             quantities: [{
-                label: 'Small',
-                price: '$9.99',
-                sachets: 10
+                label: 'Mini Boost',
+                price: '$9.90',
+                sachets: 5
             },
             {
-                label: 'Medium',
-                price: '$19.99',
-                sachets: 20
+                label: 'Power Pack',
+                price: '$17.90',
+                sachets: 12
             },
             {
                 label: 'Large',
-                price: '$29.99',
+                price: '$29.90',
                 sachets: 30
             },
             ],
-            benefits: 'Benefits include increased energy, better sleep, and improved immunity.',
-            ingredients: 'Ingredients include vitamins, minerals, and herbal extracts.'
+            benefits: `
+                <ul>
+                <li>Natural Healing & Recovery: Supports immune health, reduces inflammation, and accelerates muscle recovery naturally.</li>
+                <li>Portable Sachet Design: Convenient, mess-free, and perfect for on-the-go lifestyles—slip a sachet into your gym bag, pocket, or purse.</li>
+                <li>Versatile Use: Enjoy directly, add to tea, or blend into smoothies—easy to incorporate into your daily routine.</li>
+                </ul>
+                `,
+            ingredients: `
+                <ul>
+                <li>Authentic, High-Quality Manuka Honey</li>
+                <li>Sourced from pristine New Zealand fields, our honey boasts a high Unique Manuka Factor (UMF), ensuring maximum healing benefits.</li>
+                </ul>
+                `,
         };
 
         // Carousel Logic
@@ -215,11 +231,12 @@
             tab.classList.add('active');
             const selectedTab = tab.getAttribute('data-tab');
             if (selectedTab === 'benefits') {
-                tabContent.textContent = productData.benefits;
+                tabContent.innerHTML = productData.benefits;
             } else if (selectedTab === 'ingredients') {
-                tabContent.textContent = productData.ingredients;
+                tabContent.innerHTML = productData.ingredients;
             }
         }
+
 
         tabs.forEach(tab => {
             tab.addEventListener('click', () => {
@@ -243,29 +260,28 @@
             <div class="indicator" id="testimonialSlideIndicator">1 / 3</div>
         </div>
     </section>
-    
+
     <script>
         // Sample testimonials data
         const testimonials = [
             {
-                picture: 'https://via.placeholder.com/80?text=A1',
-                name: 'Alice Johnson',
-                quote: 'This product exceeded my expectations!',
+                picture: 'css/imgs/avatars/WeiJunH.jpg',
+                name: 'Wei Jun H., Athlete',
+                quote: 'After intense training, I take a sachet of Mīere honey. It’s natural, effective, and fits perfectly into my recovery routine.',
                 rating: 5
             },
             {
-                picture: 'https://via.placeholder.com/80?text=B2',
-                name: 'Bob Smith',
-                quote: 'Highly recommend to everyone.',
-                rating: 4
-            },
-            {
-                picture: 'https://via.placeholder.com/80?text=C3',
-                name: 'Cathy Lee',
-                quote: 'Good quality and fast shipping.',
+                picture: 'css/imgs/avatars/KarenY.jpg',
+                name: 'Karen Y., Fitness Coach',
+                quote: 'My clients love the portable sachets-they’re easy to recommend for muscle recovery and immune support.',
                 rating: 5
             },
-            // Add more testimonials as needed
+            {
+                picture: 'css/imgs/avatars/SaraT.jpg',
+                name: 'Sara T., Fitness Enthusiast',
+                quote: 'Mīere sachets are so convenient! I take one before my morning workout and another after. It helps reduce soreness and keeps me energized throughout the day.',
+                rating: 5
+            },
         ];
 
         const testimonialContainer = document.getElementById('testimonialCarousel');
