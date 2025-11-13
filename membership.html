@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Club Miere - Membership| Manuka Co.</title>
-        <link rel="icon" type="image/x-icon" href="css/imgs/favicon.ico">
+        <link rel="icon" type="image/x-icon" href="css/favicon/favicon.ico">
         <!--Import font style-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -82,7 +82,6 @@
         
         <div class="modal-left">
             <h2>Don't sleep on<br>these sweet deals!</h2>
-            <img src="css/imgs/ManukaCo_SweetDeals.jpg" alt="Miere Sachet Modal Image">
         </div>
 
         <div class="modal-right">
@@ -105,15 +104,15 @@
 
             <div class="modal-perks">
                 <div class="modal-perk-item">
-                    <img src="css/imgs/ManukaCo_Gift_Dark.png" alt="Gift Icon">
+                    <img src="css/imgs/ManukaCo_Gift_Brown.png" alt="Gift Icon">
                     <span>Exclusive Birthday Treats</span>
                 </div>
                 <div class="modal-perk-item">
-                    <img src="css/imgs/ManukaCo_Clock_Dark.png" alt="Clock Icon">
+                    <img src="css/imgs/ManukaCo_Clock_Brown.png" alt="Clock Icon">
                     <span>Early Access Drops</span>
                 </div>
                 <div class="modal-perk-item">
-                    <img src="css/imgs/ManukaCo_Referral_Dark.png" alt="Referral Icon">
+                    <img src="css/imgs/ManukaCo_Referral_Brown.png" alt="Referral Icon">
                     <span>Referral & Reward</span>
                 </div>
             </div>
@@ -162,9 +161,13 @@
                     
                     <div class="signup-cta" role="region" aria-label="Membership CTA">
                         <div class="left">Get a <strong>50% off welcome voucher</strong> and a monthly dose of wellness from Mānuka Co.</div>
-                        <div class="right">
-                            <input id="mainEmail" class="email-input" type="email" placeholder="Enter your email" />
-                            <button id="joinNow" class="join-btn">Join Now</button>
+    
+                        <div class="cta-right-wrapper">
+                            <div class="right">
+                                <input id="mainEmail" class="email-input" type="email" placeholder="Enter your email" />
+                                <button id="joinNow" class="join-btn">Join Now</button>
+                            </div>
+                            <div id="signupSuccess" class="signup-success">Sign up success! Welcome to Club Miere.</div>
                         </div>
                     </div>
                     <div id="signupSuccess" class="signup-success">Sign up success! Welcome to Club Miere.</div>
@@ -298,13 +301,13 @@
             email = mainEmail.value.trim();
             if(!email || !email.includes('@')) {
                 signupSuccess.style.display='block';
-                signupSuccess.style.color='#FFC8C8';
+                signupSuccess.style.color='#DC3E25';
                 signupSuccess.innerText='Please enter a valid email.';
                 return;
             }
             // simulate sending subscription -> show success msg
             signupSuccess.style.display='block';
-            signupSuccess.style.color='#D5F6D6';
+            signupSuccess.style.color='#1A8D1A';
             signupSuccess.innerText='Sign up success! Welcome to Club Miere.';
             // clear after a while (optionally)
             setTimeout(()=> {
