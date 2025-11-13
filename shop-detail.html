@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop Mīere</title>
+    <title>Mīere</title>
+
     <link rel="icon" type="image/x-icon" href="css/favicon/favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
     <link href="" rel="stylesheet">
     <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/shop-detail.css">
 </head>
 
 <body>
+    <!-- HEADER -->
     <header class="navbar">
         <div class="logo">
             <a href="index.html">
@@ -34,6 +40,344 @@
         </div>
     </header>
 
+    <!-- PRODUCT SECTION -->
+    <section class="product-section">
+        <!-- Carousel Section -->
+        <div class="carousel-container" id="carouselContainer">
+            <button class="arrow left" id="prevBtn" aria-label="Previous">&#8592;</button>
+            <div class="carousel" id="carousel">
+                <!-- Images will be inserted here -->
+            </div>
+            <button class="arrow right" id="nextBtn" aria-label="Next">&#8594;</button>
+            <div class="indicator" id="slideIndicator">1 / 3</div>
+        </div>
+
+        <!-- Product Details Section -->
+        <div class="details">
+            <div class="product-title" id="productName">Product Name</div>
+            <div class="product-subtitle" id="productSubtitle">Product Subtitle</div>
+            <div class="product-description" id="productDescription">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua.
+            </div>
+
+            <!-- Quantity Options -->
+            <div class="quantities" id="quantities">
+                <!-- Options will be inserted here -->
+            </div>
+
+            <!-- Price and Buy Button -->
+            <div class="purchase-section">
+                <div class="price" id="price">$0.00</div>
+                <button class="buy-button" id="buyBtn">Buy Now</button>
+            </div>
+
+            <!-- Tabs -->
+            <div class="tabs">
+                <div class="tab active" data-tab="benefits">Benefits</div>
+                <div class="tab" data-tab="ingredients">Ingredients</div>
+            </div>
+            <div class="tab-content" id="tabContent">
+                <!-- Content will be inserted here -->
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Sample Data
+        const productData = {
+            images: [
+                'css/imgs/ManukaCo_Miere.png',
+                'css/imgs/ManukaCo_Miere.png',
+                'css/imgs/ManukaCo_Miere.png'
+            ],
+            name: 'Super Healthy Supplement',
+            subtitle: 'Boost your wellness',
+            description: 'This supplement helps improve your health and energy levels. Made from natural ingredients and suitable for daily use.',
+            quantities: [{
+                label: 'Small',
+                price: '$9.99',
+                sachets: 10
+            },
+            {
+                label: 'Medium',
+                price: '$19.99',
+                sachets: 20
+            },
+            {
+                label: 'Large',
+                price: '$29.99',
+                sachets: 30
+            },
+            ],
+            benefits: 'Benefits include increased energy, better sleep, and improved immunity.',
+            ingredients: 'Ingredients include vitamins, minerals, and herbal extracts.'
+        };
+
+        // Carousel Logic
+        const carousel = document.getElementById('carousel');
+        const slideIndicator = document.getElementById('slideIndicator');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        let currentSlide = 0;
+        const totalSlides = productData.images.length;
+
+        // Populate carousel images
+        productData.images.forEach(src => {
+            const img = document.createElement('img');
+            img.src = src;
+            carousel.appendChild(img);
+        });
+
+        // Function to update carousel position
+        function updateCarousel() {
+            const containerWidth = document.querySelector('.carousel-container').offsetWidth;
+            carousel.style.transform = `translateX(-${currentSlide * containerWidth}px)`;
+            slideIndicator.textContent = `${currentSlide + 1} / ${totalSlides}`;
+        }
+
+        // Resize handler to adjust slide position
+        window.addEventListener('resize', updateCarousel);
+
+        // Initial positioning
+        window.addEventListener('load', () => {
+            updateCarousel();
+            updateArrows();
+        });
+
+        // Arrow button event listeners
+        prevBtn.addEventListener('click', () => {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateCarousel();
+                updateArrows();
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+            } else {
+                // Loop back to the first slide
+                currentSlide = 0;
+            }
+            updateCarousel();
+            updateArrows();
+        });
+
+        // Update arrow visibility
+        function updateArrows() {
+            // Optional: keep arrows visible at all times for looping, or hide at boundaries
+            // For looping, we can keep arrows always visible
+            prevBtn.style.display = 'block';
+            nextBtn.style.display = 'block';
+        }
+
+        // Initialize arrows
+        updateArrows();
+
+        // Product Details
+        document.getElementById('productName').textContent = productData.name;
+        document.getElementById('productSubtitle').textContent = productData.subtitle;
+        document.getElementById('productDescription').textContent = productData.description;
+
+        // Quantity Options
+        const quantitiesContainer = document.getElementById('quantities');
+        let selectedQuantityIndex = 0;
+
+        productData.quantities.forEach((q, index) => {
+            const div = document.createElement('div');
+            div.className = 'quantity-option' + (index === 0 ? ' selected' : '');
+            div.innerHTML = `${q.label}<br><small>Sachets: ${q.sachets}</small>`;
+            div.addEventListener('click', () => {
+                // Deselect previous
+                Array.from(quantitiesContainer.children).forEach((child, i) => {
+                    child.classList.toggle('selected', i === index);
+                });
+                selectedQuantityIndex = index;
+                document.getElementById('price').textContent = q.price;
+            });
+            quantitiesContainer.appendChild(div);
+        });
+
+        // Set initial price
+        document.getElementById('price').textContent = productData.quantities[0].price;
+
+        // Tabs logic
+        const tabs = document.querySelectorAll('.tab');
+        const tabContent = document.getElementById('tabContent');
+
+        function setActiveTab(tab) {
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            const selectedTab = tab.getAttribute('data-tab');
+            if (selectedTab === 'benefits') {
+                tabContent.textContent = productData.benefits;
+            } else if (selectedTab === 'ingredients') {
+                tabContent.textContent = productData.ingredients;
+            }
+        }
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                setActiveTab(tab);
+            });
+        });
+
+        // Initialize tab content
+        setActiveTab(document.querySelector('.tab.active'));
+    </script>
+
+    <!-- CUSTOMER TESTIMONIALS SECTION -->
+    <section class="testimonials-section">
+        <!-- Carousel Container -->
+        <div class="testimonial-carousel-container" id="testimonialCarouselContainer">
+            <button class="arrow left" id="testimonialPrevBtn" aria-label="Previous">&#8592;</button>
+            <div class="testimonial-carousel" id="testimonialCarousel">
+                <!-- Testimonials will be inserted here -->
+            </div>
+            <button class="arrow right" id="testimonialNextBtn" aria-label="Next">&#8594;</button>
+            <div class="indicator" id="testimonialSlideIndicator">1 / 3</div>
+        </div>
+    </section>
+    <script>
+        // Sample testimonials data
+        const testimonials = [
+            {
+                picture: 'https://via.placeholder.com/80?text=A1',
+                name: 'Alice Johnson',
+                quote: 'This product exceeded my expectations!',
+                rating: 5
+            },
+            {
+                picture: 'https://via.placeholder.com/80?text=B2',
+                name: 'Bob Smith',
+                quote: 'Highly recommend to everyone.',
+                rating: 4
+            },
+            {
+                picture: 'https://via.placeholder.com/80?text=C3',
+                name: 'Cathy Lee',
+                quote: 'Good quality and fast shipping.',
+                rating: 5
+            },
+            // Add more testimonials as needed
+        ];
+
+        const testimonialContainer = document.getElementById('testimonialCarousel');
+        const testimonialSlideIndicator = document.getElementById('testimonialSlideIndicator');
+        const testimonialPrevBtn = document.getElementById('testimonialPrevBtn');
+        const testimonialNextBtn = document.getElementById('testimonialNextBtn');
+
+        let currentTestimonialIndex = 0;
+        const totalTestimonials = testimonials.length;
+
+        // Populate testimonials
+        testimonials.forEach((t) => {
+            const slideDiv = document.createElement('div');
+            slideDiv.className = 'testimonial-slide';
+
+            const cardDiv = document.createElement('div');
+            cardDiv.className = 'testimonial-card';
+
+            // Content inside card
+            const contentDiv = document.createElement('div');
+            contentDiv.className = 'testimonial-content';
+
+            // Picture section
+            const pictureDiv = document.createElement('div');
+            pictureDiv.className = 'testimonial-picture';
+            const img = document.createElement('img');
+            img.src = t.picture;
+            img.alt = t.name;
+            pictureDiv.appendChild(img);
+
+            // Info section
+            const infoDiv = document.createElement('div');
+            infoDiv.className = 'testimonial-info';
+
+            // Star rating
+            const starsDiv = document.createElement('div');
+            starsDiv.className = 'star-rating';
+            starsDiv.innerHTML = generateStars(t.rating);
+
+            // Name
+            const nameDiv = document.createElement('div');
+            nameDiv.className = 'testimonial-name';
+            nameDiv.textContent = t.name;
+
+            // Quote
+            const quoteDiv = document.createElement('div');
+            quoteDiv.className = 'testimonial-quote';
+            quoteDiv.textContent = `"${t.quote}"`;
+
+            infoDiv.appendChild(starsDiv);
+            infoDiv.appendChild(nameDiv);
+            infoDiv.appendChild(quoteDiv);
+
+            contentDiv.appendChild(pictureDiv);
+            contentDiv.appendChild(infoDiv);
+
+            cardDiv.appendChild(contentDiv);
+            slideDiv.appendChild(cardDiv);
+            testimonialContainer.appendChild(slideDiv);
+        });
+
+        // Helper function to generate star icons
+        function generateStars(rating) {
+            let starsHTML = '';
+            for (let i = 1; i <= 5; i++) {
+                starsHTML += i <= rating ? '★' : '☆';
+            }
+            return starsHTML;
+        }
+
+        // Function to update carousel position
+        function updateTestimonialSlide() {
+            const containerWidth = document.querySelector('.testimonial-carousel-container').offsetWidth;
+            testimonialContainer.style.transform = `translateX(-${currentTestimonialIndex * containerWidth}px)`;
+            document.getElementById('testimonialSlideIndicator').textContent = `${currentTestimonialIndex + 1} / ${totalTestimonials}`;
+        }
+
+        // Event listeners
+        testimonialPrevBtn.addEventListener('click', () => {
+            if (currentTestimonialIndex > 0) {
+                currentTestimonialIndex--;
+                updateTestimonialSlide();
+            }
+        });
+        testimonialNextBtn.addEventListener('click', () => {
+            if (currentTestimonialIndex < totalTestimonials - 1) {
+                currentTestimonialIndex++;
+                updateTestimonialSlide();
+            } else {
+                // Loop back to first
+                currentTestimonialIndex = 0;
+                updateTestimonialSlide();
+            }
+        });
+
+        // Resize handler
+        window.addEventListener('resize', updateTestimonialSlide);
+
+        // Initialize
+        window.addEventListener('load', () => {
+            updateTestimonialSlide();
+        });
+    </script>
+
+    <!-- CERTIFICATIONS BANNER -->
+    <section class="certs-logos-banner">
+        <img src="css/imgs/certs/umf.png" alt="UMF Honey Association License" class="certs-logo" />
+        <img src="css/imgs/certs/haccp.png" alt="HACCP Certified" class="certs-logo" />
+        <img src="css/imgs/certs/mpi.png" alt="New Zealand MPI Registered Exporter" class="certs-logo" />
+        <img src="css/imgs/certs/medsafe.png" alt="New Zealand Ministry of Health GMP Certificate" class="certs-logo" />
+        <img src="css/imgs/certs/tga.png" alt="Australian TGA GMP Certificate" class="certs-logo" />
+        <img src="css/imgs/certs/fianz-halal.png" alt="FIANZ Halal Certified" class="certs-logo" />
+    </section>
+
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="footer-top">
             <div class="footer-col footer-brand">
@@ -83,9 +427,10 @@
         const navLinks = document.querySelector('.nav-links');
 
         menu.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        menu.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            menu.classList.toggle('active');
         });
     </script>
 </body>
+
 </html>
