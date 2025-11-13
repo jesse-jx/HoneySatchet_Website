@@ -130,7 +130,7 @@
 }
 /* --- Content Slider --- */
 .blog-content-viewport {
-    width: 1280px;
+    width: 100%;
     overflow: hidden; /* This clips the sliding content */
 }
 .blog-content-track {
