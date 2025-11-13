@@ -9,7 +9,26 @@
 .blog-container {
     max-width: 1280px;
     margin: 0 auto;
-    padding: 20px 0; /* No horizontal padding on the container itself */
+    padding: 20px 0;
+}
+
+/* --- NEW: Return Button Style --- */
+.btn-return {
+    display: inline-block;
+    margin: 10px 0 10px var(--blog-margin-x);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--deep-brown);
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+.btn-return:hover {
+    opacity: 1;
 }
 
 /* --- Blog Header --- */
@@ -61,7 +80,7 @@
 /* --- Main Layout --- */
 .blog-layout-wrapper {
     display: grid;
-    /* Two-column layout: 280px left, 1fr right */
+    /* This is the default 2-column layout for blog.html */
     grid-template-columns: 280px 1fr;
     gap: 48px;
     padding: 40px var(--blog-margin-x);
@@ -127,50 +146,63 @@
     object-fit: cover;
 }
 
-/* --- Collapsed Article State --- */
+/* --- Collapsed/Full Article State --- */
+
+/* FIXED: This CSS syntax was nested incorrectly. */
 .article-content-wrapper {
     position: relative;
-    /* This contains the full article text */
-    .article-content-preview {
-        max-height: 120px; /* This collapses the article */
-        overflow: hidden;
-        transition: max-height 0.6s ease-in-out;
-    }
-    /* The gradient fade */
-    .read-more-fade {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 100px;
-        background: linear-gradient(180deg, rgba(254, 251, 246, 0) 0%, var(--bg-cream) 100%);
-        transition: opacity 0.3s ease;
-    }
+}
+/* This is for blog.html */
+.article-content-wrapper .article-content-preview {
+    max-height: 120px;
+    overflow: hidden;
+    transition: max-height 0.6s ease-in-out;
+}
+/* This is for blog-detail.html */
+.article-content-wrapper .article-content-full {
+    max-height: none; /* Shows full content */
+}
+/* This is the gradient for blog.html */
+.article-content-wrapper .read-more-fade {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(180deg, rgba(254, 251, 246, 0) 0%, var(--bg-cream) 100%);
+    transition: opacity 0.3s ease;
 }
 
-/* Article Typography */
+/* Article Typography (Shared) */
 .article-content-preview p,
-.article-content-preview li {
+.article-content-preview li,
+.article-content-full p,
+.article-content-full li {
     font-size: 18px;
     line-height: 1.7;
     margin-bottom: 20px;
     font-family: 'Open Sans', sans-serif;
 }
-.article-content-preview h3 {
+.article-content-preview h3,
+.article-content-full h3 {
     font-family: 'Montserrat', sans-serif;
     font-size: 28px;
     font-weight: 700;
     margin: 40px 0 15px;
 }
 .article-content-preview ol,
-.article-content-preview ul {
+.article-content-preview ul,
+.article-content-full ol,
+.article-content-full ul {
     padding-left: 30px;
 }
-.article-content-preview li {
+.article-content-preview li,
+.article-content-full li {
     margin-bottom: 10px;
 }
 
-/* Read More Button */
+/* Read More Button (for blog.html) */
+/* This can be an <a> tag styled as a button */
 .btn-read-more {
     display: block;
     width: 160px;
@@ -181,10 +213,12 @@
     border-radius: 30px;
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
-    font-weight: 700;
+    font-weight: 800;
     color: var(--deep-brown);
     cursor: pointer;
     transition: all 0.3s ease;
+    text-align: center;
+    text-decoration: none;
 }
 .btn-read-more:hover {
     background-color: #DC3E25;
@@ -192,9 +226,9 @@
     border-color: #DC3E25;
 }
 
-/* --- Bottom "Next Grid" (Hidden by default) --- */
+/* --- Bottom "Next Grid" --- */
 .blog-next-grid {
-    display: none; /* Hidden by default */
+    display: none; /* Hidden by default on blog.html */
     grid-template-columns: 1fr 1fr 1fr;
     gap: 30px;
     padding: 40px var(--blog-margin-x);
@@ -221,31 +255,28 @@
 }
 
 /* ==========================================================================
-   EXPANDED STATE (Triggered by JS)
+   BLOG DETAIL PAGE OVERRIDES
    ========================================================================== */
 
-body.is-expanded .blog-layout-wrapper {
-    /* Change to a single column to center the article */
+/* This class is on the <body> of blog-detail.html */
+
+.page-blog-detail .blog-layout-wrapper {
+    /* Change to a single column */
     grid-template-columns: 1fr;
 }
-body.is-expanded .blog-previous {
-    /* Hide the left column */
+.page-blog-detail .blog-previous {
+    /* Hide the left "Previous" column */
     display: none;
 }
-body.is-expanded .article-content-preview {
-    /* Expand the article */
-    max-height: 5000px; /* A large number to allow full expansion */
-}
-body.is-expanded .read-more-fade {
+.page-blog-detail .read-more-fade {
     /* Hide the gradient */
-    opacity: 0;
-    pointer-events: none;
+    display: none;
 }
-body.is-expanded .btn-read-more {
+.page-blog-detail .btn-read-more {
     /* Hide the "Read More" button */
     display: none;
 }
-body.is-expanded .blog-next-grid {
+.page-blog-detail .blog-next-grid {
     /* Show the bottom 3-column grid */
     display: grid;
     opacity: 1;
@@ -260,6 +291,10 @@ body.is-expanded .blog-next-grid {
         --blog-margin-x: 24px; /* Reduce page padding for mobile */
     }
 
+    .btn-return {
+        margin: 10px 0 10px var(--blog-margin-x);
+    }
+
     .blog-header h1 {
         font-size: 40px;
     }
@@ -268,16 +303,16 @@ body.is-expanded .blog-next-grid {
     }
     .blog-subnav {
         gap: 12px;
-        justify-content: space-around; /* Better spacing on mobile */
+        justify-content: space-around;
     }
     .subnav-link {
         font-size: 14px;
     }
 
-    /* --- Stacked Layout for Mobile --- */
+    /* --- Stacked Layout for Mobile (Both pages) --- */
     .blog-layout-wrapper {
         display: flex;
-        flex-direction: column; /* Stack columns vertically */
+        flex-direction: column;
         gap: 40px;
         padding-top: 30px;
     }
@@ -301,16 +336,19 @@ body.is-expanded .blog-next-grid {
         font-size: 18px;
     }
     .article-content-preview p,
-    .article-content-preview li {
+    .article-content-preview li,
+    .article-content-full p,
+    .article-content-full li {
         font-size: 16px;
     }
-    .article-content-preview h3 {
+    .article-content-preview h3,
+    .article-content-full h3 {
         font-size: 24px;
     }
 
-    /* --- Bottom Grid on Mobile --- */
+    /* --- Bottom Grid on Mobile (Both pages) --- */
     .blog-next-grid {
-        grid-template-columns: 1fr; /* Stack the 3 "Next" articles */
+        grid-template-columns: 1fr;
         gap: 24px;
     }
     .next-article-item {
