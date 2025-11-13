@@ -219,8 +219,9 @@
   display: flex;
   background-color: #EFE8DD;
   border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  height: 250px; /* Adjust as needed */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  height: 250px;
+  /* Adjust as needed */
   overflow: hidden;
 }
 
@@ -281,6 +282,7 @@
 #testimonialPrevBtn {
   left: 10px;
 }
+
 #testimonialNextBtn {
   right: 10px;
 }
@@ -289,7 +291,7 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   border: none;
   color: #FEFBF6;
   font-size: 24px;
@@ -312,7 +314,7 @@
   width: 100%;
   text-align: center;
   font-size: 14px;
-  background: rgba(0,0,0,0.3);
+  background: rgba(0, 0, 0, 0.3);
   color: #FEFBF6;
   padding: 2px 0;
   display: none;
@@ -348,15 +350,18 @@
 
 /* RESPONSIVE ADJUSTMENTS */
 @media(max-width: 768px) {
+
   /* Product Section */
   .product-section {
     flex-direction: column;
   }
+
   .carousel-container,
   .details {
     max-width: 100%;
     flex: 1 1 100%;
   }
+
   /* Purchase section stacks vertically */
   .purchase-section {
     flex-direction: column;
@@ -365,6 +370,7 @@
 
   /* Testimonials */
   .testimonial-card {
-    height: auto; /* Allow height to adjust on smaller screens */
+    height: auto;
+    /* Allow height to adjust on smaller screens */
   }
 }
