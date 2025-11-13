@@ -113,7 +113,7 @@
 .signup {
     background:var(--deep-brown);
     color:var(--bg-cream);
-    padding: 0 0 1px 0;
+    padding: 0;
 }
 
 .signup-inner {
@@ -237,15 +237,19 @@
     display:flex;
     gap:0; 
     align-items:center;
-    border: 4px solid var(--deep-brown);
+    border: 3px solid var(--deep-brown);
     border-radius: 50px; /* Fully rounded container */
     overflow: hidden; /* Clips the input/button inside the rounded shape */
+}
+/* This new wrapper holds the form AND the message */
+.cta-right-wrapper {
+  position: relative; /* This is now the positioning anchor */
 }
 .email-input {
     padding: 12px 16px;
     border: none;
     min-width: 280px;
-    font-size: 16px;
+    font-size: 17px;
     outline: none;
     background: var(--bg-cream);
 }
@@ -261,12 +265,173 @@
     cursor: pointer;
 }
 .signup-success {
-    color: var(--accent-gold);
-    margin-top: 15px;
-    font-size:13px;
-    display:none;
-    position-left: var(--margin-x); 
-    bottom: -10px; /* Adjust positioning if needed relative to the banner */
+    position: absolute;   /* Positions it relative to the new wrapper */
+    top: 100%;            /* Places it right below the form container */
+    left: 0;              /* Aligns it to the left of the form */
+    margin-top: 6px;      /* Adds a small gap, just like the screenshot */
+    
+    /* Styling */
+    font-size: 13px;
+    font-weight: 600;
+    color: #DC3E25; 
+    display: none;
+}
+
+/*Modal popup*/
+.modal-backdrop {
+    background: rgba(0,0,0,0.45);
+    position: absolute;
+    inset: 0;
+}
+
+.modal-content {
+    display: grid;
+    grid-template-columns: 320px 1fr; /* Two columns */
+    width: 100%;
+    max-width: 800px; /* Max width of the modal */
+    background: var(--bg-cream);
+    border-radius: 12px;
+    overflow: hidden;
+    z-index: 601;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+    margin: 0 24px; /* Prevents touching edge on slightly smaller screens */
+}
+
+/* --- Modal Left Column --- */
+.modal-left {
+    background-color: var(--deep-brown); /* Fallback color */
+    /* NOTE: Update this path to your actual image! 
+      This image is from your "deals" section as a placeholder.
+    */
+    background-image: url('imgs/ManukaCo_SweetDeals.jpg'); 
+    background-size: cover;
+    background-position: center;
+    padding: 30px;
+    display: flex;
+    align-items: flex-end; /* Aligns text to bottom-left */
+}
+
+.modal-left h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    color: #FFFFFF;
+    line-height: 1.3;
+    margin-bottom: 160px;
+    text-shadow: #381B1B 2px 2px 4px;
+}
+
+/* --- Modal Right Column --- */
+.modal-right {
+    padding: 30px;
+    position: relative;
+    background: #FFFFFF; /* White background for the form area */
+    color: var(--deep-brown);
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 32px;
+    font-weight: 300;
+    color: var(--deep-brown);
+    opacity: 0.5;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+}
+.modal-close:hover {
+    opacity: 1;
+}
+
+.modal-lead {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--deep-brown);
+    margin: 0 0 10px;
+}
+
+.modal-list {
+    padding-left: 20px;
+    margin: 0 0 10px;
+}
+
+.modal-list li {
+    font-size: 15px;
+    margin-bottom: 5px;
+    line-height: 1.5;
+}
+
+.modal-sub-lead {
+    font-size: 15px;
+    margin: 0 0 20px;
+}
+
+/* --- Modal Form --- */
+.modal-form-group {
+    display: flex;
+    border: 2px solid var(--deep-brown);
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+.modal-form-group input[type="email"] {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    padding: 12px 16px;
+    font-size: 15px;
+    background: #FFFFFF; /* Match right column bg */
+}
+
+.btn-modal-join {
+    background: var(--banner-yellow); /* Bright yellow */
+    color: var(--deep-brown);
+    border: none;
+    outline: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: 800;
+    cursor: pointer;
+    white-space: nowrap;
+}
+.btn-modal-join:hover {
+    background: #DC3E25;
+    color: #FEFBF6;
+}
+
+/* --- Modal Perks (Bottom) --- */
+.modal-perks {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.modal-perk-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.modal-perk-item img {
+    height: 24px; /* Smaller icons */
+}
+
+.modal-perk-item span {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* --- Modal Message --- */
+#remindMsg {
+    margin-top: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    padding-left: 10px;
 }
 
 /*Community carousel*/
@@ -340,6 +505,24 @@
     .deal-card img, .deal-card-mid img {
         height: 250px; /* Give images a fixed height on mobile */
     }
+
+    /* --- Modal Responsive --- */
+.modal-content {
+    grid-template-columns: 1fr; /* Stack columns */
+    max-width: 350px; /* Narrower for mobile */
+    margin: 0 24px;
+}
+.modal-left {
+    display: none; /* Hide image on mobile */
+}
+.modal-right {
+    padding: 24px;
+}
+.modal-perks {
+    flex-direction: column; /* Stack perks */
+    align-items: flex-start;
+    gap: 15px;
+}
 
     /* --- Signup Section --- */
     .signup-inner {

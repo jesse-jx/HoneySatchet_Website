@@ -56,7 +56,7 @@
             <div class="product-content">
                 <div class="product-title">Product 1</div>
                 <div class="product-desc">Description of product 1.</div>
-                <button class="buy-button" onclick="window.location.href='shop-detail.html'">Buy Now</button>
+                <button class="detail-button" onclick="window.location.href='shop-detail.html'">View Details</button>
             </div>
         </div>
         <!-- Product 2 -->
@@ -65,7 +65,7 @@
             <div class="product-content">
                 <div class="product-title">Product 2</div>
                 <div class="product-desc">Description of product 2.</div>
-                <button class="buy-button" onclick="window.location.href='shop-detail.html'">Buy Now</button>
+                <button class="detail-button" onclick="window.location.href='shop-detail.html'">View Details</button>
             </div>
         </div>
         <!-- Product 3 -->
@@ -74,31 +74,37 @@
             <div class="product-content">
                 <div class="product-title">Product 3</div>
                 <div class="product-desc">Description of product 3.</div>
-                <button class="buy-button" onclick="window.location.href='shop-detail.html'">Buy Now</button>
+                <button class="detail-button" onclick="window.location.href='shop-detail.html'">View Details</button>
             </div>
         </div>
     </section>
 
     <!-- CERTIFICATIONS BANNER -->
-    <section class="logos-banner">
-        <img src="css/imgs/certs/umf.png" alt="UMF Honey Association License" class="logo" />
-        <img src="css/imgs/certs/haccp.png" alt="HACCP Certified" class="logo" />
-        <img src="css/imgs/certs/mpi.png" alt="New Zealand MPI Registered Exporter" class="logo" />
-        <img src="css/imgs/certs/medsafe.png" alt="New Zealand Ministry of Health GMP Certificate" class="logo" />
-        <img src="css/imgs/certs/tga.png" alt="Australian TGA GMP Certificate" class="logo" />
-        <img src="css/imgs/certs/fianz-halal.png" alt="FIANZ Halal Certified" class="logo" />
+    <section class="certs-logos-banner">
+        <img src="css/imgs/certs/umf.png" alt="UMF Honey Association License" class="certs-logo" />
+        <img src="css/imgs/certs/haccp.png" alt="HACCP Certified" class="certs-logo" />
+        <img src="css/imgs/certs/mpi.png" alt="New Zealand MPI Registered Exporter" class="certs-logo" />
+        <img src="css/imgs/certs/medsafe.png" alt="New Zealand Ministry of Health GMP Certificate" class="certs-logo" />
+        <img src="css/imgs/certs/tga.png" alt="Australian TGA GMP Certificate" class="certs-logo" />
+        <img src="css/imgs/certs/fianz-halal.png" alt="FIANZ Halal Certified" class="certs-logo" />
     </section>
 
     <!-- REVIEWS SECTION -->
     <section class="reviews-section">
+        <!-- Title -->
         <div class="reviews-header">
             <div class="reviews-title">Customer Reviews</div>
-            <div class="average-rating">4.7 stars out of 5 based on 10 reviews</div>
+        </div>
+        <!-- Overall Stars -->
+        <div class="overall-stars" id="overallStars"></div>
+        <!-- Average Rating -->
+        <div class="reviews-header">
+            <div class="average-rating" id="averageRating"></div>
         </div>
 
-        <!-- Sorting Dropdown -->
-        <div style="margin-bottom: 15px;">
-            <label for="sortSelect">Sort by:</label>
+        <!-- Sorting Dropdown aligned right -->
+        <div class="sort-container">
+            <label for="sortSelect" style="margin-right:8px;">Sort by:</label>
             <select id="sortSelect">
                 <option value="mostRecent">Most Recent</option>
                 <option value="highestRating">Highest Rating</option>
@@ -107,220 +113,270 @@
         </div>
 
         <!-- Reviews List -->
-        <div id="reviewsContainer">
-            <!-- Review items will be inserted here by JavaScript -->
+        <div id="reviewsContainer"></div>
+
+        <!-- View More Button and count -->
+        <div class="view-more-container">
+            <button id="viewMoreBtn">View More</button>
+            <div id="displayCountText" style="margin-top:8px; font-size:0.95em; color:#381B1B;"></div>
         </div>
-
-        <!-- View More Button -->
-        <button id="viewMoreBtn">View More</button>
-        </div>
-
-        <script>
-            // Sample reviews data
-            const reviews = [
-                {
-                    avatar: 'https://via.placeholder.com/60?text=A1',
-                    name: 'Alice Johnson',
-                    title: 'Great product!',
-                    text: 'I really loved this product. It exceeded my expectations.',
-                    date: '2023-10-01',
-                    rating: 5
-                },
-                {
-                    avatar: 'https://via.placeholder.com/60?text=B2',
-                    name: 'Bob Smith',
-                    title: 'Good value',
-                    text: 'Worth the price. Will buy again.',
-                    date: '2023-09-28',
-                    rating: 4
-                },
-                {
-                    avatar: 'https://via.placeholder.com/60?text=C3',
-                    name: 'Cathy Lee',
-                    title: 'Not bad',
-                    text: 'It works as described.',
-                    date: '2023-09-20',
-                    rating: 4
-                },
-                {
-                    avatar: 'https://via.placeholder.com/60?text=D4',
-                    name: 'David Kim',
-                    title: 'Could be better',
-                    text: 'The quality is average.',
-                    date: '2023-08-15',
-                    rating: 3
-                },
-                {
-                    avatar: 'https://via.placeholder.com/60?text=E5',
-                    name: 'Eva Green',
-                    title: 'Excellent!',
-                    text: 'Absolutely loved it! Highly recommend.',
-                    date: '2023-07-30',
-                    rating: 5
-                },
-                {
-                    avatar: 'https://via.placeholder.com/60?text=F6',
-                    name: 'Frank Turner',
-                    title: 'Okay',
-                    text: 'It’s okay, does the job.',
-                    date: '2023-07-10',
-                    rating: 3
-                },
-                {
-                    avatar: 'https://via.placeholder.com/60?text=G7',
-                    name: 'Grace Park',
-                    title: 'Fantastic',
-                    text: 'Will buy again!',
-                    date: '2023-06-25',
-                    rating: 5
-                },
-                {
-                    avatar: 'https://via.placeholder.com/60?text=H8',
-                    name: 'Henry Ford',
-                    title: 'Disappointed',
-                    text: 'Did not meet my expectations.',
-                    date: '2023-06-05',
-                    rating: 2
-                },
-                {
-                    avatar: 'https://via.placeholder.com/60?text=I9',
-                    name: 'Ivy Chen',
-                    title: 'Love it',
-                    text: 'Great quality and fast shipping.',
-                    date: '2023-05-20',
-                    rating: 4
-                },
-                {
-                    avatar: 'https://via.placeholder.com/60?text=J10',
-                    name: 'John Doe',
-                    title: 'Satisfactory',
-                    text: 'It’s okay for the price.',
-                    date: '2023-05-15',
-                    rating: 3
-                },
-            ];
-
-            const reviewsContainer = document.getElementById('reviewsContainer');
-            const viewMoreBtn = document.getElementById('viewMoreBtn');
-            const sortSelect = document.getElementById('sortSelect');
-
-            let currentDisplayCount = 3; // show first 3 reviews initially
-
-            // Function to create star rating elements
-            function createStars(rating) {
-                const starContainer = document.createElement('div');
-                for (let i = 1; i <= 5; i++) {
-                    const star = document.createElement('span');
-                    star.className = 'star';
-                    star.textContent = i <= rating ? '★' : '☆';
-                    starContainer.appendChild(star);
-                }
-                return starContainer;
-            }
-
-            // Function to render reviews
-            function renderReviews() {
-                // Clear existing reviews
-                reviewsContainer.innerHTML = '';
-
-                // Apply sorting
-                const sortBy = sortSelect.value;
-                let sortedReviews = [...reviews];
-
-                if (sortBy === 'mostRecent') {
-                    sortedReviews.sort((a, b) => new Date(b.date) - new Date(a.date));
-                } else if (sortBy === 'highestRating') {
-                    sortedReviews.sort((a, b) => b.rating - a.rating);
-                } else if (sortBy === 'lowestRating') {
-                    sortedReviews.sort((a, b) => a.rating - b.rating);
-                }
-
-                // Show only first 'currentDisplayCount' reviews
-                const reviewsToShow = sortedReviews.slice(0, currentDisplayCount);
-
-                reviewsToShow.forEach(review => {
-                    const reviewDiv = document.createElement('div');
-                    reviewDiv.className = 'review';
-
-                    // Avatar
-                    const avatarImg = document.createElement('img');
-                    avatarImg.src = review.avatar;
-                    avatarImg.alt = review.name;
-                    avatarImg.className = 'avatar';
-
-                    // Content
-                    const contentDiv = document.createElement('div');
-                    contentDiv.className = 'review-content';
-
-                    // Header (name, title, rating stars)
-                    const headerDiv = document.createElement('div');
-                    headerDiv.className = 'review-header';
-
-                    const nameSpan = document.createElement('span');
-                    nameSpan.className = 'name';
-                    nameSpan.textContent = review.name;
-
-                    const titleSpan = document.createElement('span');
-                    titleSpan.className = 'title';
-                    titleSpan.textContent = review.title;
-
-                    const ratingDiv = createStars(review.rating);
-
-                    headerDiv.appendChild(nameSpan);
-                    headerDiv.appendChild(document.createTextNode(' - '));
-                    headerDiv.appendChild(titleSpan);
-                    headerDiv.appendChild(document.createElement('div')).appendChild(ratingDiv);
-
-                    // Text
-                    const textP = document.createElement('p');
-                    textP.className = 'review-text';
-                    textP.textContent = review.text;
-
-                    // Date
-                    const dateDiv = document.createElement('div');
-                    dateDiv.className = 'review-date';
-                    dateDiv.textContent = new Date(review.date).toLocaleDateString();
-
-                    // Assemble
-                    contentDiv.appendChild(headerDiv);
-                    contentDiv.appendChild(textP);
-                    contentDiv.appendChild(dateDiv);
-
-                    reviewDiv.appendChild(avatarImg);
-                    reviewDiv.appendChild(contentDiv);
-
-                    // If beyond initial 3, hide
-                    if (sortedReviews.indexOf(review) >= currentDisplayCount) {
-                        reviewDiv.classList.add('hidden');
-                    }
-
-                    reviewsContainer.appendChild(reviewDiv);
-                });
-
-                // Show or hide "View More" button
-                if (sortedReviews.length > currentDisplayCount) {
-                    viewMoreBtn.style.display = 'block';
-                } else {
-                    viewMoreBtn.style.display = 'none';
-                }
-            }
-
-            // Event listener for sorting
-            sortSelect.addEventListener('change', () => {
-                currentDisplayCount = 3; // reset to initial
-                renderReviews();
-            });
-
-            // Event listener for "View More"
-            viewMoreBtn.addEventListener('click', () => {
-                currentDisplayCount += 3;
-                renderReviews();
-            });
-
-            // Initial render
-            renderReviews();
-        </script>
     </section>
+    <script>
+        // Sample reviews data
+        const reviews = [
+            {
+                avatar: 'https://via.placeholder.com/60?text=A1',
+                name: 'Alice Johnson',
+                title: 'Great product!',
+                text: 'I really loved this product. It exceeded my expectations.',
+                date: '2023-10-01',
+                rating: 5
+            },
+            {
+                avatar: 'https://via.placeholder.com/60?text=B2',
+                name: 'Bob Smith',
+                title: 'Good value',
+                text: 'Worth the price. Will buy again.',
+                date: '2023-09-28',
+                rating: 5
+            },
+            {
+                avatar: 'https://via.placeholder.com/60?text=C3',
+                name: 'Cathy Lee',
+                title: 'Not bad',
+                text: 'It works as described.',
+                date: '2023-09-20',
+                rating: 5
+            },
+            {
+                avatar: 'https://via.placeholder.com/60?text=D4',
+                name: 'David Kim',
+                title: 'Could be better',
+                text: 'The quality is average.',
+                date: '2023-08-15',
+                rating: 5
+            },
+            {
+                avatar: 'https://via.placeholder.com/60?text=E5',
+                name: 'Eva Green',
+                title: 'Excellent!',
+                text: 'Absolutely loved it! Highly recommend.',
+                date: '2023-07-30',
+                rating: 5
+            },
+            {
+                avatar: 'https://via.placeholder.com/60?text=F6',
+                name: 'Frank Turner',
+                title: 'Okay',
+                text: 'It’s okay, does the job.',
+                date: '2023-07-10',
+                rating: 5
+            },
+            {
+                avatar: 'https://via.placeholder.com/60?text=G7',
+                name: 'Grace Park',
+                title: 'Fantastic',
+                text: 'Will buy again!',
+                date: '2023-06-25',
+                rating: 5
+            },
+            {
+                avatar: 'https://via.placeholder.com/60?text=H8',
+                name: 'Henry Ford',
+                title: 'Disappointed',
+                text: 'Did not meet my expectations.',
+                date: '2023-06-05',
+                rating: 5
+            },
+            {
+                avatar: 'https://via.placeholder.com/60?text=I9',
+                name: 'Ivy Chen',
+                title: 'Love it',
+                text: 'Great quality and fast shipping.',
+                date: '2023-05-20',
+                rating: 5
+            },
+            {
+                avatar: 'https://via.placeholder.com/60?text=J10',
+                name: 'John Doe',
+                title: 'Satisfactory',
+                text: 'It’s okay for the price.',
+                date: '2023-05-15',
+                rating: 4
+            }
+        ];
+
+        const reviewsContainer = document.getElementById('reviewsContainer');
+        const viewMoreBtn = document.getElementById('viewMoreBtn');
+        const sortSelect = document.getElementById('sortSelect');
+        const displayCountText = document.getElementById('displayCountText');
+        const overallStarsContainer = document.getElementById('overallStars');
+
+        let currentDisplayCount = 3; // initial number of reviews shown
+
+        // Function to create star icons (for individual reviews)
+        function createStars(rating) {
+            const starContainer = document.createElement('div');
+            starContainer.className = 'stars';
+            for (let i = 1; i <= 5; i++) {
+                const star = document.createElement('span');
+                star.className = 'star';
+                star.textContent = i <= rating ? '★' : '☆';
+                starContainer.appendChild(star);
+            }
+            return starContainer;
+        }
+
+        // Function to create overall stars
+        function createOverallStars(rating) {
+            const starContainer = document.createElement('div');
+            starContainer.className = 'overall-stars';
+            for (let i = 1; i <= 5; i++) {
+                const star = document.createElement('span');
+                star.className = 'star';
+                star.textContent = i <= rating ? '★' : '☆';
+                starContainer.appendChild(star);
+            }
+            return starContainer;
+        }
+
+        // Calculate average rating
+        function getAverageRating() {
+            const totalRating = reviews.reduce((sum, review) => sum + review.rating, 0);
+            return (totalRating / reviews.length).toFixed(1);
+        }
+
+        // Display average rating
+        function displayAverageRating() {
+            const average = getAverageRating();
+            const ratingElement = document.getElementById('averageRating');
+            if (ratingElement) {
+                ratingElement.textContent = `${average} out of 5`;
+            }
+        }
+
+        // Render the overall stars with rounded rating
+        function renderOverallStars() {
+            const avgRating = Math.round(parseFloat(getAverageRating()));
+            overallStarsContainer.innerHTML = '';
+            const stars = createOverallStars(avgRating);
+            overallStarsContainer.appendChild(stars);
+        }
+
+        // Function to render reviews
+        function renderReviews() {
+            // Clear previous reviews
+            reviewsContainer.innerHTML = '';
+
+            // Sorting
+            const sortBy = sortSelect.value;
+            let sortedReviews = [...reviews];
+
+            if (sortBy === 'mostRecent') {
+                sortedReviews.sort((a, b) => new Date(b.date) - new Date(a.date));
+            } else if (sortBy === 'highestRating') {
+                sortedReviews.sort((a, b) => b.rating - a.rating);
+            } else if (sortBy === 'lowestRating') {
+                sortedReviews.sort((a, b) => a.rating - b.rating);
+            }
+
+            // Show only up to currentDisplayCount
+            const reviewsToShow = sortedReviews.slice(0, currentDisplayCount);
+            reviewsToShow.forEach((review, index) => {
+                const reviewWrapper = document.createElement('div');
+                reviewWrapper.className = 'review-wrapper';
+
+                // Avatar Container
+                const avatarContainer = document.createElement('div');
+                avatarContainer.className = 'avatar-container';
+
+                // Avatar Image
+                const avatarImg = document.createElement('img');
+                avatarImg.src = review.avatar;
+                avatarImg.alt = review.name;
+                avatarImg.className = 'avatar';
+
+                // Review content
+                const contentDiv = document.createElement('div');
+                contentDiv.className = 'review-content';
+
+                // Star rating
+                const starsDiv = createStars(review.rating);
+                starsDiv.style.marginBottom = '8px';
+
+                // Review header: name on left, date on right
+                const headerDiv = document.createElement('div');
+                headerDiv.className = 'review-header';
+
+                const nameSpan = document.createElement('div');
+                nameSpan.className = 'name';
+                nameSpan.textContent = review.name;
+
+                const dateSpan = document.createElement('div');
+                dateSpan.className = 'review-date';
+                dateSpan.textContent = new Date(review.date).toLocaleDateString();
+
+                headerDiv.appendChild(nameSpan);
+                headerDiv.appendChild(dateSpan);
+
+                // Review title
+                const titleDiv = document.createElement('div');
+                titleDiv.className = 'review-title';
+                titleDiv.textContent = review.title;
+
+                // Review text
+                const textP = document.createElement('p');
+                textP.className = 'review-text';
+                textP.textContent = review.text;
+
+                // Append all to contentDiv
+                contentDiv.appendChild(starsDiv);
+                contentDiv.appendChild(headerDiv);
+                contentDiv.appendChild(titleDiv);
+                contentDiv.appendChild(textP);
+
+                // Append avatar to avatarContainer
+                avatarContainer.appendChild(avatarImg);
+
+                // Append avatar container and review content to review wrapper
+                reviewWrapper.appendChild(avatarContainer);
+                reviewWrapper.appendChild(contentDiv);
+
+                // Hide reviews beyond currentDisplayCount
+                if (index >= currentDisplayCount) {
+                    reviewWrapper.classList.add('hidden');
+                }
+
+                reviewsContainer.appendChild(reviewWrapper);
+            });
+
+            // Show or hide "View More"
+            if (sortedReviews.length > currentDisplayCount) {
+                viewMoreBtn.style.display = 'block';
+            } else {
+                viewMoreBtn.style.display = 'none';
+            }
+
+            // Update display count text
+            document.getElementById('displayCountText').textContent = `Showing ${Math.min(currentDisplayCount, sortedReviews.length)} of ${sortedReviews.length} reviews`;
+        }
+
+        // Event listeners
+        sortSelect.addEventListener('change', () => {
+            currentDisplayCount = 3; // reset count
+            renderReviews();
+        });
+
+        document.getElementById('viewMoreBtn').addEventListener('click', () => {
+            currentDisplayCount += 3;
+            renderReviews();
+        });
+
+        // Initial render
+        displayAverageRating();
+        renderOverallStars();
+        renderReviews();
+    </script>
 
     <!-- FOOTER -->
     <footer class="footer">
@@ -376,7 +432,7 @@
             menu.classList.toggle('active');
         });
     </script>
-    
+
 </body>
 
 </html>

@@ -1,0 +1,370 @@
+/* PRODUCT SECTION */
+.product-section {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #EFE8DD;
+  color: #381B1B;
+  font-family: 'Open Sans', sans-serif;
+  padding: 60px clamp(20px, 6vw, 112px);
+}
+
+/* Left Column: Carousel */
+.carousel-container {
+  position: relative;
+  flex: 1 1 33%;
+  max-width: 33%;
+  overflow: hidden;
+  background-color: #EFE8DD;
+}
+
+/* Carousel Wrapper */
+.carousel {
+  display: flex;
+  transition: transform 0.3s ease;
+}
+
+.carousel img {
+  width: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* Navigation Arrows */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: #FEFBF6;
+  font-size: 24px;
+  padding: 8px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s, background-color 0.3s;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.carousel-container:hover .arrow {
+  opacity: 1;
+}
+
+.arrow.left {
+  left: 10px;
+}
+
+.arrow.right {
+  right: 10px;
+}
+
+/* Indicator (optional) */
+.indicator {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  background: rgba(0, 0, 0, 0.3);
+  color: #FEFBF6;
+  padding: 2px 0;
+  display: none;
+}
+
+.carousel-container:hover .indicator {
+  display: block;
+}
+
+/* Right Column: Product Details */
+.details {
+  flex: 2 1 67%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Product Title */
+.product-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* Product Subtitle */
+.product-subtitle {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+/* Product Description */
+.product-description {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+/* Quantity Options */
+.quantities {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.quantity-option {
+  padding: 8px 12px;
+  border: 2px solid #381B1B;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  background-color: #fff;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.quantity-option.selected {
+  border-color: #DC3E25;
+  background-color: #F7C415;
+}
+
+/* Purchase Section */
+.purchase-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+/* Price Display */
+.price {
+  font-size: 24px;
+  font-weight: bold;
+  color: #381B1B;
+}
+
+/* Buy Button */
+.buy-button {
+  padding: 12px 24px;
+  background-color: #F7C415;
+  color: #381B1B;
+  border: 3px solid #381B1B;
+  border-radius: 999px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.buy-button:hover {
+  background-color: #DC3E25;
+  color: #FEFBF6;
+  border-color: #DC3E25;
+}
+
+/* Tabs (Benefits & Ingredients) */
+.tabs {
+  display: flex;
+  border-bottom: 1px solid #381B1B;
+  margin-bottom: 10px;
+}
+
+.tab {
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: bold;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.tab.active {
+  border-color: #DC3E25;
+  color: #DC3E25;
+}
+
+.tab-content {
+  font-size: 14px;
+  color: #381B1B;
+  padding: 10px 0;
+}
+
+/* TESTIMONIALS SECTION */
+.testimonials-section {
+  background-color: #FEFBF6;
+  padding: 60px clamp(20px, 6vw, 112px);
+  font-family: 'Open Sans', sans-serif;
+  color: #381B1B;
+}
+
+.testimonial-carousel-container {
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.testimonial-carousel {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.testimonial-slide {
+  min-width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+/* Testimonial Card */
+.testimonial-card {
+  display: flex;
+  background-color: #EFE8DD;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  height: 250px; /* Adjust as needed */
+  overflow: hidden;
+}
+
+.testimonial-content {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+/* Picture Section */
+.testimonial-picture {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background-color: #EFE8DD;
+}
+
+.testimonial-picture img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Info Section */
+.testimonial-info {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  justify-content: space-between;
+}
+
+/* Star Rating */
+.star-rating {
+  font-size: 1.2em;
+  color: #F7C415;
+  margin-bottom: 8px;
+}
+
+/* Name */
+.testimonial-name {
+  font-weight: 600;
+  font-size: 1.1em;
+  margin-bottom: 8px;
+}
+
+/* Quote */
+.testimonial-quote {
+  font-style: italic;
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+/* Arrows in Testimonials */
+#testimonialPrevBtn {
+  left: 10px;
+}
+#testimonialNextBtn {
+  right: 10px;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.5);
+  border: none;
+  color: #FEFBF6;
+  font-size: 24px;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.3s, background-color 0.3s;
+}
+
+.testimonial-carousel-container:hover .arrow {
+  opacity: 1;
+}
+
+/* Indicator (optional) */
+.indicator {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  background: rgba(0,0,0,0.3);
+  color: #FEFBF6;
+  padding: 2px 0;
+  display: none;
+}
+
+.testimonial-carousel-container:hover .indicator {
+  display: block;
+}
+
+/* CERTIFICATIONS BANNER */
+.certs-logos-banner {
+  background-color: #FFCC01;
+  padding: 40px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.certs-logo {
+  max-height: 120px;
+  width: auto;
+  filter: grayscale(100%);
+  opacity: 0.8;
+  transition: filter 0.3s, opacity 0.3s;
+}
+
+.certs-logo:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+/* RESPONSIVE ADJUSTMENTS */
+@media(max-width: 768px) {
+  /* Product Section */
+  .product-section {
+    flex-direction: column;
+  }
+  .carousel-container,
+  .details {
+    max-width: 100%;
+    flex: 1 1 100%;
+  }
+  /* Purchase section stacks vertically */
+  .purchase-section {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* Testimonials */
+  .testimonial-card {
+    height: auto; /* Allow height to adjust on smaller screens */
+  }
+}

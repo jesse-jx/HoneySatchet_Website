@@ -1,0 +1,199 @@
+/* ==========================================================================
+   BLOG PAGE STYLES
+   ========================================================================== */
+
+:root {
+    --blog-margin-x: 112px;
+}
+
+.blog-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* --- NEW: Return Button Style --- */
+.btn-return {
+    display: inline-block;
+    margin: 10px 0 10px var(--blog-margin-x);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--deep-brown);
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+.btn-return:hover {
+    opacity: 1;
+}
+
+/* --- Blog Header --- */
+.blog-header {
+    text-align: center;
+    padding: 20px var(--blog-margin-x);
+    border-bottom: 1px solid rgba(71, 28, 28, 0.15);
+}
+.blog-header h1 {
+    font-size: 48px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    margin: 0 0 10px;
+}
+.blog-header .lead {
+    font-size: 18px;
+    max-width: 650px;
+    margin: 0 auto;
+    line-height: 1.6;
+    color: var(--deep-brown);
+}
+
+/* --- Main Layout --- */
+.blog-detail-wrapper {
+    /* This centers the single article */
+    max-width: 1128px; /* Width of the expanded article */
+    margin: 0 auto; /* Center the wrapper */
+    padding: 40px var(--blog-margin-x);
+}
+/* --- Full Feature Article --- */
+.blog-feature-full h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 8px;
+}
+.blog-feature-full .blurb {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    font-style: italic;
+    color: var(--deep-brown);
+    opacity: 0.9;
+    margin: 0 0 24px;
+}
+.blog-feature-full img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    object-fit: cover;
+}
+
+/* --- Full Article Typography --- */
+.article-content-full p,
+.article-content-full li {
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    font-family: 'Open Sans', sans-serif;
+}
+.article-content-full h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    margin: 40px 0 15px;
+}
+.article-content-full ol,
+.article-content-full ul {
+    padding-left: 30px;
+}
+.article-content-full li {
+    margin-bottom: 10px;
+}
+
+/* --- Bottom "Next Grid" --- */
+.blog-next-grid {
+    display: grid; /* Visible by default on this page */
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+    padding: 40px var(--blog-margin-x);
+    border-top: 1px solid rgba(71, 28, 28, 0.15);
+}
+.next-article-item {
+    text-align: center;
+}
+.next-article-item h5 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.4;
+    margin: 0 0 8px;
+}
+.next-article-item a {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--deep-brown);
+    text-decoration: none;
+    opacity: 0.8;
+}
+.next-article-item a:hover {
+    text-decoration: underline;
+}
+
+/* --- Scroll to Top Button --- */
+#scrollTopBtn {
+    display: none; /* Hidden by default */
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 100;
+    border: none;
+    outline: none;
+    background-color: var(--deep-brown);
+    color: white;
+    cursor: pointer;
+    padding: 0;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    line-height: 50px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+#scrollTopBtn:hover {
+    background-color: #DC3E25;
+}
+
+/* ==========================================================================
+   RESPONSIVE (Mobile @ 900px)
+   ========================================================================== */
+
+@media (max-width: 900px) {
+    :root {
+        --blog-margin-x: 24px; /* Reduce page padding */
+    }
+
+    .btn-return {
+        margin: 10px 0 10px var(--blog-margin-x);
+    }
+    
+    .blog-header h1 {
+        font-size: 40px;
+    }
+    .blog-header .lead {
+        font-size: 16px;
+    }
+    .article-content-full p,
+    .article-content-full li {
+        font-size: 16px;
+    }
+    .article-content-full h3 {
+        font-size: 24px;
+    }
+
+    /* --- Bottom Grid on Mobile --- */
+    .blog-next-grid {
+        grid-template-columns: 1fr; /* Stack the 3 "Next" articles */
+        gap: 24px;
+    }
+    .next-article-item {
+        border-bottom: 1px solid rgba(71, 28, 28, 0.1);
+        padding-bottom: 20px;
+    }
+    .next-article-item:last-child {
+        border-bottom: none;
+    }
+}
