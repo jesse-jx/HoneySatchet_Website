@@ -69,25 +69,77 @@
                         </div>
                     </aside>
 
-                    <article class="blog-feature" id="feature-article">
-                        <h2>The 7 AM Workout Dilemma: How to Fuel Your Flow Without Jitters</h2>
-                        <p class="blurb">Tired of choosing between caffeine jitters or running on empty for your mornings? We break down the science of fast, clean energy.</p>
-                        
-                        <img src="css/imgs/health-benefits-of-honey.jpg" alt="Honey dipper in a jar of golden honey">
+                    <div class="blog-feature-area">
+                        <div class="blog-content-viewport">
+                            <div class="blog-content-track">
+                                
+                                <div class="blog-content-slide">
+                                    <article class="blog-feature">
+                                        <h2>The 7 AM Workout Dilemma: How to Fuel Your Flow Without Jitters</h2>
+                                        <p class="blurb">Tired of choosing between caffeine jitters or running on empty for your mornings? We break down the science of fast, clean energy.</p>
+                                        <img src="css/imgs/health-benefits-of-honey.jpg" alt="Honey dipper in a jar of golden honey">
+                                        
+                                        <div class="article-content-wrapper">
+                                            <div class="article-content-preview">
+                                                <p>The 6:45 AM alarm goes off. It’s dark, it’s quiet, and your mat is waiting. You know you’ll feel amazing after your pilates or spin class, but right now, your brain is foggy and your body feels heavy.</p>
+                                                <p>You face the classic 7 AM dilemma...</p>
+                                            </div>
+                                            <div class="read-more-fade"></div>
+                                        </div>
+                                        <a href="blog-detail.html" class="btn-read-more">Read More</a>
+                                    </article>
+                                </div>
 
-                        <div class="article-content-wrapper" id="article-content">
-                            <div class="article-content-preview">
-                                <p>The 6:45 AM alarm goes off. It’s dark, it’s quiet, and your mat is waiting. You know you’ll feel amazing after your pilates or spin class, but right now, your brain is foggy and your body feels heavy.</p>
-                                <p>You face the classic 7 AM dilemma:</p>
-                                <ol>
-                                    <li><b>Risk the jitters?</b> You could chug a coffee or a synthetic pre-workout...</li>
-                                </ol>
+                                <div class="blog-content-slide">
+                                    <article class="blog-feature">
+                                        <h2>Wellness: How to Find Balance</h2>
+                                        <p class="blurb">This is the placeholder content for the Wellness tab. It slides in to replace Latest.</p>
+                                        <img src="css/imgs/health-benefits-of-honey.jpg" alt="Honey dipper in a jar of golden honey">
+                                        <div class="article-content-wrapper">
+                                            <div class="article-content-preview">
+                                                <p>The 6:45 AM alarm goes off. It’s dark, it’s quiet, and your mat is waiting. You know you’ll feel amazing after your pilates or spin class, but right now, your brain is foggy and your body feels heavy.</p>
+                                                <p>You face the classic 7 AM dilemma...</p>
+                                            </div>
+                                            <div class="read-more-fade"></div>
+                                        </div>
+                                        <a href="blog-detail.html" class="btn-read-more">Read More</a>
+                                    </article>
+                                </div>
+                                
+                                <div class="blog-content-slide">
+                                    <article class="blog-feature">
+                                        <h2>Recipes: Clean Energy</h2>
+                                        <p class="blurb">This is the placeholder content for the Recipes tab. It slides in to replace Wellness.</p>
+                                        <img src="css/imgs/health-benefits-of-honey.jpg" alt="Honey dipper in a jar of golden honey">
+                                        <div class="article-content-wrapper">
+                                            <div class="article-content-preview">
+                                                <p>The 6:45 AM alarm goes off. It’s dark, it’s quiet, and your mat is waiting. You know you’ll feel amazing after your pilates or spin class, but right now, your brain is foggy and your body feels heavy.</p>
+                                                <p>You face the classic 7 AM dilemma...</p>
+                                            </div>
+                                            <div class="read-more-fade"></div>
+                                        </div>
+                                        <a href="blog-detail.html" class="btn-read-more">Read More</a>
+                                    </article>
+                                </div>
+
+                                <div class="blog-content-slide">
+                                    <article class="blog-feature">
+                                        <h2>Events: Meet Us IRL</h2>
+                                        <p class="blurb">This is the placeholder content for the Events tab. It slides in to replace Recipes.</p>
+                                        <img src="css/imgs/health-benefits-of-honey.jpg" alt="Honey dipper in a jar of golden honey">
+                                        <div class="article-content-wrapper">
+                                            <div class="article-content-preview">
+                                                <p>The 6:45 AM alarm goes off. It’s dark, it’s quiet, and your mat is waiting. You know you’ll feel amazing after your pilates or spin class, but right now, your brain is foggy and your body feels heavy.</p>
+                                                <p>You face the classic 7 AM dilemma...</p>
+                                            </div>
+                                            <div class="read-more-fade"></div>
+                                        </div>
+                                        <a href="blog-detail.html" class="btn-read-more">Read More</a>
+                                    </article>
+                                </div>
+
                             </div>
-                            <div class="read-more-fade" id="read-more-fade"></div>
                         </div>
-
-                        <a href="blog-detail.html" class="btn-read-more">Read More</a>
-                    </article>
 
                 </div> </main>
 
@@ -146,7 +198,22 @@
             menu.classList.toggle('active');
         });
 
-        /* REMOVED: The blog expand script is no longer needed here */
+        /* JavaScript for Blog Content Slider */
+        const subnavLinks = document.querySelectorAll('.subnav-link');
+        const contentTrack = document.querySelector('.blog-content-track');
+
+        subnavLinks.forEach((link, index) => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent page jump
+
+                // Move the track
+                contentTrack.style.transform = `translateX(-${index * 100}%)`;
+
+                // Update active class
+                subnavLinks.forEach(item => item.classList.remove('active'));
+                link.classList.add('active');
+            });
+        });
     </script>
 </body>
 </html>
