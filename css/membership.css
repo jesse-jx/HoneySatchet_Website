@@ -36,14 +36,17 @@
 }
 .deals h2{
     margin:0;
-    font-size:36px;
-    font-family: 'Monsterrat', sans-serif;
-    font-weight:bold;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    margin-bottom: 8px;
+    text-align: center;
 }
 .deals p.lead {
-    margin:8px 0 0;
-    font-size:24px;
-    opacity:0.9;
+    font-weight: 600;
+    font-size: 24px;
+    margin-bottom: 40px;
+    text-align: center;
 }
 
 .deals-grid {
@@ -89,19 +92,27 @@
     color: var(--deep-brown);
 }
 
+#club-heading,
+.lead {
+  text-align: center;
+}
+
+
+
 /* Deal Button */
 .btn {
-    display:inline-block;
-    background:var(--deep-brown);
-    color:var(--bg-cream);
-    padding:10px 20px;
-    margin-bottom: 10px;;
-    border-radius:30px;
-    text-decoration:none;
-    font-weight:700;
-    cursor:pointer;
-    border:none;
-    transition: transform 140ms ease, box-shadow 120ms;
+    margin-top: auto;
+    margin-bottom: 20px;
+  padding: 14px 48px;
+  border-radius: 999px;
+  border: 3px solid #381b1b;
+  background-color: #381b1b;
+  color: #fefbf6;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  text-decoration: none;
+  transition: 0.3s;
 }
 .btn:hover { 
   background-color: #DC3E25;
@@ -205,76 +216,123 @@
     width: 100%; /* Make GIF fill its width */
 }
 
-/* CTA banner bottom of signup */
-.signup-cta {
-    /* Banner is now flush with the bottom of the section */
-    margin-top:0; 
-    height:110px; /* Consistent height */
-    background-image: url('imgs/Signup_BannerBG.png'); 
-    background-size: cover; 
-    background-position: center top; 
-    background-repeat: no-repeat;
-    background-color: var(--banner-yellow); 
-    
-    padding: 0 var(--margin-x);
-    
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
+.newsletter-cta {
+  background-color: #EFE8DD;
+  background-image: url(imgs/Signup_BannerBG.png);
+  background-size: contain;  
+  background-position: center;   
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px clamp(20px, 6vw, 112px);
+  gap: 40px;
+  font-family: 'Montserrat', sans-serif;
+  color: #381B1B;
 }
-.signup-cta .left {
-    font-size:22px; /* Larger text for the main copy */
-    font-weight:600; /* Slightly less bold for main copy */
-    color:var(--deep-brown);
+
+/* ------------ LEFT COLUMN ------------ */
+.newsletter-left {
+  flex: 1;
+  text-align: right;
 }
-.signup-cta .left strong { /* Styling for the highlighted phrase */
-    color: var(--accent-dark); /* Orange color */
-    font-size: 26px; /* Significantly larger */
-    font-weight: 800; /* Extra bold */
-    margin-right: 4px; /* Small space after the strong text */
+
+.newsletter-left h3 {
+  font-weight: 700;
+  font-size: 24px;
+  margin: 0 0 8px 0;
 }
-.signup-cta .right {
-    display:flex;
-    gap:0; 
-    align-items:center;
-    border: 3px solid var(--deep-brown);
-    border-radius: 50px; /* Fully rounded container */
-    overflow: hidden; /* Clips the input/button inside the rounded shape */
+
+.newsletter-left h2 {
+  font-weight: 700;
+  font-size: 36px;
+  margin: 0;
+  line-height: 1.3;
 }
-/* This new wrapper holds the form AND the message */
-.cta-right-wrapper {
-  position: relative; /* This is now the positioning anchor */
+
+.newsletter-left h2 span {
+  color: #DC3E25; /* 50% OFF highlight */
 }
-.email-input {
-    padding: 12px 16px;
-    border: none;
-    min-width: 280px;
-    font-size: 17px;
-    outline: none;
-    background: var(--bg-cream);
+
+/* ------------ RIGHT COLUMN ------------ */
+.newsletter-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
 }
-.join-btn {
-    background:var(--accent-orange);
-    color:white;
-    padding:12px 16px;
-    border: none;
-    font-weight: 700;
-    font-size: 18px;
-    white-space: nowrap;
-    outline: none;
-    cursor: pointer;
+
+/* Form container with inline layout */
+.newsletter-form {
+  display: flex;
+  width: 100%;
+  max-width: 520px;
 }
-.signup-success {
-    position: absolute;   /* Positions it relative to the new wrapper */
-    top: 100%;            /* Places it right below the form container */
-    left: 0;              /* Aligns it to the left of the form */
-    margin-top: 6px;      /* Adds a small gap, just like the screenshot */
-    
-    /* Styling */
-    font-size: 13px;
-    font-weight: 600;
-    color: #DC3E25; 
-    display: none;
+
+/* Email Input */
+.newsletter-input {
+  flex: 1;
+  padding: 14px 20px;
+  font-size: 18px;
+  font-family: 'Montserrat', sans-serif;
+  border: 3px solid #381B1B;
+  border-radius: 999px 0 0 999px;   /* left corners rounded */
+  outline: none;
+  background-color: #FEFBF6;
+  color: #381B1B;
+}
+
+.newsletter-input::placeholder {
+  color: #7E7E7E;
+}
+
+/* Submit Button */
+.newsletter-submit {
+  padding: 14px 36px;
+  font-size: 24px;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  border: 3px solid #381B1B;
+  border-left: none;
+  border-radius: 0 999px 999px 0;  /* right corners rounded */
+  background-color: #F7C415;
+  color: #381B1B;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.newsletter-submit:hover {
+  background-color: #DC3E25;
+  color: #FEFBF6;
+  border-color: #DC3E25;
+}
+
+
+/* ================================
+   RESPONSIVE STYLES
+================================ */
+@media (max-width: 900px) {
+  .newsletter-cta {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .newsletter-left {
+    text-align: center;
+  }
+
+  .newsletter-right {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .newsletter-input {
+    font-size: 16px;
+  }
+
+  .newsletter-submit {
+    font-size: 20px;
+    padding: 14px 28px;
+  }
 }
 
 /*Modal popup*/
