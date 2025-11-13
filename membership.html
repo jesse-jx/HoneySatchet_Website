@@ -4,13 +4,12 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Club Miere - Membership| Manuka Co.</title>
-        
+        <link rel="icon" type="image/x-icon" href="css/imgs/favicon.ico">
         <!--Import font style-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Concert+One&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
         
-        <link rel="icon" type="image/x-icon" href="css/imgs/favicon.ico">
         <link rel="stylesheet" href="css/global.css">
         <link rel="stylesheet" href="css/membership.css">
     </head>
@@ -29,7 +28,7 @@
                     <nav class="nav-links">
                         <a href="story.html" data-text="Our Story">Our Story</a>
                         <a href="shop.html" data-text="Shop">Shop</a>
-                        <a href="membership.html" data-text="Membership">Membership</a>
+                        <a href="membership.html" class="active" data-text="Membership">Membership</a>
                         <a href="blog.html" data-text="Blog">Blog</a>
                         <a href="faq.html" data-text="FAQs">FAQs</a>
                         <a href="contact.html" data-text="Contact Us">Contact Us</a>
@@ -76,25 +75,52 @@
 
                         <!-- REMIND ME MODAL (hidden by default) -->
                         <div id="remindModal" role="dialog" aria-modal="true" style="display:none;position:fixed;left:0;top:0;width:100%;height:100%;align-items:center;justify-content:center;z-index:600;">
-                            <div style="background:rgba(0,0,0,0.45);position:absolute;inset:0;" id="modalBackdrop"></div>
-                            <div style="background:var(--bg-cream);padding:20px;border-radius:8px;width:420px;z-index:601;box-shadow:0 12px 40px rgba(0,0,0,0.25);">
-                                <h3 style="margin:0 0 8px;color:var(--deep-brown)">Just one more step to receiving these sweet deals 🍯</h3>
-                                <p style="margin:0 0 12px;color:rgba(71,28,28,0.95)">Join Club Miere for reminders and first dibs on: <br>
-                                    <ul>
-                                        <li>Exclusive drops</li>
-                                        <li>Wellness tips</li>
-                                        <li>Monthly surprises</li>
-                                    </ul> <br>
-                                    to keep your energy steady and your mood light.
-                                </p>
-                                <input id="remindEmail" type="email" placeholder="Enter your email" style="width:100%;padding:10px 12px;border-radius:8px;border:1px solid #ddd;font-size:14px"/>
-                                <div style="display:flex;gap:10px;margin-top:12px;justify-content:flex-end;">
-                                    <button id="remindCancel" class="btn" style="background:transparent;color:var(--deep-brown);border:1px solid var(--deep-brown);">Cancel</button>
-                                    <button id="remindSubmit" class="btn jump">Join Now</button>
-                                </div>
-                                <div id="remindMsg" style="margin-top:8px;color:green;display:none;font-size:13px">Thanks! We'll remind you before the drop.</div>
-                            </div>
-                        </div>
+    
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+
+    <div class="modal-content">
+        
+        <div class="modal-left">
+            <h2>Don't sleep on<br>these sweet deals!</h2>
+            <img src="css/imgs/ManukaCo_SweetDeals.jpg" alt="Miere Sachet Modal Image">
+        </div>
+
+        <div class="modal-right">
+            <button class="modal-close" id="remindCancel" aria-label="Close modal">&times;</button>
+            
+            <p class="modal-lead">Join Club Miere for reminders and first dibs on:</p>
+            <ul class="modal-list">
+                <li>Exclusive drops</li>
+                <li>Wellness tips</li>
+                <li>Monthly surprises</li>
+            </ul>
+            <p class="modal-sub-lead">to keep your energy steady and your mood light.</p>
+            
+            <div class="modal-form-group">
+                <input id="remindEmail" type="email" placeholder="Enter your email" />
+                <button id="remindSubmit" class="btn-modal-join">Join Now</button>
+            </div>
+
+            <div id="remindMsg"></div>
+
+            <div class="modal-perks">
+                <div class="modal-perk-item">
+                    <img src="css/imgs/ManukaCo_Gift_Dark.png" alt="Gift Icon">
+                    <span>Exclusive Birthday Treats</span>
+                </div>
+                <div class="modal-perk-item">
+                    <img src="css/imgs/ManukaCo_Clock_Dark.png" alt="Clock Icon">
+                    <span>Early Access Drops</span>
+                </div>
+                <div class="modal-perk-item">
+                    <img src="css/imgs/ManukaCo_Referral_Dark.png" alt="Referral Icon">
+                    <span>Referral & Reward</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
                     </div>
                 </section>
                 
