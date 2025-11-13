@@ -10,7 +10,7 @@
 .shop-header h1 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    font-size: 2em;
+    font-size: 36px;
     text-align: center;
     margin-bottom: 8px;
 }
@@ -18,7 +18,7 @@
 .shop-header h2 {
     font-weight: 600;
     font-size: 1.5em;
-    color: #5a4646;
+    color: #471C1C;
     text-align: center;
 }
 
@@ -76,19 +76,20 @@
     margin-bottom: 15px;
 }
 
-.buy-button {
+.detail-button {
     padding: 10px;
-    background-color: #381B1B;
-    color: #FEFBF6;
-    border: none;
-    border-radius: 4px;
+    background-color: #FDD803;
+    color: #471C1C;
+    border: 3px, solid #471C1C;
+    border-radius: 999px;
     cursor: pointer;
     font-size: 1em;
     transition: background-color 0.3s;
 }
 
-.buy-button:hover {
-    background-color: #F47B20;
+.detail-button:hover {
+    background-color: #C13E01;
+    color: #FEFBF6;
 }
 
 /* Responsive styles */
@@ -104,7 +105,7 @@
 }
 
 /* CERTIFICATIONS BANNER */
-.logos-banner {
+.certs-logos-banner {
     background-color: #FFCC01;
     padding: 40px 20px;
     display: flex;
@@ -114,7 +115,7 @@
     gap: 30px;
 }
 
-.logo {
+.certs-logo {
     max-height: 120px;
     width: auto;
     filter: grayscale(100%);
@@ -122,110 +123,135 @@
     transition: filter 0.3s, opacity 0.3s;
 }
 
-.logo:hover {
+.certs-logo:hover {
     filter: grayscale(0%);
     opacity: 1;
 }
 
 /* REVIEWS SECTION */
-.reviews-section {
+  .reviews-section {
     max-width: 800px;
     margin: 0 auto;
-    background: #FEFBF6;
+    background: #fff;
     padding: 20px;
     border-radius: 8px;
-}
+  }
 
-.reviews-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
+  /* Header with title and sorting */
+  .reviews-header {
+    text-align: center;
+    margin-bottom: 15px;
+  }
 
-.reviews-title {
+  .reviews-title {
     font-size: 1.5em;
     font-weight: bold;
-}
+    margin-bottom: 8px;
+  }
 
-.average-rating {
+  .average-rating {
     font-size: 1em;
-    color: #381B1B;
-}
+    color: #555;
+  }
 
-/* Review Item */
-.review {
+  /* Add container for stars above the "4.7 out of 5" */
+  .overall-stars {
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Sorting dropdown container aligned right */
+  .sort-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 15px;
+  }
+
+  /* Review Item */
+  .review {
     display: flex;
     margin-bottom: 20px;
-    display: flex;
-    flex-direction: row;
-}
+  }
 
-.avatar {
+  .avatar {
     width: 60px;
     height: 60px;
     border-radius: 50%;
     object-fit: cover;
     margin-right: 15px;
-}
+  }
 
-.review-content {
+  .review-content {
     flex: 1;
-}
+  }
 
-.review-header {
+  /* Star rating on top of reviews */
+  .stars {
+    margin-bottom: 8px;
+  }
+
+  /* Review header: name, date, review title */
+  .review-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-}
+    align-items: flex-start;
+    margin-bottom: 4px;
+  }
 
-.name {
+  .name {
     font-weight: bold;
-}
+  }
 
-.title {
+  .review-date {
+    font-size: 0.8em;
+    color: #999;
+  }
+
+  .review-title {
     font-style: italic;
-    color: #381B1B;
-}
+    color: #777;
+    margin-bottom: 8px;
+  }
 
-.stars {
-    color: #FDD803;
-    /* Gold color for stars */
-}
-
-.review-text {
+  .review-text {
     margin-top: 8px;
-}
+  }
 
-.review-date {
-    font-size: 0.9em;
-    color: #381B1B;
-    margin-top: 4px;
-}
-
-/* Star icons */
-.star {
+  /* Star icons */
+  .star {
     font-size: 1em;
-    color: #FDD803;
-}
+    color: #f5b50a;
+  }
 
-/* Hide reviews initially */
-.hidden {
-    display: none;
-}
-
-/* Buttons */
-button {
+  /* Buttons */
+  button {
     padding: 8px 16px;
     font-size: 1em;
     border: none;
-    background-color: #FDD803;
-    color: #381B1B;
+    background-color: #007bff;
+    color: white;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s;
-}
+  }
 
-button:hover {
-    background-color: #F47B20;
-}
+  button:hover {
+    background-color: #C13E01;
+  }
+
+  /* View More container*/
+  .view-more-container {
+    display: flex;
+    justify-content: center;
+    /* Center horizontally */
+    margin-top: 15px;
+    flex-direction: column;
+    /* Optional: stack button and text vertically */
+    align-items: center;
+    /* Ensure items are centered */
+  }
+
+  /* Hidden reviews */
+  .hidden {
+    display: none;
+  }
